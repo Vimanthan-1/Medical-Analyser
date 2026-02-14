@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Explainability Panel</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #eaf3ff, #f6f9ff);
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+      animation: fadeUp 0.5s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    .info-box {
+      background: #f4f7ff;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .info-box p {
+      margin: 5px 0;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #6c5ce7;
+    }
+
+    button {
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      background: #6c5ce7;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(108,92,231,0.4);
+    }
+
+    .loading {
+      margin-top: 15px;
+      color: #555;
+    }
+
+    .explanation-box {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 12px;
+      background: #eef2ff;
+      border-left: 5px solid #6c5ce7;
+      animation: fadeUp 0.4s ease;
+    }
+
+    .explanation-box p {
+      margin: 8px 0;
+    }
+
+    .error {
+      color: red;
+      margin-top: 15px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card">
+    <h2>🧠 AI Explainability</h2>
+
+    <div class="info-box">
+      <p><strong>Age:</strong> 40</p>
+      <p><strong>Gender:</strong> Male</p>
+      <p><strong>Symptoms:</strong> Chest pain, Shortness of breath</p>
+      <p><strong>Heart Rate:</strong> 115 bpm</p>
+      <p><strong>Temperature:</strong> 38.2 °C</p>
+      <p><strong>Pre-existing Conditions:</strong> Hypertension</p>
+    </div>
+
+    <div class="info-box">
+      <p><strong>Predicted Risk:</strong> <span class="highlight">High</span></p>
+      <p><strong>Recommended Department:</strong> <span class="highlight">Cardiology</span></p>
+    </div>
+
+    <button onclick="generateExplanation()">Explain</button>
+
+    <div id="loading" class="loading" style="display:none;">
+      Generating explanation...
+    </div>
+
+    <div id="explanationBox"></div>
+
+    <div id="errorBox" class="error"></div>
+
+  </div>
+
+</div>
+
+<script>
+async function generateExplanation() {
+
+  const loading = document.getElementById("loading");
+  const explanationBox = document.getElementById("explanationBox");
+  const errorBox = document.getElementById("errorBox");
+
+  explanationBox.innerHTML = "";
+  errorBox.innerHTML = "";
+  loading.style.display = "block";
+
+  const payload = {
+    age: 40,
+    gender: "Male",
+    symptoms: ["Chest pain", "Shortness of breath"],
+    vitals: { heart_rate: 115, temperature: 38.2 },
+    pre_existing_conditions: ["Hypertension"],
+    predicted_risk: "High",
+    recommended_department: "Cardiology"
+  };
+
+  try {
+    const response = await fetch("http://127.0.0.1:9000/explain", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+
+    loading.style.display = "none";
+
+    const container = document.createElement("div");
+    container.className = "explanation-box";
+
+    const lines = data.explanation.split("\n");
+
+    lines.forEach(line => {
+      const p = document.createElement("p");
+      p.textContent = line;
+      container.appendChild(p);
+    });
+
+    explanationBox.appendChild(container);
+
+  } catch (error) {
+    loading.style.display = "none";
+    errorBox.innerHTML = "Failed to generate explanation. Check backend.";
+  }
+}
+</script>
+
+</body>
+</html>
