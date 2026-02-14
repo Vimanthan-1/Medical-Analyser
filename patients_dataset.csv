@@ -1,0 +1,2001 @@
+Age,Gender,Systolic_BP,Diastolic_BP,Heart_Rate,Temperature,Symptoms,Risk_Level,Department
+23,Female,123,71,107,102.0,High Fever,Medium,General Medicine
+56,Female,122,82,110,104.8,Shivering,Medium,General Medicine
+29,Male,116,76,83,98.5,Joint Pain,Low,General Medicine
+29,Male,119,81,75,98.0,Dizziness,Low,General Medicine
+43,Male,164,110,118,98.9,Chest Pain,High,Cardiology
+60,Female,111,79,105,98.1,Difficulty Breathing,Medium,Pulmonology
+36,Male,116,80,112,98.3,Difficulty Breathing,Medium,Pulmonology
+24,Male,122,85,70,98.5,Dizziness,Low,General Medicine
+39,Female,129,80,60,98.2,Cough,Low,General Medicine
+90,Male,118,83,61,98.1,Dizziness,Low,General Medicine
+42,Female,122,80,83,98.2,Joint Pain,Low,General Medicine
+76,Male,121,70,66,98.4,Cough,Low,General Medicine
+79,Male,125,74,71,98.8,Dizziness,Low,General Medicine
+70,Female,211,71,79,98.7,Severe Headache,High,Neurology
+50,Female,117,83,84,98.3,Mild Headache,Low,General Medicine
+37,Male,171,100,121,98.7,Chest Pain,High,Cardiology
+33,Male,128,77,130,104.7,High Fever,Medium,General Medicine
+81,Female,110,72,69,98.5,Joint Pain,Low,General Medicine
+26,Female,121,84,62,98.8,Dizziness,Low,General Medicine
+41,Male,114,70,89,98.6,Joint Pain,Low,General Medicine
+42,Male,111,78,129,104.4,Shivering,Medium,General Medicine
+42,Female,195,105,122,98.4,Chest Pain,High,Cardiology
+73,Male,115,79,77,98.9,Mild Headache,Low,General Medicine
+66,Female,125,77,84,98.3,Joint Pain,Low,General Medicine
+68,Male,113,79,99,98.1,Difficulty Breathing,Medium,Pulmonology
+90,Male,172,113,121,98.7,Palpitations,High,Cardiology
+42,Male,114,82,86,98.0,Skin Rash,Low,General Medicine
+90,Female,113,75,95,98.9,Difficulty Breathing,Medium,Pulmonology
+22,Female,117,83,79,98.7,Joint Pain,Low,General Medicine
+54,Female,190,114,126,98.6,Chest Pain,High,Cardiology
+83,Female,112,79,64,98.4,Dizziness,Low,General Medicine
+65,Female,122,74,78,98.5,Mild Headache,Low,General Medicine
+62,Male,175,76,67,98.5,Severe Headache,High,Neurology
+23,Female,124,76,69,99.0,Skin Rash,Low,General Medicine
+54,Female,122,85,118,101.2,Body Pain,Medium,General Medicine
+39,Male,127,76,84,98.8,Cough,Low,General Medicine
+42,Male,171,110,147,98.7,Shortness of Breath,High,Cardiology
+84,Male,173,84,83,98.1,Slurred Speech,High,Neurology
+38,Male,126,84,79,98.1,Skin Rash,Low,General Medicine
+84,Female,121,80,64,98.3,Cough,Low,General Medicine
+55,Male,218,74,65,98.8,Slurred Speech,High,Neurology
+64,Male,171,72,90,98.8,Severe Headache,High,Neurology
+31,Male,186,105,124,98.9,Palpitations,High,Cardiology
+55,Female,126,71,72,98.2,Mild Headache,Low,General Medicine
+52,Male,125,78,86,98.9,Cough,Low,General Medicine
+47,Female,116,77,111,103.1,High Fever,Medium,General Medicine
+69,Male,114,72,83,98.2,Mild Headache,Low,General Medicine
+87,Female,115,76,66,98.2,Skin Rash,Low,General Medicine
+89,Male,110,78,121,104.3,Shivering,Medium,General Medicine
+80,Female,110,85,79,98.2,Cough,Low,General Medicine
+52,Male,116,71,67,98.8,Cough,Low,General Medicine
+88,Female,167,116,133,98.1,Palpitations,High,Cardiology
+74,Female,180,118,119,98.3,Shortness of Breath,High,Cardiology
+53,Male,126,72,86,98.6,Mild Headache,Low,General Medicine
+66,Male,202,71,66,98.9,Severe Headache,High,Neurology
+73,Male,125,85,120,103.5,Body Pain,Medium,General Medicine
+74,Male,127,80,113,98.6,Difficulty Breathing,Medium,Pulmonology
+89,Female,174,85,76,98.3,Slurred Speech,High,Neurology
+19,Male,114,76,83,98.8,Dizziness,Low,General Medicine
+73,Female,111,78,115,103.1,Body Pain,Medium,General Medicine
+86,Male,130,78,125,104.5,Shivering,Medium,General Medicine
+25,Female,115,84,89,98.6,Mild Headache,Low,General Medicine
+42,Male,188,120,128,98.0,Palpitations,High,Cardiology
+53,Male,130,73,61,98.0,Mild Headache,Low,General Medicine
+68,Male,201,74,75,98.1,Slurred Speech,High,Neurology
+71,Male,115,70,110,98.0,Difficulty Breathing,Medium,Pulmonology
+87,Female,175,110,158,98.0,Palpitations,High,Cardiology
+76,Male,196,80,74,98.9,Numbness,High,Neurology
+90,Male,214,80,65,98.6,Severe Headache,High,Neurology
+82,Female,113,75,70,98.1,Mild Headache,Low,General Medicine
+41,Female,116,72,65,98.9,Joint Pain,Low,General Medicine
+54,Female,213,79,88,98.3,Severe Headache,High,Neurology
+41,Male,127,71,86,98.9,Skin Rash,Low,General Medicine
+50,Male,125,72,62,98.2,Dizziness,Low,General Medicine
+42,Male,129,84,65,99.0,Skin Rash,Low,General Medicine
+62,Female,124,84,69,98.8,Skin Rash,Low,General Medicine
+74,Female,113,74,75,98.7,Mild Headache,Low,General Medicine
+50,Male,121,72,60,98.3,Joint Pain,Low,General Medicine
+44,Male,126,74,71,98.2,Dizziness,Low,General Medicine
+51,Female,120,70,76,98.9,Joint Pain,Low,General Medicine
+19,Female,119,82,84,99.0,Cough,Low,General Medicine
+77,Female,189,112,152,98.2,Chest Pain,High,Cardiology
+48,Male,113,79,75,99.0,Mild Headache,Low,General Medicine
+57,Female,209,72,81,98.2,Severe Headache,High,Neurology
+54,Male,113,79,112,102.6,High Fever,Medium,General Medicine
+86,Male,116,78,123,103.5,Body Pain,Medium,General Medicine
+41,Male,110,71,77,98.7,Mild Headache,Low,General Medicine
+83,Male,113,76,74,98.2,Dizziness,Low,General Medicine
+21,Female,118,83,66,99.0,Mild Headache,Low,General Medicine
+25,Male,124,79,77,98.4,Joint Pain,Low,General Medicine
+74,Female,110,84,68,98.5,Cough,Low,General Medicine
+46,Female,128,84,109,98.0,Difficulty Breathing,Medium,Pulmonology
+52,Female,119,73,64,98.6,Dizziness,Low,General Medicine
+28,Male,118,78,75,98.8,Skin Rash,Low,General Medicine
+50,Male,110,81,69,98.3,Mild Headache,Low,General Medicine
+85,Female,130,83,81,98.4,Mild Headache,Low,General Medicine
+30,Male,116,82,127,104.7,Body Pain,Medium,General Medicine
+74,Male,111,85,127,104.0,High Fever,Medium,General Medicine
+40,Female,120,84,130,103.3,High Fever,Medium,General Medicine
+23,Female,121,72,107,98.2,Difficulty Breathing,Medium,Pulmonology
+75,Female,116,76,121,103.8,Shivering,Medium,General Medicine
+82,Male,125,72,82,98.8,Joint Pain,Low,General Medicine
+77,Male,113,83,122,103.6,Body Pain,Medium,General Medicine
+40,Female,127,80,67,98.2,Mild Headache,Low,General Medicine
+43,Male,191,103,147,98.4,Shortness of Breath,High,Cardiology
+81,Female,200,118,133,98.2,Chest Pain,High,Cardiology
+65,Male,182,105,130,98.2,Palpitations,High,Cardiology
+41,Female,185,105,143,98.5,Shortness of Breath,High,Cardiology
+75,Male,126,81,63,98.8,Skin Rash,Low,General Medicine
+66,Female,129,82,88,98.9,Cough,Low,General Medicine
+66,Male,120,75,68,98.1,Skin Rash,Low,General Medicine
+89,Female,177,115,152,98.5,Chest Pain,High,Cardiology
+75,Female,125,77,75,98.1,Mild Headache,Low,General Medicine
+30,Female,175,105,138,98.1,Palpitations,High,Cardiology
+86,Male,127,83,70,98.7,Cough,Low,General Medicine
+84,Male,129,74,73,98.4,Cough,Low,General Medicine
+21,Female,130,76,74,98.3,Joint Pain,Low,General Medicine
+52,Female,209,84,66,98.3,Numbness,High,Neurology
+83,Female,187,80,62,98.8,Numbness,High,Neurology
+89,Female,125,76,88,98.2,Dizziness,Low,General Medicine
+68,Female,110,82,105,103.0,Shivering,Medium,General Medicine
+45,Female,171,101,130,98.7,Palpitations,High,Cardiology
+22,Male,122,75,98,98.8,Difficulty Breathing,Medium,Pulmonology
+38,Male,127,70,60,98.3,Skin Rash,Low,General Medicine
+82,Female,119,76,60,99.0,Mild Headache,Low,General Medicine
+28,Female,124,79,73,98.5,Skin Rash,Low,General Medicine
+40,Female,173,114,160,98.8,Palpitations,High,Cardiology
+46,Female,115,75,63,98.6,Mild Headache,Low,General Medicine
+18,Male,117,79,90,98.3,Cough,Low,General Medicine
+32,Female,130,84,62,98.1,Dizziness,Low,General Medicine
+62,Female,120,77,130,102.5,Shivering,Medium,General Medicine
+68,Female,111,75,80,98.4,Mild Headache,Low,General Medicine
+89,Female,126,84,100,102.4,Shivering,Medium,General Medicine
+70,Female,110,74,113,103.6,High Fever,Medium,General Medicine
+29,Male,114,71,67,98.2,Joint Pain,Low,General Medicine
+36,Male,116,74,85,98.4,Dizziness,Low,General Medicine
+64,Male,116,81,75,98.5,Joint Pain,Low,General Medicine
+63,Female,191,110,137,98.3,Palpitations,High,Cardiology
+78,Female,130,81,75,98.4,Mild Headache,Low,General Medicine
+50,Female,130,77,77,99.0,Cough,Low,General Medicine
+88,Female,126,73,71,98.4,Mild Headache,Low,General Medicine
+76,Male,117,82,65,98.8,Skin Rash,Low,General Medicine
+62,Female,129,85,64,98.8,Joint Pain,Low,General Medicine
+45,Male,116,75,65,98.7,Mild Headache,Low,General Medicine
+48,Female,115,81,109,102.5,Body Pain,Medium,General Medicine
+57,Male,113,77,66,98.1,Cough,Low,General Medicine
+36,Male,110,72,117,102.3,Body Pain,Medium,General Medicine
+63,Female,123,79,88,98.6,Joint Pain,Low,General Medicine
+47,Male,129,75,125,104.6,Shivering,Medium,General Medicine
+76,Male,113,80,114,102.2,Shivering,Medium,General Medicine
+45,Female,164,100,151,98.9,Shortness of Breath,High,Cardiology
+60,Female,119,82,87,98.7,Joint Pain,Low,General Medicine
+67,Female,182,110,137,98.2,Chest Pain,High,Cardiology
+33,Male,123,79,126,104.2,Body Pain,Medium,General Medicine
+21,Male,124,82,67,98.5,Mild Headache,Low,General Medicine
+48,Male,193,115,121,98.6,Palpitations,High,Cardiology
+81,Male,119,72,130,102.6,Shivering,Medium,General Medicine
+61,Female,129,83,62,98.9,Cough,Low,General Medicine
+25,Female,118,85,60,98.4,Joint Pain,Low,General Medicine
+66,Male,129,84,101,98.5,Difficulty Breathing,Medium,Pulmonology
+51,Male,125,76,111,98.3,Difficulty Breathing,Medium,Pulmonology
+83,Female,112,79,100,98.2,Difficulty Breathing,Medium,Pulmonology
+45,Female,126,85,121,104.8,Body Pain,Medium,General Medicine
+45,Male,171,118,147,98.9,Shortness of Breath,High,Cardiology
+75,Female,110,82,88,98.6,Mild Headache,Low,General Medicine
+34,Male,185,103,125,98.2,Chest Pain,High,Cardiology
+71,Male,174,107,118,98.6,Chest Pain,High,Cardiology
+59,Female,115,72,102,101.9,Shivering,Medium,General Medicine
+41,Female,113,73,63,98.1,Mild Headache,Low,General Medicine
+39,Male,117,78,103,98.7,Difficulty Breathing,Medium,Pulmonology
+37,Male,126,82,112,104.9,Shivering,Medium,General Medicine
+62,Male,119,85,64,98.8,Joint Pain,Low,General Medicine
+57,Female,211,84,66,98.7,Severe Headache,High,Neurology
+70,Male,113,71,111,102.2,Shivering,Medium,General Medicine
+50,Female,122,79,78,98.6,Cough,Low,General Medicine
+40,Female,120,80,77,98.4,Mild Headache,Low,General Medicine
+50,Male,188,106,149,98.2,Palpitations,High,Cardiology
+46,Female,128,82,68,98.7,Mild Headache,Low,General Medicine
+58,Male,128,84,127,102.2,High Fever,Medium,General Medicine
+18,Male,129,73,61,98.2,Skin Rash,Low,General Medicine
+55,Female,123,75,95,98.1,Difficulty Breathing,Medium,Pulmonology
+22,Male,110,73,70,98.4,Dizziness,Low,General Medicine
+40,Male,128,84,109,101.7,Body Pain,Medium,General Medicine
+20,Male,195,109,148,98.5,Shortness of Breath,High,Cardiology
+74,Female,117,78,62,98.3,Cough,Low,General Medicine
+18,Male,125,82,78,98.0,Joint Pain,Low,General Medicine
+62,Female,122,73,106,98.0,Difficulty Breathing,Medium,Pulmonology
+61,Male,126,81,83,98.8,Dizziness,Low,General Medicine
+59,Male,171,111,146,98.9,Shortness of Breath,High,Cardiology
+56,Female,117,81,119,102.2,Body Pain,Medium,General Medicine
+80,Male,130,85,84,98.6,Dizziness,Low,General Medicine
+50,Female,193,113,111,98.4,Shortness of Breath,High,Cardiology
+79,Male,117,74,68,98.4,Skin Rash,Low,General Medicine
+41,Female,123,70,76,99.0,Dizziness,Low,General Medicine
+88,Male,112,82,67,98.0,Skin Rash,Low,General Medicine
+30,Male,127,82,89,98.7,Cough,Low,General Medicine
+76,Female,128,79,79,98.7,Skin Rash,Low,General Medicine
+47,Female,117,80,70,98.6,Cough,Low,General Medicine
+88,Male,111,73,70,98.5,Dizziness,Low,General Medicine
+31,Male,127,83,76,98.7,Cough,Low,General Medicine
+80,Male,129,77,113,101.9,Shivering,Medium,General Medicine
+39,Female,111,75,117,103.4,Shivering,Medium,General Medicine
+39,Female,126,73,68,98.2,Mild Headache,Low,General Medicine
+36,Female,117,78,73,98.7,Skin Rash,Low,General Medicine
+52,Female,177,73,76,98.8,Slurred Speech,High,Neurology
+71,Male,160,100,157,98.7,Chest Pain,High,Cardiology
+78,Female,115,73,77,98.3,Cough,Low,General Medicine
+45,Female,114,83,68,98.7,Dizziness,Low,General Medicine
+61,Female,114,72,77,98.4,Dizziness,Low,General Medicine
+69,Female,193,109,130,99.0,Palpitations,High,Cardiology
+56,Male,118,84,86,98.8,Skin Rash,Low,General Medicine
+83,Male,125,73,65,98.4,Mild Headache,Low,General Medicine
+18,Male,125,77,90,98.4,Dizziness,Low,General Medicine
+54,Male,113,70,73,98.5,Joint Pain,Low,General Medicine
+51,Female,126,70,100,98.4,Difficulty Breathing,Medium,Pulmonology
+52,Male,191,108,131,98.0,Palpitations,High,Cardiology
+33,Male,128,76,101,98.6,Difficulty Breathing,Medium,Pulmonology
+57,Female,115,71,104,104.5,High Fever,Medium,General Medicine
+76,Male,129,75,63,98.7,Mild Headache,Low,General Medicine
+86,Male,124,82,105,102.6,Body Pain,Medium,General Medicine
+19,Female,115,76,114,101.4,Body Pain,Medium,General Medicine
+61,Female,117,78,75,98.4,Mild Headache,Low,General Medicine
+60,Female,118,73,129,104.5,High Fever,Medium,General Medicine
+47,Male,186,109,153,98.7,Shortness of Breath,High,Cardiology
+25,Female,119,70,114,98.5,Difficulty Breathing,Medium,Pulmonology
+59,Male,129,80,84,98.6,Dizziness,Low,General Medicine
+88,Male,175,74,60,98.7,Slurred Speech,High,Neurology
+66,Female,120,72,84,98.8,Joint Pain,Low,General Medicine
+27,Male,115,78,104,103.0,High Fever,Medium,General Medicine
+38,Female,119,85,80,98.6,Joint Pain,Low,General Medicine
+53,Male,119,75,75,98.1,Cough,Low,General Medicine
+68,Male,112,82,102,98.8,Difficulty Breathing,Medium,Pulmonology
+65,Male,113,81,61,98.9,Cough,Low,General Medicine
+63,Male,114,84,107,98.9,Difficulty Breathing,Medium,Pulmonology
+67,Male,113,84,86,98.9,Skin Rash,Low,General Medicine
+79,Male,123,72,85,98.1,Dizziness,Low,General Medicine
+20,Female,116,83,105,98.7,Difficulty Breathing,Medium,Pulmonology
+87,Female,123,70,88,98.2,Joint Pain,Low,General Medicine
+29,Male,117,76,104,98.1,Difficulty Breathing,Medium,Pulmonology
+82,Male,122,79,122,104.9,Body Pain,Medium,General Medicine
+32,Female,124,77,108,98.5,Difficulty Breathing,Medium,Pulmonology
+67,Female,114,84,111,98.2,Difficulty Breathing,Medium,Pulmonology
+84,Male,130,83,65,98.1,Mild Headache,Low,General Medicine
+57,Female,121,77,104,98.1,Difficulty Breathing,Medium,Pulmonology
+86,Male,110,85,65,98.9,Skin Rash,Low,General Medicine
+55,Female,117,85,117,102.6,Shivering,Medium,General Medicine
+26,Female,119,72,76,98.5,Joint Pain,Low,General Medicine
+57,Female,129,79,80,98.4,Skin Rash,Low,General Medicine
+59,Male,197,81,88,98.5,Slurred Speech,High,Neurology
+40,Male,117,71,80,98.4,Joint Pain,Low,General Medicine
+64,Male,215,74,67,98.5,Slurred Speech,High,Neurology
+88,Male,120,80,105,103.5,High Fever,Medium,General Medicine
+73,Male,130,75,89,98.1,Skin Rash,Low,General Medicine
+67,Female,128,73,71,98.5,Skin Rash,Low,General Medicine
+61,Female,130,70,87,98.3,Cough,Low,General Medicine
+67,Male,114,73,64,98.1,Mild Headache,Low,General Medicine
+59,Female,197,73,63,98.2,Numbness,High,Neurology
+44,Male,122,70,102,98.4,Difficulty Breathing,Medium,Pulmonology
+83,Female,117,77,82,98.1,Mild Headache,Low,General Medicine
+29,Male,160,116,115,98.8,Chest Pain,High,Cardiology
+75,Female,127,83,100,102.3,Shivering,Medium,General Medicine
+77,Male,122,84,121,102.5,Body Pain,Medium,General Medicine
+71,Female,128,70,87,98.5,Joint Pain,Low,General Medicine
+39,Male,126,74,69,99.0,Dizziness,Low,General Medicine
+86,Male,119,72,67,98.1,Dizziness,Low,General Medicine
+20,Male,115,76,73,98.8,Cough,Low,General Medicine
+29,Female,160,112,119,98.2,Chest Pain,High,Cardiology
+22,Female,126,84,101,101.5,Body Pain,Medium,General Medicine
+23,Female,116,82,73,98.1,Cough,Low,General Medicine
+58,Female,177,79,88,98.0,Numbness,High,Neurology
+87,Female,112,72,113,98.3,Difficulty Breathing,Medium,Pulmonology
+58,Female,191,78,87,98.5,Severe Headache,High,Neurology
+22,Male,179,110,121,98.4,Chest Pain,High,Cardiology
+66,Male,114,82,63,98.6,Dizziness,Low,General Medicine
+53,Female,130,71,128,102.8,Body Pain,Medium,General Medicine
+43,Male,198,114,112,98.9,Palpitations,High,Cardiology
+87,Male,125,82,67,98.0,Cough,Low,General Medicine
+56,Female,118,76,88,98.8,Skin Rash,Low,General Medicine
+57,Male,119,77,105,103.8,High Fever,Medium,General Medicine
+23,Female,122,71,104,104.5,Shivering,Medium,General Medicine
+18,Female,115,81,109,98.9,Difficulty Breathing,Medium,Pulmonology
+26,Male,118,85,64,98.1,Skin Rash,Low,General Medicine
+50,Female,181,111,143,98.1,Chest Pain,High,Cardiology
+86,Female,118,70,105,102.4,High Fever,Medium,General Medicine
+61,Male,167,118,150,99.0,Palpitations,High,Cardiology
+57,Female,129,83,90,98.7,Dizziness,Low,General Medicine
+62,Male,118,84,89,98.6,Joint Pain,Low,General Medicine
+85,Female,122,71,122,104.7,Shivering,Medium,General Medicine
+18,Female,121,74,106,104.0,Shivering,Medium,General Medicine
+61,Male,161,119,149,98.3,Chest Pain,High,Cardiology
+37,Female,124,75,112,98.3,Difficulty Breathing,Medium,Pulmonology
+61,Male,121,70,82,98.6,Joint Pain,Low,General Medicine
+38,Male,124,78,105,104.4,Shivering,Medium,General Medicine
+55,Female,115,70,109,98.9,Difficulty Breathing,Medium,Pulmonology
+72,Male,115,83,75,98.1,Cough,Low,General Medicine
+90,Male,183,79,90,98.0,Numbness,High,Neurology
+54,Male,126,71,90,98.4,Mild Headache,Low,General Medicine
+19,Male,114,82,70,98.9,Joint Pain,Low,General Medicine
+46,Male,176,102,147,98.5,Chest Pain,High,Cardiology
+34,Female,123,74,61,98.4,Joint Pain,Low,General Medicine
+80,Female,114,81,85,98.0,Joint Pain,Low,General Medicine
+77,Male,168,117,119,98.0,Chest Pain,High,Cardiology
+66,Female,120,75,127,103.5,High Fever,Medium,General Medicine
+67,Female,118,79,60,98.6,Skin Rash,Low,General Medicine
+36,Male,125,71,73,98.6,Joint Pain,Low,General Medicine
+77,Female,196,101,126,98.2,Chest Pain,High,Cardiology
+83,Female,194,102,152,98.7,Palpitations,High,Cardiology
+74,Female,123,84,104,101.9,High Fever,Medium,General Medicine
+88,Female,195,79,88,98.9,Severe Headache,High,Neurology
+50,Male,123,76,87,98.6,Skin Rash,Low,General Medicine
+61,Female,117,70,78,98.7,Dizziness,Low,General Medicine
+79,Female,169,118,145,98.1,Chest Pain,High,Cardiology
+69,Female,115,74,88,98.5,Dizziness,Low,General Medicine
+25,Male,184,108,129,98.1,Chest Pain,High,Cardiology
+64,Female,125,80,127,101.7,Shivering,Medium,General Medicine
+48,Female,128,81,99,98.2,Difficulty Breathing,Medium,Pulmonology
+50,Female,130,77,74,98.9,Joint Pain,Low,General Medicine
+56,Female,119,80,80,99.0,Skin Rash,Low,General Medicine
+63,Female,193,108,148,98.8,Palpitations,High,Cardiology
+20,Male,161,107,140,98.9,Shortness of Breath,High,Cardiology
+60,Male,126,84,78,98.4,Skin Rash,Low,General Medicine
+39,Male,115,70,101,104.0,Shivering,Medium,General Medicine
+52,Male,180,103,133,98.5,Chest Pain,High,Cardiology
+67,Male,126,70,65,98.9,Cough,Low,General Medicine
+25,Male,117,76,63,99.0,Skin Rash,Low,General Medicine
+84,Female,122,74,66,98.3,Joint Pain,Low,General Medicine
+54,Female,119,79,71,98.0,Mild Headache,Low,General Medicine
+68,Male,118,77,84,98.1,Joint Pain,Low,General Medicine
+32,Female,167,102,137,98.8,Shortness of Breath,High,Cardiology
+44,Male,113,76,102,101.9,Body Pain,Medium,General Medicine
+51,Female,125,84,106,98.4,Difficulty Breathing,Medium,Pulmonology
+20,Male,186,113,141,98.7,Chest Pain,High,Cardiology
+44,Female,112,85,72,98.6,Dizziness,Low,General Medicine
+42,Male,194,116,110,98.5,Shortness of Breath,High,Cardiology
+66,Female,121,70,101,98.1,Difficulty Breathing,Medium,Pulmonology
+31,Female,119,74,80,98.6,Cough,Low,General Medicine
+77,Male,114,84,89,98.5,Joint Pain,Low,General Medicine
+80,Female,122,83,72,98.9,Skin Rash,Low,General Medicine
+72,Female,130,82,87,98.2,Skin Rash,Low,General Medicine
+66,Male,220,79,82,98.0,Numbness,High,Neurology
+41,Male,127,76,60,98.4,Joint Pain,Low,General Medicine
+73,Male,127,81,81,98.2,Skin Rash,Low,General Medicine
+36,Male,129,79,61,98.4,Cough,Low,General Medicine
+59,Female,122,85,95,98.2,Difficulty Breathing,Medium,Pulmonology
+53,Male,127,71,120,104.7,Shivering,Medium,General Medicine
+51,Female,122,79,77,98.9,Skin Rash,Low,General Medicine
+62,Female,115,74,70,98.1,Skin Rash,Low,General Medicine
+74,Female,124,77,82,98.2,Skin Rash,Low,General Medicine
+33,Female,119,72,88,98.2,Skin Rash,Low,General Medicine
+39,Female,117,79,66,98.7,Dizziness,Low,General Medicine
+31,Male,120,79,67,98.3,Mild Headache,Low,General Medicine
+39,Male,129,77,130,102.0,High Fever,Medium,General Medicine
+69,Male,118,78,82,98.1,Mild Headache,Low,General Medicine
+74,Female,129,85,118,104.1,Shivering,Medium,General Medicine
+19,Male,118,84,71,98.0,Cough,Low,General Medicine
+70,Female,186,100,135,98.9,Palpitations,High,Cardiology
+41,Female,129,70,76,98.2,Joint Pain,Low,General Medicine
+65,Female,188,115,138,98.2,Palpitations,High,Cardiology
+82,Male,129,74,127,104.4,High Fever,Medium,General Medicine
+42,Male,177,108,122,98.9,Chest Pain,High,Cardiology
+84,Male,128,75,96,98.4,Difficulty Breathing,Medium,Pulmonology
+66,Male,114,84,105,98.6,Difficulty Breathing,Medium,Pulmonology
+56,Female,125,76,72,98.4,Cough,Low,General Medicine
+33,Female,117,77,98,99.0,Difficulty Breathing,Medium,Pulmonology
+18,Male,124,78,111,102.8,Body Pain,Medium,General Medicine
+73,Female,112,74,72,98.6,Joint Pain,Low,General Medicine
+34,Female,117,82,113,101.3,High Fever,Medium,General Medicine
+25,Male,124,78,61,98.3,Dizziness,Low,General Medicine
+21,Female,128,83,99,98.3,Difficulty Breathing,Medium,Pulmonology
+63,Female,123,71,80,98.1,Dizziness,Low,General Medicine
+81,Male,130,71,108,98.1,Difficulty Breathing,Medium,Pulmonology
+59,Male,113,84,118,104.5,High Fever,Medium,General Medicine
+26,Female,110,80,66,98.1,Cough,Low,General Medicine
+90,Female,114,73,130,103.7,Body Pain,Medium,General Medicine
+84,Male,118,78,106,103.8,High Fever,Medium,General Medicine
+46,Female,113,72,62,98.6,Dizziness,Low,General Medicine
+33,Male,121,82,71,98.6,Cough,Low,General Medicine
+28,Female,126,79,118,102.1,Shivering,Medium,General Medicine
+80,Female,121,85,84,98.1,Dizziness,Low,General Medicine
+66,Male,113,78,61,98.9,Joint Pain,Low,General Medicine
+21,Male,121,85,87,98.6,Mild Headache,Low,General Medicine
+27,Male,113,82,72,98.4,Cough,Low,General Medicine
+89,Female,124,76,79,98.5,Dizziness,Low,General Medicine
+73,Female,117,83,88,98.2,Joint Pain,Low,General Medicine
+82,Female,110,75,123,101.0,Shivering,Medium,General Medicine
+74,Female,122,71,63,98.7,Cough,Low,General Medicine
+52,Male,205,72,65,98.7,Severe Headache,High,Neurology
+31,Male,123,84,125,104.1,Body Pain,Medium,General Medicine
+39,Male,117,76,70,98.7,Cough,Low,General Medicine
+34,Female,179,114,126,98.1,Shortness of Breath,High,Cardiology
+66,Female,163,103,142,98.9,Palpitations,High,Cardiology
+32,Female,181,106,149,98.4,Chest Pain,High,Cardiology
+68,Female,111,84,77,98.4,Skin Rash,Low,General Medicine
+85,Male,121,81,65,98.7,Dizziness,Low,General Medicine
+20,Female,128,71,67,98.5,Joint Pain,Low,General Medicine
+55,Female,119,85,75,98.8,Skin Rash,Low,General Medicine
+77,Male,199,116,137,98.5,Palpitations,High,Cardiology
+65,Female,126,84,100,101.3,Body Pain,Medium,General Medicine
+22,Female,115,78,102,98.5,Difficulty Breathing,Medium,Pulmonology
+55,Male,126,74,67,98.9,Cough,Low,General Medicine
+37,Female,111,73,74,98.5,Mild Headache,Low,General Medicine
+21,Male,168,106,140,98.6,Chest Pain,High,Cardiology
+52,Male,125,82,72,98.3,Joint Pain,Low,General Medicine
+35,Male,119,80,71,98.6,Skin Rash,Low,General Medicine
+76,Male,125,76,66,98.6,Joint Pain,Low,General Medicine
+81,Female,113,82,85,98.7,Skin Rash,Low,General Medicine
+53,Male,129,70,78,98.3,Cough,Low,General Medicine
+75,Female,121,78,69,98.3,Dizziness,Low,General Medicine
+40,Female,118,73,67,98.4,Dizziness,Low,General Medicine
+89,Male,210,80,86,98.8,Numbness,High,Neurology
+51,Male,111,82,78,98.2,Skin Rash,Low,General Medicine
+39,Male,110,82,80,98.6,Cough,Low,General Medicine
+53,Female,182,100,140,98.7,Palpitations,High,Cardiology
+44,Male,120,79,113,101.7,High Fever,Medium,General Medicine
+50,Female,113,70,88,98.9,Mild Headache,Low,General Medicine
+33,Female,162,106,142,98.7,Chest Pain,High,Cardiology
+62,Female,194,83,73,98.3,Slurred Speech,High,Neurology
+42,Female,124,79,122,103.4,Body Pain,Medium,General Medicine
+55,Male,123,72,81,98.6,Dizziness,Low,General Medicine
+72,Female,127,76,106,103.1,Body Pain,Medium,General Medicine
+81,Male,202,84,61,98.8,Slurred Speech,High,Neurology
+27,Female,181,110,158,98.5,Shortness of Breath,High,Cardiology
+21,Female,119,84,78,98.3,Cough,Low,General Medicine
+62,Female,111,84,105,98.6,Difficulty Breathing,Medium,Pulmonology
+81,Female,181,72,72,98.6,Severe Headache,High,Neurology
+55,Female,126,83,61,98.9,Mild Headache,Low,General Medicine
+64,Male,126,80,85,98.6,Joint Pain,Low,General Medicine
+48,Male,113,75,72,98.5,Skin Rash,Low,General Medicine
+53,Female,128,72,85,98.9,Mild Headache,Low,General Medicine
+81,Male,173,78,64,98.1,Numbness,High,Neurology
+71,Female,113,77,112,99.0,Difficulty Breathing,Medium,Pulmonology
+40,Male,125,70,69,98.3,Mild Headache,Low,General Medicine
+85,Female,123,72,73,98.8,Dizziness,Low,General Medicine
+81,Male,187,103,154,98.9,Shortness of Breath,High,Cardiology
+72,Male,177,82,83,98.4,Severe Headache,High,Neurology
+44,Male,118,83,90,98.9,Mild Headache,Low,General Medicine
+38,Female,127,82,85,98.2,Joint Pain,Low,General Medicine
+54,Male,166,102,122,98.8,Palpitations,High,Cardiology
+47,Male,129,73,68,99.0,Joint Pain,Low,General Medicine
+78,Male,128,71,113,105.0,Body Pain,Medium,General Medicine
+74,Male,125,72,65,98.6,Joint Pain,Low,General Medicine
+31,Female,129,79,111,101.4,High Fever,Medium,General Medicine
+89,Female,123,81,90,98.9,Dizziness,Low,General Medicine
+38,Male,176,108,136,98.9,Palpitations,High,Cardiology
+89,Female,169,120,114,98.1,Palpitations,High,Cardiology
+49,Male,179,106,159,98.3,Shortness of Breath,High,Cardiology
+35,Male,117,71,120,103.4,Shivering,Medium,General Medicine
+63,Female,195,100,133,98.6,Chest Pain,High,Cardiology
+86,Male,124,85,61,98.9,Mild Headache,Low,General Medicine
+25,Male,111,80,101,104.1,Shivering,Medium,General Medicine
+74,Male,128,75,99,98.3,Difficulty Breathing,Medium,Pulmonology
+68,Female,184,113,135,98.3,Chest Pain,High,Cardiology
+66,Female,116,71,79,98.2,Cough,Low,General Medicine
+25,Male,122,73,90,98.9,Skin Rash,Low,General Medicine
+60,Female,113,85,66,98.8,Skin Rash,Low,General Medicine
+51,Female,199,81,79,99.0,Slurred Speech,High,Neurology
+20,Male,111,72,119,101.1,High Fever,Medium,General Medicine
+76,Male,112,83,77,98.3,Mild Headache,Low,General Medicine
+63,Female,118,72,87,98.6,Joint Pain,Low,General Medicine
+51,Female,125,82,78,98.4,Dizziness,Low,General Medicine
+23,Male,128,75,73,98.7,Skin Rash,Low,General Medicine
+40,Female,129,75,81,98.5,Joint Pain,Low,General Medicine
+21,Male,123,70,73,98.4,Mild Headache,Low,General Medicine
+29,Female,187,105,143,98.3,Chest Pain,High,Cardiology
+85,Male,163,119,156,98.3,Chest Pain,High,Cardiology
+62,Male,195,104,149,98.9,Shortness of Breath,High,Cardiology
+67,Male,196,85,60,98.3,Slurred Speech,High,Neurology
+51,Male,125,76,128,102.6,Shivering,Medium,General Medicine
+75,Male,123,70,73,98.6,Cough,Low,General Medicine
+77,Male,110,82,64,99.0,Skin Rash,Low,General Medicine
+26,Female,114,71,113,102.7,Shivering,Medium,General Medicine
+89,Male,122,77,69,98.3,Cough,Low,General Medicine
+82,Male,120,81,116,103.2,High Fever,Medium,General Medicine
+54,Male,124,85,115,102.7,Shivering,Medium,General Medicine
+84,Female,110,79,87,98.9,Cough,Low,General Medicine
+49,Female,117,84,85,98.8,Dizziness,Low,General Medicine
+76,Male,195,78,85,98.7,Severe Headache,High,Neurology
+88,Male,181,107,119,98.8,Palpitations,High,Cardiology
+19,Male,122,77,115,102.3,Body Pain,Medium,General Medicine
+29,Female,180,112,128,98.4,Palpitations,High,Cardiology
+63,Female,127,83,67,98.4,Joint Pain,Low,General Medicine
+26,Female,119,81,79,99.0,Joint Pain,Low,General Medicine
+46,Male,118,73,109,103.6,Body Pain,Medium,General Medicine
+53,Male,119,73,129,103.9,Shivering,Medium,General Medicine
+41,Male,116,75,86,98.1,Dizziness,Low,General Medicine
+26,Female,119,81,83,98.9,Skin Rash,Low,General Medicine
+81,Male,114,83,65,98.3,Dizziness,Low,General Medicine
+88,Female,114,84,79,98.6,Joint Pain,Low,General Medicine
+25,Female,123,76,89,98.2,Dizziness,Low,General Medicine
+52,Female,117,75,83,99.0,Skin Rash,Low,General Medicine
+41,Male,129,79,80,98.9,Dizziness,Low,General Medicine
+84,Male,120,71,68,98.6,Joint Pain,Low,General Medicine
+18,Male,117,72,67,98.8,Mild Headache,Low,General Medicine
+50,Male,130,82,64,98.4,Mild Headache,Low,General Medicine
+70,Female,193,101,122,99.0,Palpitations,High,Cardiology
+46,Male,126,73,81,98.7,Skin Rash,Low,General Medicine
+46,Female,129,78,97,98.9,Difficulty Breathing,Medium,Pulmonology
+49,Female,110,74,68,98.2,Skin Rash,Low,General Medicine
+56,Female,128,79,78,98.7,Dizziness,Low,General Medicine
+71,Male,118,75,69,98.9,Skin Rash,Low,General Medicine
+65,Female,125,83,90,98.0,Cough,Low,General Medicine
+21,Male,122,74,123,103.7,High Fever,Medium,General Medicine
+56,Male,126,73,85,98.4,Mild Headache,Low,General Medicine
+90,Male,121,71,65,98.1,Cough,Low,General Medicine
+83,Female,124,79,63,98.3,Cough,Low,General Medicine
+72,Female,125,71,80,98.8,Joint Pain,Low,General Medicine
+34,Male,116,78,118,103.2,Body Pain,Medium,General Medicine
+20,Male,121,74,73,98.7,Dizziness,Low,General Medicine
+71,Female,189,85,65,98.3,Severe Headache,High,Neurology
+59,Male,218,77,81,98.8,Severe Headache,High,Neurology
+48,Male,128,82,82,99.0,Skin Rash,Low,General Medicine
+32,Female,192,113,152,98.6,Shortness of Breath,High,Cardiology
+81,Male,124,77,120,104.8,Shivering,Medium,General Medicine
+73,Male,117,74,76,98.5,Dizziness,Low,General Medicine
+86,Female,123,76,71,98.5,Skin Rash,Low,General Medicine
+40,Male,117,81,76,98.2,Skin Rash,Low,General Medicine
+70,Male,193,106,124,98.3,Chest Pain,High,Cardiology
+21,Male,116,77,127,103.0,Body Pain,Medium,General Medicine
+90,Female,117,85,90,98.7,Cough,Low,General Medicine
+52,Female,127,80,61,99.0,Cough,Low,General Medicine
+58,Male,166,119,158,98.8,Shortness of Breath,High,Cardiology
+60,Female,119,74,60,98.8,Skin Rash,Low,General Medicine
+50,Female,209,80,81,98.3,Numbness,High,Neurology
+56,Female,124,77,88,98.6,Joint Pain,Low,General Medicine
+59,Female,125,73,83,98.6,Dizziness,Low,General Medicine
+72,Male,123,85,72,98.4,Skin Rash,Low,General Medicine
+67,Female,183,115,134,98.4,Palpitations,High,Cardiology
+34,Male,127,85,98,98.9,Difficulty Breathing,Medium,Pulmonology
+60,Male,116,83,72,98.2,Cough,Low,General Medicine
+47,Male,112,73,85,98.6,Dizziness,Low,General Medicine
+40,Male,192,109,124,98.9,Shortness of Breath,High,Cardiology
+60,Male,184,83,81,98.2,Slurred Speech,High,Neurology
+26,Female,118,71,114,98.7,Difficulty Breathing,Medium,Pulmonology
+61,Male,129,83,89,98.8,Joint Pain,Low,General Medicine
+68,Female,123,73,88,98.6,Skin Rash,Low,General Medicine
+28,Male,117,71,70,98.9,Joint Pain,Low,General Medicine
+68,Female,112,75,106,101.2,Shivering,Medium,General Medicine
+77,Male,125,79,115,98.6,Difficulty Breathing,Medium,Pulmonology
+85,Female,125,77,110,98.5,Difficulty Breathing,Medium,Pulmonology
+69,Male,127,85,103,104.3,High Fever,Medium,General Medicine
+64,Male,114,75,117,104.9,High Fever,Medium,General Medicine
+52,Female,187,83,62,98.3,Slurred Speech,High,Neurology
+56,Female,118,71,101,104.2,Shivering,Medium,General Medicine
+33,Female,169,112,128,98.5,Shortness of Breath,High,Cardiology
+89,Male,114,79,72,98.7,Dizziness,Low,General Medicine
+65,Female,177,119,129,98.8,Palpitations,High,Cardiology
+90,Male,198,73,89,98.5,Severe Headache,High,Neurology
+73,Female,122,76,87,98.3,Dizziness,Low,General Medicine
+24,Male,120,70,65,98.6,Mild Headache,Low,General Medicine
+85,Male,192,75,82,98.3,Slurred Speech,High,Neurology
+59,Male,130,72,112,102.7,High Fever,Medium,General Medicine
+85,Female,115,77,82,98.7,Cough,Low,General Medicine
+73,Male,175,110,144,98.1,Chest Pain,High,Cardiology
+87,Male,189,100,115,98.7,Palpitations,High,Cardiology
+24,Male,123,77,95,98.3,Difficulty Breathing,Medium,Pulmonology
+46,Female,122,75,65,98.2,Cough,Low,General Medicine
+85,Male,170,113,126,98.8,Shortness of Breath,High,Cardiology
+47,Male,118,82,67,98.2,Joint Pain,Low,General Medicine
+32,Male,119,80,68,98.0,Joint Pain,Low,General Medicine
+67,Female,112,81,121,103.9,Body Pain,Medium,General Medicine
+30,Male,177,106,136,99.0,Shortness of Breath,High,Cardiology
+23,Female,122,73,72,98.4,Joint Pain,Low,General Medicine
+62,Male,115,77,76,98.4,Mild Headache,Low,General Medicine
+58,Male,219,70,71,98.8,Numbness,High,Neurology
+61,Male,124,74,119,103.0,High Fever,Medium,General Medicine
+83,Female,111,72,114,98.2,Difficulty Breathing,Medium,Pulmonology
+30,Female,110,81,65,98.4,Dizziness,Low,General Medicine
+66,Female,113,70,77,98.9,Cough,Low,General Medicine
+87,Female,124,75,65,98.2,Cough,Low,General Medicine
+19,Female,121,84,115,104.8,High Fever,Medium,General Medicine
+58,Female,128,72,72,98.1,Dizziness,Low,General Medicine
+28,Male,128,77,102,98.0,Difficulty Breathing,Medium,Pulmonology
+46,Female,162,108,115,98.9,Palpitations,High,Cardiology
+75,Male,174,72,71,98.1,Numbness,High,Neurology
+52,Female,193,100,145,98.6,Palpitations,High,Cardiology
+77,Female,130,78,70,98.7,Cough,Low,General Medicine
+76,Female,202,72,73,98.0,Severe Headache,High,Neurology
+48,Male,113,75,61,98.6,Dizziness,Low,General Medicine
+86,Male,121,75,113,98.8,Difficulty Breathing,Medium,Pulmonology
+78,Male,117,84,85,98.8,Dizziness,Low,General Medicine
+76,Female,123,80,102,103.9,Body Pain,Medium,General Medicine
+79,Female,212,74,61,98.5,Numbness,High,Neurology
+22,Male,126,80,90,98.1,Skin Rash,Low,General Medicine
+81,Female,126,77,112,104.8,Body Pain,Medium,General Medicine
+52,Male,129,80,82,98.1,Mild Headache,Low,General Medicine
+45,Female,125,75,82,98.8,Joint Pain,Low,General Medicine
+51,Female,111,73,114,98.0,Difficulty Breathing,Medium,Pulmonology
+81,Male,198,114,139,98.9,Shortness of Breath,High,Cardiology
+69,Male,186,84,70,98.6,Numbness,High,Neurology
+56,Female,122,82,99,98.5,Difficulty Breathing,Medium,Pulmonology
+82,Male,111,70,85,98.0,Skin Rash,Low,General Medicine
+82,Male,117,78,69,98.9,Mild Headache,Low,General Medicine
+68,Female,128,71,74,98.2,Joint Pain,Low,General Medicine
+70,Female,208,77,62,98.7,Numbness,High,Neurology
+23,Female,123,71,111,101.3,High Fever,Medium,General Medicine
+53,Female,185,116,150,98.1,Chest Pain,High,Cardiology
+36,Female,114,75,82,98.5,Dizziness,Low,General Medicine
+37,Male,127,82,123,103.8,Shivering,Medium,General Medicine
+37,Female,123,85,68,98.3,Mild Headache,Low,General Medicine
+79,Female,115,82,99,98.4,Difficulty Breathing,Medium,Pulmonology
+68,Female,172,85,63,98.6,Slurred Speech,High,Neurology
+19,Male,125,71,62,98.5,Dizziness,Low,General Medicine
+53,Male,116,74,102,104.1,Body Pain,Medium,General Medicine
+88,Female,189,84,82,98.8,Severe Headache,High,Neurology
+25,Male,116,70,116,101.8,Body Pain,Medium,General Medicine
+58,Female,216,72,77,98.0,Slurred Speech,High,Neurology
+55,Male,166,120,118,98.9,Chest Pain,High,Cardiology
+32,Male,121,75,61,98.2,Cough,Low,General Medicine
+81,Female,123,74,89,98.8,Mild Headache,Low,General Medicine
+21,Female,113,75,65,98.7,Cough,Low,General Medicine
+55,Female,175,83,82,99.0,Slurred Speech,High,Neurology
+86,Male,116,77,74,98.9,Dizziness,Low,General Medicine
+78,Male,126,73,63,98.7,Cough,Low,General Medicine
+26,Female,113,73,101,99.0,Difficulty Breathing,Medium,Pulmonology
+19,Female,127,83,101,99.0,Difficulty Breathing,Medium,Pulmonology
+32,Male,119,84,72,98.2,Cough,Low,General Medicine
+69,Male,126,84,118,102.3,Body Pain,Medium,General Medicine
+61,Female,114,78,70,98.6,Joint Pain,Low,General Medicine
+55,Male,110,79,64,98.9,Joint Pain,Low,General Medicine
+77,Female,128,75,74,98.6,Joint Pain,Low,General Medicine
+63,Female,127,74,70,98.2,Joint Pain,Low,General Medicine
+37,Female,123,85,68,98.6,Dizziness,Low,General Medicine
+24,Female,122,72,88,98.7,Dizziness,Low,General Medicine
+56,Female,110,83,64,98.5,Joint Pain,Low,General Medicine
+69,Male,164,117,156,98.3,Shortness of Breath,High,Cardiology
+72,Male,190,83,74,98.1,Numbness,High,Neurology
+52,Female,174,112,135,98.5,Palpitations,High,Cardiology
+87,Male,116,75,99,98.2,Difficulty Breathing,Medium,Pulmonology
+87,Female,206,82,70,99.0,Severe Headache,High,Neurology
+73,Male,199,71,90,98.7,Numbness,High,Neurology
+84,Female,114,85,106,101.5,Body Pain,Medium,General Medicine
+28,Male,123,80,66,98.5,Cough,Low,General Medicine
+76,Male,112,70,86,98.5,Joint Pain,Low,General Medicine
+58,Female,172,112,132,98.9,Chest Pain,High,Cardiology
+87,Male,114,79,63,98.8,Joint Pain,Low,General Medicine
+31,Female,114,73,76,98.1,Cough,Low,General Medicine
+65,Female,186,77,62,98.7,Severe Headache,High,Neurology
+63,Male,197,82,67,98.7,Numbness,High,Neurology
+74,Male,128,76,129,103.4,Shivering,Medium,General Medicine
+42,Male,123,82,61,98.1,Skin Rash,Low,General Medicine
+84,Male,116,74,95,98.8,Difficulty Breathing,Medium,Pulmonology
+65,Female,206,78,61,98.9,Numbness,High,Neurology
+22,Female,123,78,97,98.1,Difficulty Breathing,Medium,Pulmonology
+38,Male,127,73,111,98.8,Difficulty Breathing,Medium,Pulmonology
+46,Male,111,78,76,98.9,Joint Pain,Low,General Medicine
+41,Female,111,79,68,98.6,Mild Headache,Low,General Medicine
+33,Male,112,79,125,104.6,Shivering,Medium,General Medicine
+88,Female,195,83,80,98.6,Numbness,High,Neurology
+64,Male,123,81,102,98.5,Difficulty Breathing,Medium,Pulmonology
+67,Male,119,79,97,98.5,Difficulty Breathing,Medium,Pulmonology
+51,Male,114,80,76,98.5,Dizziness,Low,General Medicine
+19,Male,121,83,73,98.5,Joint Pain,Low,General Medicine
+86,Male,129,85,87,98.2,Cough,Low,General Medicine
+54,Female,115,82,100,98.2,Difficulty Breathing,Medium,Pulmonology
+30,Female,111,73,82,98.6,Cough,Low,General Medicine
+43,Female,130,72,90,98.6,Mild Headache,Low,General Medicine
+60,Male,173,100,150,98.5,Chest Pain,High,Cardiology
+81,Male,128,71,121,101.8,Body Pain,Medium,General Medicine
+51,Male,120,76,73,98.7,Mild Headache,Low,General Medicine
+63,Female,179,84,80,98.8,Slurred Speech,High,Neurology
+72,Male,115,80,72,98.7,Skin Rash,Low,General Medicine
+34,Female,169,101,152,98.4,Chest Pain,High,Cardiology
+28,Male,126,79,102,103.1,High Fever,Medium,General Medicine
+39,Female,122,75,88,98.6,Cough,Low,General Medicine
+40,Male,125,78,108,103.4,Shivering,Medium,General Medicine
+62,Male,119,78,107,103.7,Shivering,Medium,General Medicine
+71,Female,129,80,99,98.8,Difficulty Breathing,Medium,Pulmonology
+90,Female,114,78,107,98.5,Difficulty Breathing,Medium,Pulmonology
+55,Female,130,75,109,98.4,Difficulty Breathing,Medium,Pulmonology
+43,Female,127,84,83,98.2,Dizziness,Low,General Medicine
+63,Female,207,82,72,98.7,Slurred Speech,High,Neurology
+74,Female,115,74,90,98.2,Cough,Low,General Medicine
+38,Male,116,83,106,98.9,Difficulty Breathing,Medium,Pulmonology
+88,Male,114,71,102,101.6,Shivering,Medium,General Medicine
+83,Female,196,104,134,98.8,Chest Pain,High,Cardiology
+71,Female,121,72,71,98.3,Skin Rash,Low,General Medicine
+64,Male,122,77,72,98.2,Joint Pain,Low,General Medicine
+89,Male,112,71,68,98.8,Skin Rash,Low,General Medicine
+28,Female,129,82,103,102.3,High Fever,Medium,General Medicine
+72,Male,128,73,63,98.9,Dizziness,Low,General Medicine
+85,Male,124,75,81,98.5,Cough,Low,General Medicine
+41,Male,123,73,109,98.9,Difficulty Breathing,Medium,Pulmonology
+84,Female,177,119,132,98.1,Shortness of Breath,High,Cardiology
+78,Female,126,76,89,99.0,Cough,Low,General Medicine
+76,Male,120,71,85,98.4,Skin Rash,Low,General Medicine
+52,Female,126,77,61,98.4,Cough,Low,General Medicine
+25,Female,119,71,82,98.6,Cough,Low,General Medicine
+49,Male,171,105,129,98.1,Palpitations,High,Cardiology
+70,Female,111,70,66,98.2,Dizziness,Low,General Medicine
+55,Female,130,72,74,98.6,Skin Rash,Low,General Medicine
+60,Male,116,76,68,98.6,Cough,Low,General Medicine
+26,Male,114,78,70,98.4,Skin Rash,Low,General Medicine
+71,Female,110,81,108,102.3,Shivering,Medium,General Medicine
+59,Female,178,110,114,98.6,Palpitations,High,Cardiology
+42,Male,114,70,84,99.0,Joint Pain,Low,General Medicine
+50,Female,121,75,65,98.1,Cough,Low,General Medicine
+68,Male,114,84,108,101.3,Body Pain,Medium,General Medicine
+31,Male,164,101,149,98.1,Shortness of Breath,High,Cardiology
+76,Male,112,74,60,98.0,Joint Pain,Low,General Medicine
+53,Female,180,71,67,98.4,Slurred Speech,High,Neurology
+41,Male,112,71,82,98.4,Skin Rash,Low,General Medicine
+62,Female,119,70,88,98.2,Joint Pain,Low,General Medicine
+65,Male,127,80,83,98.5,Dizziness,Low,General Medicine
+22,Male,183,102,131,98.1,Chest Pain,High,Cardiology
+77,Female,194,70,86,98.8,Severe Headache,High,Neurology
+58,Male,129,82,102,98.6,Difficulty Breathing,Medium,Pulmonology
+48,Male,198,101,152,98.5,Palpitations,High,Cardiology
+51,Male,116,74,109,102.6,Shivering,Medium,General Medicine
+50,Female,128,78,106,98.3,Difficulty Breathing,Medium,Pulmonology
+64,Female,125,75,88,98.6,Dizziness,Low,General Medicine
+20,Female,119,81,85,98.7,Joint Pain,Low,General Medicine
+61,Female,129,75,109,98.1,Difficulty Breathing,Medium,Pulmonology
+24,Male,122,74,117,101.3,Shivering,Medium,General Medicine
+77,Male,126,84,114,98.1,Difficulty Breathing,Medium,Pulmonology
+88,Female,172,81,89,98.9,Slurred Speech,High,Neurology
+80,Female,130,85,118,101.5,Body Pain,Medium,General Medicine
+53,Male,130,82,61,99.0,Dizziness,Low,General Medicine
+42,Female,116,73,77,98.2,Joint Pain,Low,General Medicine
+57,Male,177,75,81,98.2,Slurred Speech,High,Neurology
+70,Male,110,84,61,98.7,Dizziness,Low,General Medicine
+18,Male,120,70,107,104.9,Body Pain,Medium,General Medicine
+25,Female,129,74,66,98.9,Mild Headache,Low,General Medicine
+72,Male,112,84,77,98.1,Skin Rash,Low,General Medicine
+65,Female,110,81,82,98.6,Skin Rash,Low,General Medicine
+75,Male,129,80,119,104.5,Body Pain,Medium,General Medicine
+53,Female,214,70,84,98.8,Slurred Speech,High,Neurology
+86,Female,162,112,140,98.7,Palpitations,High,Cardiology
+40,Female,123,82,130,103.8,Body Pain,Medium,General Medicine
+65,Male,186,114,113,98.6,Palpitations,High,Cardiology
+23,Female,130,82,111,98.6,Difficulty Breathing,Medium,Pulmonology
+88,Male,115,81,63,98.3,Joint Pain,Low,General Medicine
+71,Female,118,77,61,98.9,Skin Rash,Low,General Medicine
+64,Male,115,72,117,103.6,Body Pain,Medium,General Medicine
+84,Female,162,109,136,98.3,Chest Pain,High,Cardiology
+52,Male,112,77,82,98.5,Mild Headache,Low,General Medicine
+73,Male,114,70,74,98.6,Mild Headache,Low,General Medicine
+42,Male,128,72,109,103.9,High Fever,Medium,General Medicine
+76,Female,116,83,70,98.6,Dizziness,Low,General Medicine
+82,Female,127,79,115,98.0,Difficulty Breathing,Medium,Pulmonology
+41,Female,114,75,89,98.1,Cough,Low,General Medicine
+32,Female,128,77,104,98.4,Difficulty Breathing,Medium,Pulmonology
+60,Male,125,70,87,98.1,Joint Pain,Low,General Medicine
+60,Female,110,72,83,98.1,Skin Rash,Low,General Medicine
+77,Female,165,107,119,98.4,Palpitations,High,Cardiology
+44,Female,120,78,106,104.8,High Fever,Medium,General Medicine
+38,Female,128,75,109,103.4,High Fever,Medium,General Medicine
+83,Female,117,74,77,98.5,Dizziness,Low,General Medicine
+48,Female,119,85,65,98.4,Joint Pain,Low,General Medicine
+55,Male,113,79,84,98.4,Mild Headache,Low,General Medicine
+79,Female,124,70,64,98.8,Skin Rash,Low,General Medicine
+90,Female,128,71,83,98.2,Dizziness,Low,General Medicine
+60,Male,191,76,87,98.9,Slurred Speech,High,Neurology
+42,Female,113,73,79,98.7,Cough,Low,General Medicine
+67,Female,208,75,82,98.8,Numbness,High,Neurology
+22,Male,129,71,79,98.3,Skin Rash,Low,General Medicine
+18,Male,112,83,78,98.7,Dizziness,Low,General Medicine
+37,Male,126,70,78,98.1,Cough,Low,General Medicine
+56,Female,202,77,76,98.7,Numbness,High,Neurology
+23,Male,114,73,76,98.2,Cough,Low,General Medicine
+83,Male,182,77,77,98.2,Severe Headache,High,Neurology
+38,Female,116,75,81,98.3,Cough,Low,General Medicine
+86,Female,126,71,82,98.6,Cough,Low,General Medicine
+62,Female,217,85,71,98.7,Slurred Speech,High,Neurology
+19,Male,120,72,62,98.9,Cough,Low,General Medicine
+52,Male,110,72,74,98.5,Cough,Low,General Medicine
+20,Male,118,76,76,98.9,Skin Rash,Low,General Medicine
+39,Male,172,116,151,98.6,Shortness of Breath,High,Cardiology
+73,Female,163,117,156,98.9,Shortness of Breath,High,Cardiology
+54,Male,178,73,80,98.4,Numbness,High,Neurology
+61,Male,124,72,62,98.3,Dizziness,Low,General Medicine
+54,Female,115,76,110,98.7,Difficulty Breathing,Medium,Pulmonology
+21,Female,129,75,83,98.8,Cough,Low,General Medicine
+26,Female,118,76,62,98.6,Mild Headache,Low,General Medicine
+33,Female,127,76,109,103.7,Body Pain,Medium,General Medicine
+28,Male,129,83,104,103.4,Shivering,Medium,General Medicine
+53,Female,116,77,127,102.7,High Fever,Medium,General Medicine
+89,Female,210,81,86,98.8,Slurred Speech,High,Neurology
+68,Female,194,85,69,98.5,Severe Headache,High,Neurology
+25,Female,128,83,107,98.4,Difficulty Breathing,Medium,Pulmonology
+74,Male,123,80,72,98.0,Mild Headache,Low,General Medicine
+87,Male,130,83,107,98.3,Difficulty Breathing,Medium,Pulmonology
+82,Male,121,81,64,98.3,Joint Pain,Low,General Medicine
+84,Female,115,71,85,98.8,Joint Pain,Low,General Medicine
+83,Male,198,104,124,98.3,Chest Pain,High,Cardiology
+78,Female,116,85,89,98.3,Mild Headache,Low,General Medicine
+62,Male,116,70,82,98.1,Mild Headache,Low,General Medicine
+68,Female,124,80,87,98.2,Dizziness,Low,General Medicine
+51,Female,127,70,79,98.1,Skin Rash,Low,General Medicine
+84,Female,180,78,77,99.0,Numbness,High,Neurology
+26,Male,113,84,109,98.2,Difficulty Breathing,Medium,Pulmonology
+71,Female,113,79,83,98.7,Dizziness,Low,General Medicine
+23,Male,119,71,68,98.5,Dizziness,Low,General Medicine
+69,Male,118,74,83,98.7,Mild Headache,Low,General Medicine
+37,Female,111,76,100,101.7,High Fever,Medium,General Medicine
+53,Male,206,82,85,98.1,Severe Headache,High,Neurology
+61,Male,128,83,125,102.0,Body Pain,Medium,General Medicine
+24,Male,111,75,71,98.1,Dizziness,Low,General Medicine
+50,Female,125,74,86,98.3,Skin Rash,Low,General Medicine
+64,Male,204,79,75,98.5,Slurred Speech,High,Neurology
+18,Male,196,120,153,98.2,Palpitations,High,Cardiology
+77,Female,120,71,89,98.0,Dizziness,Low,General Medicine
+61,Male,168,109,143,98.4,Palpitations,High,Cardiology
+74,Female,116,79,126,103.9,High Fever,Medium,General Medicine
+86,Male,116,72,110,98.6,Difficulty Breathing,Medium,Pulmonology
+50,Male,167,109,137,98.5,Chest Pain,High,Cardiology
+35,Female,118,72,101,98.8,Difficulty Breathing,Medium,Pulmonology
+50,Female,129,81,114,102.2,Shivering,Medium,General Medicine
+68,Female,128,75,90,98.5,Mild Headache,Low,General Medicine
+51,Female,119,76,85,98.6,Joint Pain,Low,General Medicine
+85,Female,128,73,110,98.2,Difficulty Breathing,Medium,Pulmonology
+18,Male,116,75,65,98.4,Cough,Low,General Medicine
+73,Female,117,75,90,98.3,Skin Rash,Low,General Medicine
+58,Female,185,113,149,98.9,Palpitations,High,Cardiology
+89,Male,114,82,65,98.5,Joint Pain,Low,General Medicine
+63,Male,194,107,144,98.7,Shortness of Breath,High,Cardiology
+38,Male,110,77,89,98.0,Dizziness,Low,General Medicine
+68,Female,125,78,83,98.0,Cough,Low,General Medicine
+25,Male,120,79,87,98.9,Dizziness,Low,General Medicine
+39,Female,112,70,85,98.8,Mild Headache,Low,General Medicine
+88,Male,128,71,121,104.7,High Fever,Medium,General Medicine
+24,Female,127,81,70,98.7,Cough,Low,General Medicine
+46,Female,167,115,159,98.6,Palpitations,High,Cardiology
+38,Female,123,79,78,98.9,Dizziness,Low,General Medicine
+54,Male,113,81,86,98.7,Dizziness,Low,General Medicine
+75,Female,211,77,83,98.6,Slurred Speech,High,Neurology
+84,Male,163,117,158,98.5,Palpitations,High,Cardiology
+46,Female,113,76,83,98.2,Cough,Low,General Medicine
+75,Female,197,113,146,98.7,Shortness of Breath,High,Cardiology
+36,Male,114,71,66,98.8,Skin Rash,Low,General Medicine
+33,Female,112,72,83,98.8,Mild Headache,Low,General Medicine
+75,Male,120,83,82,98.8,Mild Headache,Low,General Medicine
+51,Female,110,83,62,98.3,Mild Headache,Low,General Medicine
+42,Female,130,73,113,98.0,Difficulty Breathing,Medium,Pulmonology
+61,Male,127,71,87,98.8,Dizziness,Low,General Medicine
+81,Female,124,72,61,98.6,Cough,Low,General Medicine
+41,Female,123,78,68,98.5,Dizziness,Low,General Medicine
+23,Female,118,80,85,98.7,Skin Rash,Low,General Medicine
+73,Female,175,109,117,98.9,Shortness of Breath,High,Cardiology
+21,Male,128,82,62,98.7,Joint Pain,Low,General Medicine
+78,Female,127,77,84,98.3,Skin Rash,Low,General Medicine
+65,Female,121,72,109,98.6,Difficulty Breathing,Medium,Pulmonology
+54,Male,112,84,62,98.5,Skin Rash,Low,General Medicine
+42,Female,130,71,70,98.5,Skin Rash,Low,General Medicine
+28,Male,126,77,103,98.8,Difficulty Breathing,Medium,Pulmonology
+90,Male,117,70,70,98.6,Joint Pain,Low,General Medicine
+82,Female,118,74,125,101.9,High Fever,Medium,General Medicine
+73,Male,128,74,90,98.7,Joint Pain,Low,General Medicine
+27,Female,112,84,100,98.1,Difficulty Breathing,Medium,Pulmonology
+81,Female,110,70,124,103.7,Shivering,Medium,General Medicine
+73,Female,116,81,88,98.8,Dizziness,Low,General Medicine
+72,Male,198,80,89,98.5,Slurred Speech,High,Neurology
+68,Male,115,84,105,103.3,Body Pain,Medium,General Medicine
+72,Male,125,76,100,103.6,Shivering,Medium,General Medicine
+78,Female,128,80,69,98.8,Dizziness,Low,General Medicine
+79,Male,128,73,62,98.6,Mild Headache,Low,General Medicine
+80,Male,119,70,89,98.8,Cough,Low,General Medicine
+49,Female,118,78,125,103.0,Body Pain,Medium,General Medicine
+74,Female,112,76,62,98.4,Skin Rash,Low,General Medicine
+62,Female,193,79,86,98.0,Numbness,High,Neurology
+18,Male,127,83,66,98.9,Mild Headache,Low,General Medicine
+29,Male,113,83,109,98.5,Difficulty Breathing,Medium,Pulmonology
+31,Female,115,84,63,98.2,Mild Headache,Low,General Medicine
+86,Male,192,84,65,98.4,Numbness,High,Neurology
+46,Female,112,77,79,99.0,Mild Headache,Low,General Medicine
+64,Female,188,110,118,98.3,Shortness of Breath,High,Cardiology
+62,Female,127,78,84,98.5,Dizziness,Low,General Medicine
+84,Male,125,83,106,98.9,Difficulty Breathing,Medium,Pulmonology
+68,Male,114,80,81,98.1,Dizziness,Low,General Medicine
+82,Female,197,81,75,98.3,Slurred Speech,High,Neurology
+64,Male,118,82,65,98.9,Skin Rash,Low,General Medicine
+33,Male,115,77,123,101.6,Shivering,Medium,General Medicine
+63,Female,192,83,88,98.9,Numbness,High,Neurology
+44,Male,110,73,79,98.2,Dizziness,Low,General Medicine
+37,Male,118,76,81,99.0,Joint Pain,Low,General Medicine
+31,Female,113,83,71,98.5,Dizziness,Low,General Medicine
+25,Male,194,107,154,98.3,Palpitations,High,Cardiology
+87,Male,130,78,89,98.9,Mild Headache,Low,General Medicine
+45,Female,122,72,79,98.5,Mild Headache,Low,General Medicine
+80,Female,130,81,66,98.8,Skin Rash,Low,General Medicine
+50,Male,112,75,114,103.1,Body Pain,Medium,General Medicine
+37,Female,120,78,89,98.8,Skin Rash,Low,General Medicine
+39,Female,124,85,84,98.4,Joint Pain,Low,General Medicine
+83,Male,122,71,65,98.3,Dizziness,Low,General Medicine
+26,Male,117,71,75,99.0,Joint Pain,Low,General Medicine
+36,Male,188,104,116,99.0,Chest Pain,High,Cardiology
+63,Male,122,81,112,99.0,Difficulty Breathing,Medium,Pulmonology
+38,Female,127,85,124,101.3,Body Pain,Medium,General Medicine
+44,Male,130,81,103,98.9,Difficulty Breathing,Medium,Pulmonology
+83,Female,115,74,112,101.2,Shivering,Medium,General Medicine
+76,Female,173,118,124,98.9,Chest Pain,High,Cardiology
+35,Male,127,73,65,98.1,Joint Pain,Low,General Medicine
+20,Male,115,70,64,98.8,Cough,Low,General Medicine
+70,Male,128,74,80,98.4,Dizziness,Low,General Medicine
+50,Male,177,75,79,98.2,Slurred Speech,High,Neurology
+63,Female,121,75,69,98.9,Joint Pain,Low,General Medicine
+89,Male,191,106,154,98.9,Chest Pain,High,Cardiology
+69,Male,120,75,66,98.9,Mild Headache,Low,General Medicine
+42,Female,127,80,85,98.1,Joint Pain,Low,General Medicine
+64,Female,126,78,66,98.9,Skin Rash,Low,General Medicine
+48,Male,126,81,100,101.9,Shivering,Medium,General Medicine
+89,Male,124,83,108,104.9,High Fever,Medium,General Medicine
+54,Female,178,116,129,98.0,Shortness of Breath,High,Cardiology
+53,Female,110,83,65,98.3,Mild Headache,Low,General Medicine
+37,Male,117,73,124,103.4,Shivering,Medium,General Medicine
+35,Male,121,82,76,98.2,Joint Pain,Low,General Medicine
+63,Female,167,109,146,98.3,Palpitations,High,Cardiology
+78,Female,212,76,69,98.2,Numbness,High,Neurology
+85,Female,115,84,102,98.4,Difficulty Breathing,Medium,Pulmonology
+69,Female,120,78,82,98.0,Cough,Low,General Medicine
+70,Female,114,82,103,104.1,High Fever,Medium,General Medicine
+24,Female,119,80,76,98.4,Cough,Low,General Medicine
+85,Male,130,78,107,104.8,Body Pain,Medium,General Medicine
+44,Male,119,81,83,98.4,Mild Headache,Low,General Medicine
+80,Male,118,84,70,98.1,Cough,Low,General Medicine
+83,Male,185,113,136,98.1,Chest Pain,High,Cardiology
+28,Male,130,73,61,98.7,Skin Rash,Low,General Medicine
+89,Male,124,85,118,103.6,Body Pain,Medium,General Medicine
+35,Male,164,109,110,98.0,Palpitations,High,Cardiology
+67,Female,201,75,68,98.0,Severe Headache,High,Neurology
+56,Female,113,70,109,98.2,Difficulty Breathing,Medium,Pulmonology
+40,Male,123,77,89,98.9,Joint Pain,Low,General Medicine
+66,Female,170,119,116,98.6,Palpitations,High,Cardiology
+52,Male,118,78,78,98.3,Cough,Low,General Medicine
+86,Female,190,84,64,98.4,Numbness,High,Neurology
+89,Female,126,78,67,98.5,Joint Pain,Low,General Medicine
+72,Male,123,76,68,98.7,Dizziness,Low,General Medicine
+78,Male,129,78,81,98.0,Skin Rash,Low,General Medicine
+79,Female,111,79,70,98.9,Cough,Low,General Medicine
+86,Male,123,74,126,102.7,High Fever,Medium,General Medicine
+47,Male,125,75,76,98.1,Skin Rash,Low,General Medicine
+85,Female,125,81,79,98.5,Skin Rash,Low,General Medicine
+53,Male,111,78,115,103.0,Body Pain,Medium,General Medicine
+25,Male,127,70,90,98.5,Dizziness,Low,General Medicine
+70,Male,111,75,124,104.9,Body Pain,Medium,General Medicine
+81,Female,162,101,116,98.7,Chest Pain,High,Cardiology
+25,Female,112,77,66,98.4,Mild Headache,Low,General Medicine
+20,Male,110,74,101,98.3,Difficulty Breathing,Medium,Pulmonology
+24,Male,169,110,133,98.5,Shortness of Breath,High,Cardiology
+80,Female,118,80,71,98.3,Skin Rash,Low,General Medicine
+88,Male,127,84,113,103.1,Body Pain,Medium,General Medicine
+75,Male,201,73,63,98.9,Slurred Speech,High,Neurology
+61,Female,130,70,69,98.8,Skin Rash,Low,General Medicine
+39,Female,189,105,110,98.6,Palpitations,High,Cardiology
+27,Male,181,112,143,98.8,Palpitations,High,Cardiology
+78,Female,178,113,159,98.4,Palpitations,High,Cardiology
+67,Female,126,83,70,98.4,Skin Rash,Low,General Medicine
+87,Male,118,78,85,98.6,Cough,Low,General Medicine
+74,Male,115,70,62,98.9,Dizziness,Low,General Medicine
+62,Female,124,82,88,98.7,Mild Headache,Low,General Medicine
+70,Female,127,75,86,98.5,Cough,Low,General Medicine
+59,Female,119,76,120,104.6,Body Pain,Medium,General Medicine
+71,Male,169,106,132,98.5,Shortness of Breath,High,Cardiology
+70,Male,110,76,105,103.5,Body Pain,Medium,General Medicine
+55,Male,195,81,63,98.9,Severe Headache,High,Neurology
+30,Female,127,79,111,101.3,Shivering,Medium,General Medicine
+42,Male,118,73,69,98.7,Joint Pain,Low,General Medicine
+32,Female,122,77,68,98.3,Dizziness,Low,General Medicine
+84,Male,122,82,82,98.3,Joint Pain,Low,General Medicine
+48,Male,110,73,66,98.8,Mild Headache,Low,General Medicine
+32,Female,172,100,146,98.4,Palpitations,High,Cardiology
+64,Female,119,70,83,98.4,Mild Headache,Low,General Medicine
+77,Male,191,81,76,98.3,Severe Headache,High,Neurology
+21,Female,165,105,135,98.3,Shortness of Breath,High,Cardiology
+63,Female,207,80,81,98.5,Numbness,High,Neurology
+30,Male,118,73,104,101.4,High Fever,Medium,General Medicine
+75,Male,218,78,73,98.1,Slurred Speech,High,Neurology
+37,Male,183,101,148,98.9,Shortness of Breath,High,Cardiology
+34,Male,129,71,86,98.2,Skin Rash,Low,General Medicine
+19,Female,122,76,114,102.0,Shivering,Medium,General Medicine
+86,Female,173,107,113,98.4,Shortness of Breath,High,Cardiology
+72,Female,202,73,76,98.9,Numbness,High,Neurology
+37,Female,127,85,84,98.9,Mild Headache,Low,General Medicine
+31,Male,113,71,73,98.5,Skin Rash,Low,General Medicine
+81,Male,128,76,103,101.9,Body Pain,Medium,General Medicine
+86,Male,130,83,69,99.0,Dizziness,Low,General Medicine
+21,Female,118,75,61,98.8,Joint Pain,Low,General Medicine
+30,Female,111,71,126,101.2,High Fever,Medium,General Medicine
+48,Male,117,81,122,103.6,Shivering,Medium,General Medicine
+59,Male,124,81,118,104.7,Body Pain,Medium,General Medicine
+72,Female,114,79,102,103.2,Body Pain,Medium,General Medicine
+72,Male,130,76,114,104.2,Body Pain,Medium,General Medicine
+55,Male,199,102,116,98.8,Palpitations,High,Cardiology
+40,Male,121,73,79,98.6,Cough,Low,General Medicine
+86,Male,174,112,128,98.6,Palpitations,High,Cardiology
+36,Male,194,110,113,98.4,Chest Pain,High,Cardiology
+87,Male,168,101,125,98.7,Shortness of Breath,High,Cardiology
+21,Male,189,105,159,98.6,Chest Pain,High,Cardiology
+47,Female,124,83,86,98.5,Joint Pain,Low,General Medicine
+53,Female,114,79,87,98.3,Cough,Low,General Medicine
+26,Female,163,112,156,98.5,Palpitations,High,Cardiology
+66,Male,118,84,71,98.3,Joint Pain,Low,General Medicine
+79,Male,119,76,80,98.5,Joint Pain,Low,General Medicine
+63,Male,123,75,71,98.4,Skin Rash,Low,General Medicine
+18,Female,125,73,65,98.5,Cough,Low,General Medicine
+90,Female,116,71,96,98.6,Difficulty Breathing,Medium,Pulmonology
+35,Male,119,80,66,98.6,Joint Pain,Low,General Medicine
+52,Male,127,81,77,98.4,Cough,Low,General Medicine
+76,Male,129,70,111,104.1,High Fever,Medium,General Medicine
+72,Female,165,114,152,98.5,Palpitations,High,Cardiology
+90,Female,124,83,120,103.0,High Fever,Medium,General Medicine
+25,Male,121,72,117,102.9,Body Pain,Medium,General Medicine
+52,Female,127,77,75,98.1,Joint Pain,Low,General Medicine
+62,Male,119,75,63,98.7,Skin Rash,Low,General Medicine
+61,Female,189,76,76,98.6,Numbness,High,Neurology
+75,Female,176,104,131,98.1,Shortness of Breath,High,Cardiology
+50,Male,171,81,70,98.4,Numbness,High,Neurology
+71,Male,117,81,88,98.9,Joint Pain,Low,General Medicine
+56,Male,216,81,62,98.8,Severe Headache,High,Neurology
+37,Male,128,81,96,98.5,Difficulty Breathing,Medium,Pulmonology
+43,Male,116,78,62,98.6,Joint Pain,Low,General Medicine
+85,Female,172,104,139,99.0,Chest Pain,High,Cardiology
+39,Female,113,76,87,98.6,Joint Pain,Low,General Medicine
+59,Male,115,73,68,98.7,Cough,Low,General Medicine
+54,Male,128,76,67,99.0,Mild Headache,Low,General Medicine
+89,Female,195,113,124,98.9,Chest Pain,High,Cardiology
+65,Male,126,82,60,98.7,Dizziness,Low,General Medicine
+78,Male,112,77,106,103.7,Shivering,Medium,General Medicine
+61,Female,161,108,129,98.4,Chest Pain,High,Cardiology
+37,Female,112,81,114,102.5,Body Pain,Medium,General Medicine
+40,Female,117,75,90,99.0,Mild Headache,Low,General Medicine
+58,Female,121,81,73,98.4,Dizziness,Low,General Medicine
+66,Male,124,83,82,98.9,Mild Headache,Low,General Medicine
+72,Male,120,71,76,98.5,Cough,Low,General Medicine
+61,Male,118,74,129,104.6,Shivering,Medium,General Medicine
+75,Female,111,79,82,98.9,Mild Headache,Low,General Medicine
+35,Female,117,76,71,98.4,Skin Rash,Low,General Medicine
+73,Female,127,82,66,98.9,Dizziness,Low,General Medicine
+55,Female,121,79,73,98.5,Mild Headache,Low,General Medicine
+49,Male,130,72,75,98.9,Joint Pain,Low,General Medicine
+74,Female,125,80,101,103.7,Body Pain,Medium,General Medicine
+26,Female,124,82,106,102.6,Shivering,Medium,General Medicine
+85,Male,113,70,110,104.5,Body Pain,Medium,General Medicine
+60,Male,115,70,80,98.0,Mild Headache,Low,General Medicine
+63,Male,126,70,116,104.4,High Fever,Medium,General Medicine
+28,Female,110,84,76,98.5,Skin Rash,Low,General Medicine
+39,Female,113,78,88,98.5,Joint Pain,Low,General Medicine
+41,Female,117,72,87,98.2,Mild Headache,Low,General Medicine
+51,Male,111,84,116,103.2,Shivering,Medium,General Medicine
+28,Male,163,118,137,98.8,Palpitations,High,Cardiology
+86,Female,116,77,103,102.4,Shivering,Medium,General Medicine
+34,Female,110,75,77,98.9,Mild Headache,Low,General Medicine
+77,Female,188,105,150,98.3,Shortness of Breath,High,Cardiology
+89,Female,122,71,80,98.8,Cough,Low,General Medicine
+30,Female,119,77,90,99.0,Cough,Low,General Medicine
+36,Male,123,85,66,98.5,Mild Headache,Low,General Medicine
+46,Male,111,71,88,98.6,Cough,Low,General Medicine
+28,Male,124,70,82,98.9,Joint Pain,Low,General Medicine
+59,Male,173,104,153,98.8,Shortness of Breath,High,Cardiology
+23,Male,117,70,115,103.9,Shivering,Medium,General Medicine
+69,Female,111,83,74,98.2,Cough,Low,General Medicine
+63,Female,111,85,66,98.2,Mild Headache,Low,General Medicine
+63,Male,110,70,78,98.0,Joint Pain,Low,General Medicine
+47,Female,110,74,65,98.3,Skin Rash,Low,General Medicine
+87,Male,160,113,142,98.1,Shortness of Breath,High,Cardiology
+37,Female,118,82,90,98.2,Dizziness,Low,General Medicine
+72,Male,184,81,63,98.2,Severe Headache,High,Neurology
+86,Male,179,76,87,98.4,Slurred Speech,High,Neurology
+37,Male,111,82,82,98.1,Cough,Low,General Medicine
+88,Male,114,85,123,103.1,High Fever,Medium,General Medicine
+74,Female,213,70,73,98.8,Slurred Speech,High,Neurology
+37,Female,113,77,90,98.9,Cough,Low,General Medicine
+60,Female,124,85,62,99.0,Skin Rash,Low,General Medicine
+80,Female,114,76,87,98.0,Dizziness,Low,General Medicine
+29,Female,112,73,89,98.1,Cough,Low,General Medicine
+90,Male,128,79,76,98.8,Cough,Low,General Medicine
+77,Female,195,106,147,98.7,Chest Pain,High,Cardiology
+79,Male,199,100,151,98.4,Shortness of Breath,High,Cardiology
+33,Male,127,84,80,98.9,Joint Pain,Low,General Medicine
+84,Male,127,79,88,98.5,Cough,Low,General Medicine
+77,Female,178,113,156,99.0,Shortness of Breath,High,Cardiology
+62,Female,187,112,118,98.8,Palpitations,High,Cardiology
+63,Female,123,77,108,103.6,Body Pain,Medium,General Medicine
+36,Female,126,74,65,98.8,Mild Headache,Low,General Medicine
+89,Male,129,76,76,98.6,Mild Headache,Low,General Medicine
+79,Female,171,102,138,98.1,Chest Pain,High,Cardiology
+42,Female,112,85,105,101.2,Body Pain,Medium,General Medicine
+53,Male,197,120,135,98.3,Palpitations,High,Cardiology
+84,Female,116,77,63,99.0,Dizziness,Low,General Medicine
+42,Male,113,81,78,98.2,Joint Pain,Low,General Medicine
+77,Female,173,100,128,98.6,Palpitations,High,Cardiology
+29,Female,175,104,159,98.5,Chest Pain,High,Cardiology
+23,Male,118,73,84,98.5,Skin Rash,Low,General Medicine
+79,Male,126,84,86,98.9,Cough,Low,General Medicine
+69,Male,116,74,112,104.2,Shivering,Medium,General Medicine
+71,Female,118,74,63,98.3,Mild Headache,Low,General Medicine
+64,Male,117,85,83,98.7,Dizziness,Low,General Medicine
+58,Female,209,84,75,99.0,Numbness,High,Neurology
+40,Male,124,82,71,98.7,Joint Pain,Low,General Medicine
+50,Male,118,79,75,98.5,Dizziness,Low,General Medicine
+46,Female,121,82,114,102.8,Shivering,Medium,General Medicine
+84,Female,130,77,118,103.4,Body Pain,Medium,General Medicine
+68,Male,182,81,88,98.9,Numbness,High,Neurology
+45,Female,120,71,111,102.9,High Fever,Medium,General Medicine
+20,Male,130,73,70,98.7,Joint Pain,Low,General Medicine
+51,Male,121,72,63,98.9,Cough,Low,General Medicine
+33,Female,119,78,72,98.2,Joint Pain,Low,General Medicine
+66,Female,120,85,108,101.6,High Fever,Medium,General Medicine
+27,Female,116,74,88,98.8,Dizziness,Low,General Medicine
+34,Male,181,119,143,98.1,Shortness of Breath,High,Cardiology
+74,Male,174,78,81,98.2,Severe Headache,High,Neurology
+64,Female,127,80,69,98.8,Dizziness,Low,General Medicine
+44,Male,182,108,129,98.6,Palpitations,High,Cardiology
+28,Female,110,75,83,98.5,Cough,Low,General Medicine
+19,Male,122,70,74,98.5,Joint Pain,Low,General Medicine
+59,Female,112,71,61,98.9,Skin Rash,Low,General Medicine
+27,Female,197,116,115,98.4,Chest Pain,High,Cardiology
+19,Male,117,75,110,102.8,Body Pain,Medium,General Medicine
+47,Female,129,83,62,98.8,Skin Rash,Low,General Medicine
+32,Female,115,75,87,98.8,Joint Pain,Low,General Medicine
+80,Male,169,118,126,98.9,Palpitations,High,Cardiology
+87,Female,127,77,82,98.3,Mild Headache,Low,General Medicine
+89,Female,115,77,66,98.7,Dizziness,Low,General Medicine
+80,Male,110,76,112,98.2,Difficulty Breathing,Medium,Pulmonology
+56,Female,189,112,152,99.0,Palpitations,High,Cardiology
+67,Male,129,77,96,98.8,Difficulty Breathing,Medium,Pulmonology
+24,Female,110,75,84,98.6,Mild Headache,Low,General Medicine
+82,Female,124,73,80,98.1,Dizziness,Low,General Medicine
+81,Male,114,83,108,98.8,Difficulty Breathing,Medium,Pulmonology
+23,Male,177,101,113,98.3,Chest Pain,High,Cardiology
+89,Female,124,82,76,98.1,Mild Headache,Low,General Medicine
+41,Female,110,82,109,101.8,Body Pain,Medium,General Medicine
+34,Female,119,77,79,98.6,Joint Pain,Low,General Medicine
+50,Male,119,70,78,98.7,Skin Rash,Low,General Medicine
+77,Female,200,71,88,98.1,Numbness,High,Neurology
+68,Female,120,80,68,98.4,Cough,Low,General Medicine
+33,Male,123,71,63,98.4,Mild Headache,Low,General Medicine
+69,Female,160,107,134,98.6,Palpitations,High,Cardiology
+89,Female,188,115,138,98.2,Shortness of Breath,High,Cardiology
+67,Male,121,80,79,99.0,Mild Headache,Low,General Medicine
+22,Male,196,108,157,98.7,Palpitations,High,Cardiology
+72,Male,114,84,72,98.8,Skin Rash,Low,General Medicine
+34,Female,130,80,108,103.7,Body Pain,Medium,General Medicine
+78,Male,178,106,131,98.2,Shortness of Breath,High,Cardiology
+66,Male,120,71,108,98.6,Difficulty Breathing,Medium,Pulmonology
+54,Female,119,85,81,98.7,Cough,Low,General Medicine
+79,Male,126,82,84,98.5,Dizziness,Low,General Medicine
+18,Male,117,82,88,98.1,Dizziness,Low,General Medicine
+86,Female,118,85,95,98.2,Difficulty Breathing,Medium,Pulmonology
+36,Female,188,118,151,98.8,Palpitations,High,Cardiology
+74,Male,116,85,103,101.4,Shivering,Medium,General Medicine
+75,Female,118,77,110,98.1,Difficulty Breathing,Medium,Pulmonology
+72,Female,127,75,87,98.1,Dizziness,Low,General Medicine
+48,Female,117,84,66,98.9,Joint Pain,Low,General Medicine
+55,Female,124,75,113,103.5,High Fever,Medium,General Medicine
+62,Male,172,114,134,98.3,Chest Pain,High,Cardiology
+85,Female,179,109,122,98.3,Chest Pain,High,Cardiology
+44,Female,112,70,72,98.1,Joint Pain,Low,General Medicine
+43,Female,116,79,65,98.8,Joint Pain,Low,General Medicine
+22,Female,120,81,80,98.0,Joint Pain,Low,General Medicine
+49,Female,125,85,72,98.1,Skin Rash,Low,General Medicine
+82,Male,177,100,132,98.7,Palpitations,High,Cardiology
+40,Female,124,73,88,99.0,Cough,Low,General Medicine
+39,Female,113,84,62,98.8,Dizziness,Low,General Medicine
+37,Male,123,72,126,104.1,High Fever,Medium,General Medicine
+66,Male,199,76,77,98.7,Severe Headache,High,Neurology
+42,Male,124,79,128,103.5,Shivering,Medium,General Medicine
+63,Male,209,71,90,99.0,Severe Headache,High,Neurology
+69,Female,116,81,75,98.4,Skin Rash,Low,General Medicine
+27,Female,111,77,69,98.8,Mild Headache,Low,General Medicine
+61,Male,113,75,67,98.7,Skin Rash,Low,General Medicine
+85,Female,164,110,126,98.5,Palpitations,High,Cardiology
+88,Female,125,70,113,102.9,High Fever,Medium,General Medicine
+83,Male,120,77,118,101.8,Shivering,Medium,General Medicine
+81,Male,118,73,81,98.4,Mild Headache,Low,General Medicine
+53,Female,119,85,118,103.1,Shivering,Medium,General Medicine
+72,Female,205,76,66,98.4,Slurred Speech,High,Neurology
+38,Male,113,76,74,98.7,Cough,Low,General Medicine
+50,Male,123,76,85,98.5,Joint Pain,Low,General Medicine
+84,Female,182,113,134,98.6,Palpitations,High,Cardiology
+67,Female,128,70,112,98.8,Difficulty Breathing,Medium,Pulmonology
+23,Male,112,83,70,98.5,Mild Headache,Low,General Medicine
+31,Female,129,73,77,98.9,Joint Pain,Low,General Medicine
+48,Female,110,82,106,101.3,Shivering,Medium,General Medicine
+32,Female,193,117,147,98.6,Chest Pain,High,Cardiology
+50,Female,213,72,73,98.8,Severe Headache,High,Neurology
+72,Male,117,77,129,102.8,High Fever,Medium,General Medicine
+70,Female,124,80,69,98.6,Dizziness,Low,General Medicine
+68,Male,124,76,86,98.4,Joint Pain,Low,General Medicine
+18,Female,129,83,101,98.7,Difficulty Breathing,Medium,Pulmonology
+69,Male,212,81,62,98.4,Severe Headache,High,Neurology
+60,Female,220,77,73,98.4,Numbness,High,Neurology
+61,Male,118,70,107,98.1,Difficulty Breathing,Medium,Pulmonology
+62,Female,116,70,81,98.5,Cough,Low,General Medicine
+32,Female,114,72,71,98.9,Cough,Low,General Medicine
+83,Male,191,78,79,98.7,Severe Headache,High,Neurology
+64,Female,177,74,62,98.2,Slurred Speech,High,Neurology
+61,Male,173,116,158,98.0,Shortness of Breath,High,Cardiology
+28,Male,128,84,104,104.1,Body Pain,Medium,General Medicine
+50,Male,110,75,81,98.3,Mild Headache,Low,General Medicine
+61,Male,116,74,125,103.5,Body Pain,Medium,General Medicine
+33,Female,127,79,72,98.7,Dizziness,Low,General Medicine
+58,Male,128,83,81,98.2,Mild Headache,Low,General Medicine
+84,Female,114,85,73,98.2,Dizziness,Low,General Medicine
+73,Female,124,80,105,103.6,Body Pain,Medium,General Medicine
+26,Male,125,82,63,99.0,Cough,Low,General Medicine
+20,Female,123,85,106,104.2,High Fever,Medium,General Medicine
+32,Male,170,108,148,98.7,Chest Pain,High,Cardiology
+39,Male,174,100,139,98.8,Chest Pain,High,Cardiology
+43,Male,111,73,65,98.1,Joint Pain,Low,General Medicine
+62,Male,183,115,134,98.3,Palpitations,High,Cardiology
+79,Female,197,75,89,98.7,Severe Headache,High,Neurology
+46,Female,124,70,107,98.5,Difficulty Breathing,Medium,Pulmonology
+50,Male,125,84,90,98.2,Dizziness,Low,General Medicine
+81,Male,124,71,88,98.0,Cough,Low,General Medicine
+70,Male,202,75,62,98.9,Numbness,High,Neurology
+18,Female,113,80,71,98.3,Skin Rash,Low,General Medicine
+20,Female,115,82,90,98.9,Skin Rash,Low,General Medicine
+85,Male,111,81,87,98.4,Mild Headache,Low,General Medicine
+80,Female,171,81,90,98.4,Numbness,High,Neurology
+62,Female,162,117,148,98.8,Shortness of Breath,High,Cardiology
+60,Male,198,84,83,98.4,Severe Headache,High,Neurology
+58,Male,122,71,120,103.8,Body Pain,Medium,General Medicine
+44,Female,169,106,132,98.1,Palpitations,High,Cardiology
+89,Male,174,112,127,98.7,Chest Pain,High,Cardiology
+34,Female,110,73,86,98.2,Joint Pain,Low,General Medicine
+62,Female,127,83,111,98.3,Difficulty Breathing,Medium,Pulmonology
+82,Male,130,85,62,98.7,Mild Headache,Low,General Medicine
+31,Female,118,73,62,98.7,Mild Headache,Low,General Medicine
+70,Female,128,80,122,101.7,Body Pain,Medium,General Medicine
+30,Male,123,81,70,98.6,Dizziness,Low,General Medicine
+86,Female,173,76,88,98.9,Severe Headache,High,Neurology
+75,Female,115,72,118,103.6,Body Pain,Medium,General Medicine
+26,Male,127,78,70,98.9,Joint Pain,Low,General Medicine
+68,Male,127,79,65,98.3,Joint Pain,Low,General Medicine
+56,Male,194,102,111,98.1,Palpitations,High,Cardiology
+24,Female,117,71,68,98.4,Skin Rash,Low,General Medicine
+71,Male,116,70,70,98.2,Skin Rash,Low,General Medicine
+59,Male,120,74,95,98.6,Difficulty Breathing,Medium,Pulmonology
+32,Female,125,73,70,98.5,Mild Headache,Low,General Medicine
+21,Male,124,83,129,103.9,High Fever,Medium,General Medicine
+82,Female,112,79,61,98.1,Joint Pain,Low,General Medicine
+43,Male,160,116,144,98.0,Chest Pain,High,Cardiology
+82,Male,196,74,60,98.9,Numbness,High,Neurology
+90,Male,124,70,80,98.8,Cough,Low,General Medicine
+53,Female,126,85,122,102.2,Shivering,Medium,General Medicine
+40,Female,127,76,64,98.1,Dizziness,Low,General Medicine
+46,Male,110,77,76,98.1,Skin Rash,Low,General Medicine
+42,Male,129,76,88,98.9,Skin Rash,Low,General Medicine
+29,Female,121,72,67,98.3,Mild Headache,Low,General Medicine
+46,Male,160,108,115,98.8,Palpitations,High,Cardiology
+59,Male,112,78,78,98.7,Skin Rash,Low,General Medicine
+61,Male,119,84,75,98.3,Skin Rash,Low,General Medicine
+68,Male,200,110,126,98.6,Palpitations,High,Cardiology
+43,Male,199,101,121,98.3,Palpitations,High,Cardiology
+51,Female,206,84,86,98.5,Numbness,High,Neurology
+43,Male,128,73,87,98.4,Joint Pain,Low,General Medicine
+87,Male,176,104,122,99.0,Chest Pain,High,Cardiology
+33,Female,127,82,63,98.0,Dizziness,Low,General Medicine
+82,Female,123,79,130,101.7,Shivering,Medium,General Medicine
+66,Male,119,75,79,99.0,Cough,Low,General Medicine
+28,Female,121,82,102,99.0,Difficulty Breathing,Medium,Pulmonology
+27,Female,127,73,72,98.6,Skin Rash,Low,General Medicine
+68,Female,115,83,104,98.1,Difficulty Breathing,Medium,Pulmonology
+27,Female,115,76,127,103.6,Body Pain,Medium,General Medicine
+78,Male,125,74,70,98.9,Cough,Low,General Medicine
+23,Male,114,71,75,98.6,Cough,Low,General Medicine
+30,Male,127,83,69,98.6,Dizziness,Low,General Medicine
+89,Male,124,80,75,99.0,Skin Rash,Low,General Medicine
+60,Female,124,83,106,102.2,Body Pain,Medium,General Medicine
+60,Male,124,70,90,98.3,Skin Rash,Low,General Medicine
+81,Female,118,85,77,98.4,Dizziness,Low,General Medicine
+55,Male,124,71,78,98.5,Joint Pain,Low,General Medicine
+84,Male,180,109,124,99.0,Chest Pain,High,Cardiology
+37,Male,119,71,111,98.7,Difficulty Breathing,Medium,Pulmonology
+22,Male,126,71,101,104.8,Shivering,Medium,General Medicine
+24,Female,172,117,140,98.8,Shortness of Breath,High,Cardiology
+67,Male,127,78,81,99.0,Mild Headache,Low,General Medicine
+62,Male,166,107,135,98.9,Chest Pain,High,Cardiology
+86,Female,113,83,70,98.3,Skin Rash,Low,General Medicine
+71,Male,190,71,62,99.0,Numbness,High,Neurology
+19,Male,121,76,128,103.6,High Fever,Medium,General Medicine
+21,Female,181,118,113,98.5,Chest Pain,High,Cardiology
+84,Female,126,85,130,102.2,Body Pain,Medium,General Medicine
+74,Female,117,85,102,104.1,Shivering,Medium,General Medicine
+84,Female,125,73,97,98.5,Difficulty Breathing,Medium,Pulmonology
+64,Female,122,73,101,102.0,High Fever,Medium,General Medicine
+39,Female,199,107,117,98.3,Palpitations,High,Cardiology
+60,Male,199,107,155,98.6,Chest Pain,High,Cardiology
+63,Male,110,80,116,104.3,Shivering,Medium,General Medicine
+45,Male,116,83,67,98.6,Mild Headache,Low,General Medicine
+80,Female,130,75,125,101.2,Body Pain,Medium,General Medicine
+75,Female,112,76,108,103.5,Body Pain,Medium,General Medicine
+62,Male,116,77,73,98.5,Mild Headache,Low,General Medicine
+82,Male,193,113,118,98.7,Chest Pain,High,Cardiology
+40,Male,129,75,109,98.9,Difficulty Breathing,Medium,Pulmonology
+88,Male,110,78,128,104.0,Shivering,Medium,General Medicine
+24,Male,125,74,116,101.5,Shivering,Medium,General Medicine
+48,Male,126,70,64,98.2,Cough,Low,General Medicine
+90,Female,110,85,65,98.0,Dizziness,Low,General Medicine
+49,Female,130,82,76,98.8,Skin Rash,Low,General Medicine
+57,Female,110,70,106,98.5,Difficulty Breathing,Medium,Pulmonology
+34,Male,120,71,81,98.9,Cough,Low,General Medicine
+23,Male,128,71,63,98.5,Dizziness,Low,General Medicine
+90,Male,161,105,159,98.5,Chest Pain,High,Cardiology
+73,Male,212,70,63,98.6,Numbness,High,Neurology
+52,Female,119,77,127,102.9,Body Pain,Medium,General Medicine
+65,Female,172,105,112,98.2,Chest Pain,High,Cardiology
+69,Female,124,80,121,101.4,High Fever,Medium,General Medicine
+82,Male,128,83,65,98.2,Cough,Low,General Medicine
+52,Male,118,73,80,98.7,Skin Rash,Low,General Medicine
+68,Male,111,70,129,103.9,Body Pain,Medium,General Medicine
+73,Male,127,76,82,98.7,Skin Rash,Low,General Medicine
+40,Female,195,110,151,98.2,Palpitations,High,Cardiology
+33,Male,128,82,117,104.4,High Fever,Medium,General Medicine
+86,Male,119,70,66,98.7,Cough,Low,General Medicine
+88,Female,181,75,63,98.9,Numbness,High,Neurology
+56,Male,110,82,125,104.8,Shivering,Medium,General Medicine
+55,Female,112,82,89,98.5,Skin Rash,Low,General Medicine
+49,Male,129,81,115,104.0,Shivering,Medium,General Medicine
+45,Female,123,72,83,98.4,Joint Pain,Low,General Medicine
+25,Female,121,72,74,98.1,Cough,Low,General Medicine
+72,Female,116,73,88,98.7,Cough,Low,General Medicine
+63,Female,177,118,158,99.0,Palpitations,High,Cardiology
+78,Female,112,82,123,104.4,High Fever,Medium,General Medicine
+68,Female,125,70,63,98.3,Cough,Low,General Medicine
+81,Male,179,78,60,98.5,Severe Headache,High,Neurology
+34,Female,116,81,83,98.6,Cough,Low,General Medicine
+35,Female,178,112,117,98.5,Shortness of Breath,High,Cardiology
+44,Male,111,80,64,98.7,Joint Pain,Low,General Medicine
+53,Male,112,72,75,98.5,Dizziness,Low,General Medicine
+77,Female,127,79,106,98.3,Difficulty Breathing,Medium,Pulmonology
+90,Male,160,117,143,98.8,Shortness of Breath,High,Cardiology
+37,Male,114,85,67,98.2,Joint Pain,Low,General Medicine
+44,Male,121,74,102,103.3,High Fever,Medium,General Medicine
+57,Male,120,77,81,98.8,Dizziness,Low,General Medicine
+58,Male,112,81,69,98.5,Mild Headache,Low,General Medicine
+86,Male,122,71,78,98.9,Mild Headache,Low,General Medicine
+54,Female,208,71,73,98.8,Numbness,High,Neurology
+21,Male,120,77,71,98.9,Skin Rash,Low,General Medicine
+47,Female,127,84,70,98.9,Joint Pain,Low,General Medicine
+23,Female,114,81,84,98.1,Dizziness,Low,General Medicine
+73,Female,116,70,69,98.7,Skin Rash,Low,General Medicine
+31,Male,129,74,61,98.0,Cough,Low,General Medicine
+65,Male,169,103,148,98.6,Palpitations,High,Cardiology
+25,Female,127,85,69,98.5,Dizziness,Low,General Medicine
+72,Male,168,101,111,98.5,Chest Pain,High,Cardiology
+43,Male,118,82,62,98.3,Dizziness,Low,General Medicine
+83,Female,118,74,99,98.4,Difficulty Breathing,Medium,Pulmonology
+54,Female,111,75,85,98.1,Dizziness,Low,General Medicine
+50,Female,119,75,85,98.8,Skin Rash,Low,General Medicine
+61,Female,111,77,113,98.3,Difficulty Breathing,Medium,Pulmonology
+50,Female,110,80,106,101.1,High Fever,Medium,General Medicine
+78,Female,126,84,90,98.4,Mild Headache,Low,General Medicine
+55,Male,180,116,149,98.1,Shortness of Breath,High,Cardiology
+18,Female,165,117,129,98.1,Palpitations,High,Cardiology
+39,Female,121,70,68,98.1,Joint Pain,Low,General Medicine
+27,Male,118,76,79,98.5,Mild Headache,Low,General Medicine
+76,Female,120,83,87,98.9,Cough,Low,General Medicine
+46,Male,121,82,75,98.6,Cough,Low,General Medicine
+57,Female,111,77,116,103.7,Shivering,Medium,General Medicine
+76,Male,124,77,84,98.0,Joint Pain,Low,General Medicine
+38,Female,110,78,88,98.4,Cough,Low,General Medicine
+77,Female,123,77,122,103.1,Shivering,Medium,General Medicine
+51,Male,193,78,78,98.4,Numbness,High,Neurology
+84,Female,118,81,69,98.2,Joint Pain,Low,General Medicine
+30,Female,115,75,76,98.0,Cough,Low,General Medicine
+53,Male,120,78,66,98.5,Cough,Low,General Medicine
+63,Female,126,77,60,98.8,Cough,Low,General Medicine
+82,Female,167,115,148,98.8,Palpitations,High,Cardiology
+32,Male,121,72,63,98.0,Mild Headache,Low,General Medicine
+24,Male,120,84,81,98.1,Cough,Low,General Medicine
+73,Female,189,74,78,98.2,Severe Headache,High,Neurology
+22,Male,115,79,62,98.6,Mild Headache,Low,General Medicine
+70,Male,173,107,133,98.4,Chest Pain,High,Cardiology
+30,Male,111,75,87,98.3,Dizziness,Low,General Medicine
+29,Male,117,83,113,98.1,Difficulty Breathing,Medium,Pulmonology
+32,Female,124,78,81,99.0,Joint Pain,Low,General Medicine
+55,Female,113,85,85,98.5,Skin Rash,Low,General Medicine
+67,Male,179,82,61,98.4,Numbness,High,Neurology
+63,Male,129,78,107,98.1,Difficulty Breathing,Medium,Pulmonology
+69,Female,130,78,89,98.3,Dizziness,Low,General Medicine
+56,Male,129,75,129,103.8,Shivering,Medium,General Medicine
+54,Male,126,79,102,103.3,Shivering,Medium,General Medicine
+38,Female,121,81,68,98.5,Cough,Low,General Medicine
+42,Female,117,76,82,98.6,Joint Pain,Low,General Medicine
+65,Female,198,101,139,98.8,Shortness of Breath,High,Cardiology
+32,Male,110,71,98,98.1,Difficulty Breathing,Medium,Pulmonology
+62,Male,111,78,114,98.4,Difficulty Breathing,Medium,Pulmonology
+44,Male,110,83,87,98.1,Cough,Low,General Medicine
+78,Female,128,73,90,98.7,Cough,Low,General Medicine
+56,Female,123,84,82,98.4,Skin Rash,Low,General Medicine
+29,Female,117,81,70,98.4,Cough,Low,General Medicine
+37,Male,126,82,71,98.7,Joint Pain,Low,General Medicine
+83,Male,188,76,82,98.3,Numbness,High,Neurology
+89,Male,183,82,63,98.8,Slurred Speech,High,Neurology
+50,Male,188,80,70,98.2,Severe Headache,High,Neurology
+52,Male,113,77,62,98.1,Skin Rash,Low,General Medicine
+63,Male,220,84,72,98.1,Numbness,High,Neurology
+58,Female,127,81,70,98.0,Dizziness,Low,General Medicine
+82,Female,128,84,70,98.1,Dizziness,Low,General Medicine
+52,Male,190,115,149,98.9,Palpitations,High,Cardiology
+41,Female,117,82,81,98.4,Joint Pain,Low,General Medicine
+84,Female,119,75,88,98.9,Joint Pain,Low,General Medicine
+66,Female,174,108,110,98.4,Chest Pain,High,Cardiology
+46,Male,126,78,106,101.5,High Fever,Medium,General Medicine
+65,Female,179,79,65,98.3,Numbness,High,Neurology
+68,Female,130,78,114,98.4,Difficulty Breathing,Medium,Pulmonology
+33,Female,121,83,83,98.8,Cough,Low,General Medicine
+71,Male,118,77,117,101.1,Body Pain,Medium,General Medicine
+43,Male,197,107,126,98.6,Palpitations,High,Cardiology
+70,Male,126,76,87,98.5,Skin Rash,Low,General Medicine
+49,Female,115,79,72,98.2,Skin Rash,Low,General Medicine
+87,Male,179,104,134,98.4,Shortness of Breath,High,Cardiology
+43,Male,111,81,97,98.3,Difficulty Breathing,Medium,Pulmonology
+19,Female,167,107,149,98.9,Chest Pain,High,Cardiology
+61,Male,175,104,146,98.5,Shortness of Breath,High,Cardiology
+75,Male,123,74,80,98.0,Cough,Low,General Medicine
+90,Female,112,80,79,98.2,Mild Headache,Low,General Medicine
+73,Female,126,75,69,98.3,Skin Rash,Low,General Medicine
+78,Male,122,80,120,102.9,Body Pain,Medium,General Medicine
+74,Female,128,79,62,98.9,Mild Headache,Low,General Medicine
+23,Male,121,73,125,103.4,Body Pain,Medium,General Medicine
+45,Female,124,78,75,98.8,Skin Rash,Low,General Medicine
+42,Female,115,76,87,98.5,Joint Pain,Low,General Medicine
+53,Male,124,75,108,98.9,Difficulty Breathing,Medium,Pulmonology
+72,Male,119,70,66,98.2,Mild Headache,Low,General Medicine
+46,Female,111,83,115,98.9,Difficulty Breathing,Medium,Pulmonology
+18,Male,114,78,99,98.2,Difficulty Breathing,Medium,Pulmonology
+44,Male,111,72,87,98.9,Mild Headache,Low,General Medicine
+37,Female,112,75,107,103.4,Shivering,Medium,General Medicine
+83,Male,125,78,60,98.2,Mild Headache,Low,General Medicine
+26,Female,118,82,103,104.8,Body Pain,Medium,General Medicine
+21,Male,164,108,125,98.6,Palpitations,High,Cardiology
+22,Female,129,84,82,98.5,Cough,Low,General Medicine
+21,Male,129,73,81,98.8,Cough,Low,General Medicine
+51,Female,187,118,141,98.3,Palpitations,High,Cardiology
+20,Male,115,72,116,103.1,Body Pain,Medium,General Medicine
+85,Male,122,78,73,98.5,Mild Headache,Low,General Medicine
+30,Female,122,70,115,98.2,Difficulty Breathing,Medium,Pulmonology
+89,Male,122,73,63,98.9,Dizziness,Low,General Medicine
+68,Male,128,73,63,98.1,Skin Rash,Low,General Medicine
+47,Female,179,111,123,98.4,Chest Pain,High,Cardiology
+87,Female,115,73,128,101.6,High Fever,Medium,General Medicine
+59,Female,125,85,60,98.7,Dizziness,Low,General Medicine
+71,Male,114,74,104,98.7,Difficulty Breathing,Medium,Pulmonology
+56,Female,199,72,85,98.5,Slurred Speech,High,Neurology
+18,Male,120,79,117,102.7,Body Pain,Medium,General Medicine
+32,Female,124,82,71,98.3,Dizziness,Low,General Medicine
+86,Male,188,119,146,98.3,Chest Pain,High,Cardiology
+51,Female,193,105,157,98.0,Palpitations,High,Cardiology
+87,Female,115,79,113,98.8,Difficulty Breathing,Medium,Pulmonology
+44,Female,110,84,99,98.0,Difficulty Breathing,Medium,Pulmonology
+90,Male,170,108,140,98.2,Shortness of Breath,High,Cardiology
+52,Female,216,75,83,98.1,Slurred Speech,High,Neurology
+60,Male,202,78,89,99.0,Numbness,High,Neurology
+87,Male,130,73,100,103.8,Shivering,Medium,General Medicine
+84,Male,114,77,71,98.7,Cough,Low,General Medicine
+81,Male,195,79,81,98.1,Severe Headache,High,Neurology
+53,Male,118,76,78,98.5,Cough,Low,General Medicine
+18,Female,120,80,114,103.4,Body Pain,Medium,General Medicine
+78,Female,129,73,82,98.8,Joint Pain,Low,General Medicine
+53,Female,112,74,107,102.9,High Fever,Medium,General Medicine
+66,Male,215,78,82,98.6,Severe Headache,High,Neurology
+63,Female,128,77,78,98.6,Joint Pain,Low,General Medicine
+85,Female,125,77,62,98.9,Cough,Low,General Medicine
+44,Female,114,84,62,98.8,Cough,Low,General Medicine
+46,Female,114,83,78,98.5,Cough,Low,General Medicine
+72,Female,116,73,101,103.9,Shivering,Medium,General Medicine
+88,Female,124,71,82,98.4,Skin Rash,Low,General Medicine
+85,Male,191,106,135,98.8,Shortness of Breath,High,Cardiology
+31,Female,127,81,81,98.1,Dizziness,Low,General Medicine
+52,Male,126,79,114,98.5,Difficulty Breathing,Medium,Pulmonology
+53,Female,189,106,136,98.4,Chest Pain,High,Cardiology
+48,Female,196,105,113,98.2,Palpitations,High,Cardiology
+37,Male,130,75,89,98.9,Dizziness,Low,General Medicine
+44,Male,116,78,96,98.3,Difficulty Breathing,Medium,Pulmonology
+87,Male,183,116,159,98.8,Palpitations,High,Cardiology
+24,Female,120,73,115,98.1,Difficulty Breathing,Medium,Pulmonology
+85,Male,198,83,82,98.4,Slurred Speech,High,Neurology
+65,Female,112,81,60,98.9,Dizziness,Low,General Medicine
+40,Female,165,109,120,98.7,Chest Pain,High,Cardiology
+67,Male,183,103,130,98.6,Shortness of Breath,High,Cardiology
+61,Female,130,75,77,98.2,Joint Pain,Low,General Medicine
+88,Male,117,72,66,98.2,Dizziness,Low,General Medicine
+56,Male,115,85,73,98.1,Mild Headache,Low,General Medicine
+70,Male,129,81,68,98.3,Joint Pain,Low,General Medicine
+52,Male,209,85,83,98.6,Severe Headache,High,Neurology
+33,Female,113,73,66,98.2,Joint Pain,Low,General Medicine
+51,Male,122,80,85,98.5,Mild Headache,Low,General Medicine
+37,Male,130,75,88,98.9,Skin Rash,Low,General Medicine
+71,Male,178,112,158,98.4,Chest Pain,High,Cardiology
+54,Female,125,84,100,98.4,Difficulty Breathing,Medium,Pulmonology
+46,Male,192,103,138,98.1,Palpitations,High,Cardiology
+67,Female,123,71,97,98.0,Difficulty Breathing,Medium,Pulmonology
+89,Female,111,81,71,98.6,Dizziness,Low,General Medicine
+37,Male,110,84,63,98.7,Dizziness,Low,General Medicine
+35,Female,119,81,111,104.0,High Fever,Medium,General Medicine
+80,Female,115,79,87,98.9,Cough,Low,General Medicine
+59,Male,115,75,115,98.4,Difficulty Breathing,Medium,Pulmonology
+30,Female,185,112,130,98.6,Chest Pain,High,Cardiology
+67,Male,127,75,76,98.9,Dizziness,Low,General Medicine
+60,Male,110,76,109,98.9,Difficulty Breathing,Medium,Pulmonology
+76,Female,192,78,79,98.0,Slurred Speech,High,Neurology
+65,Female,123,82,121,104.8,High Fever,Medium,General Medicine
+39,Female,164,110,116,98.9,Shortness of Breath,High,Cardiology
+58,Male,182,71,77,98.3,Slurred Speech,High,Neurology
+59,Female,122,84,66,98.7,Joint Pain,Low,General Medicine
+51,Female,123,82,62,98.2,Cough,Low,General Medicine
+37,Male,125,71,71,98.2,Cough,Low,General Medicine
+33,Female,124,82,87,98.5,Skin Rash,Low,General Medicine
+27,Male,116,73,79,98.8,Mild Headache,Low,General Medicine
+44,Male,119,80,63,98.1,Joint Pain,Low,General Medicine
+72,Male,126,77,75,99.0,Dizziness,Low,General Medicine
+67,Female,124,78,96,98.1,Difficulty Breathing,Medium,Pulmonology
+33,Male,129,84,83,98.9,Cough,Low,General Medicine
+67,Male,123,71,74,98.8,Joint Pain,Low,General Medicine
+73,Male,123,77,107,104.0,Shivering,Medium,General Medicine
+63,Female,125,71,70,98.2,Joint Pain,Low,General Medicine
+54,Female,120,83,89,98.1,Cough,Low,General Medicine
+35,Male,122,75,71,98.2,Skin Rash,Low,General Medicine
+72,Male,119,79,124,104.9,Shivering,Medium,General Medicine
+35,Male,110,70,65,98.2,Dizziness,Low,General Medicine
+68,Male,119,75,64,98.9,Skin Rash,Low,General Medicine
+41,Male,188,107,113,98.4,Shortness of Breath,High,Cardiology
+82,Female,165,120,127,98.2,Shortness of Breath,High,Cardiology
+27,Male,117,85,110,101.2,Shivering,Medium,General Medicine
+50,Male,123,71,64,98.2,Joint Pain,Low,General Medicine
+45,Male,122,77,88,98.6,Mild Headache,Low,General Medicine
+63,Male,110,82,105,103.2,Shivering,Medium,General Medicine
+25,Male,115,77,112,104.4,Body Pain,Medium,General Medicine
+68,Female,130,70,73,98.5,Dizziness,Low,General Medicine
+62,Female,113,79,73,98.3,Mild Headache,Low,General Medicine
+49,Female,115,77,130,101.8,Body Pain,Medium,General Medicine
+35,Male,124,83,108,98.6,Difficulty Breathing,Medium,Pulmonology
+36,Female,118,79,90,98.9,Joint Pain,Low,General Medicine
+84,Male,186,105,137,98.1,Chest Pain,High,Cardiology
+32,Male,128,83,72,98.7,Joint Pain,Low,General Medicine
+48,Male,123,77,69,98.9,Cough,Low,General Medicine
+77,Male,114,85,72,98.9,Joint Pain,Low,General Medicine
+64,Female,212,80,65,98.3,Numbness,High,Neurology
+79,Female,130,73,79,98.9,Mild Headache,Low,General Medicine
+70,Female,120,73,80,98.4,Dizziness,Low,General Medicine
+26,Female,113,72,69,98.8,Mild Headache,Low,General Medicine
+50,Female,115,79,69,98.3,Skin Rash,Low,General Medicine
+78,Female,129,80,112,99.0,Difficulty Breathing,Medium,Pulmonology
+51,Female,125,82,110,101.5,Shivering,Medium,General Medicine
+83,Male,202,78,73,98.1,Numbness,High,Neurology
+80,Female,122,71,120,102.1,Body Pain,Medium,General Medicine
+79,Female,111,75,76,98.0,Mild Headache,Low,General Medicine
+82,Male,196,81,80,98.7,Numbness,High,Neurology
+51,Male,129,79,66,98.2,Joint Pain,Low,General Medicine
+88,Female,130,74,118,102.3,Shivering,Medium,General Medicine
+72,Female,115,79,114,98.2,Difficulty Breathing,Medium,Pulmonology
+28,Male,119,81,82,98.6,Mild Headache,Low,General Medicine
+38,Female,195,107,157,98.5,Palpitations,High,Cardiology
+69,Female,120,80,88,98.5,Skin Rash,Low,General Medicine
+38,Male,117,76,82,98.0,Dizziness,Low,General Medicine
+18,Female,178,100,143,98.6,Chest Pain,High,Cardiology
+30,Male,110,75,125,103.6,Body Pain,Medium,General Medicine
+63,Female,120,77,108,102.6,Shivering,Medium,General Medicine
+75,Female,187,78,80,98.9,Severe Headache,High,Neurology
+42,Male,162,114,119,98.7,Chest Pain,High,Cardiology
+87,Female,170,79,83,98.8,Severe Headache,High,Neurology
+50,Male,112,84,122,103.8,Body Pain,Medium,General Medicine
+21,Female,125,75,62,98.8,Mild Headache,Low,General Medicine
+72,Female,220,74,65,98.8,Numbness,High,Neurology
+30,Male,113,78,73,98.7,Dizziness,Low,General Medicine
+85,Female,171,114,149,98.7,Shortness of Breath,High,Cardiology
+51,Female,126,85,97,98.2,Difficulty Breathing,Medium,Pulmonology
+76,Female,162,119,143,98.4,Chest Pain,High,Cardiology
+58,Female,205,78,84,98.5,Severe Headache,High,Neurology
+58,Female,128,72,61,98.1,Joint Pain,Low,General Medicine
+76,Male,207,78,83,98.6,Numbness,High,Neurology
+86,Male,113,77,79,98.6,Skin Rash,Low,General Medicine
+85,Male,122,85,122,104.4,Body Pain,Medium,General Medicine
+49,Male,117,83,103,99.0,Difficulty Breathing,Medium,Pulmonology
+31,Male,128,85,64,98.1,Cough,Low,General Medicine
+70,Male,116,73,69,98.5,Dizziness,Low,General Medicine
+82,Male,213,72,68,98.1,Slurred Speech,High,Neurology
+66,Male,215,80,80,98.0,Severe Headache,High,Neurology
+72,Female,122,71,89,98.5,Joint Pain,Low,General Medicine
+28,Male,112,83,84,98.9,Joint Pain,Low,General Medicine
+33,Female,125,72,103,102.0,Shivering,Medium,General Medicine
+58,Male,120,70,65,98.1,Dizziness,Low,General Medicine
+22,Male,121,79,86,98.4,Dizziness,Low,General Medicine
+40,Female,111,71,73,98.5,Dizziness,Low,General Medicine
+79,Female,129,73,103,104.7,Shivering,Medium,General Medicine
+55,Female,118,79,123,101.8,Body Pain,Medium,General Medicine
+30,Female,175,111,152,98.2,Shortness of Breath,High,Cardiology
+43,Male,115,79,67,98.5,Skin Rash,Low,General Medicine
+62,Male,116,81,65,98.7,Joint Pain,Low,General Medicine
+78,Male,190,74,80,99.0,Slurred Speech,High,Neurology
+53,Male,114,80,110,101.4,Shivering,Medium,General Medicine
+82,Male,215,83,69,98.6,Numbness,High,Neurology
+73,Female,117,77,82,98.0,Mild Headache,Low,General Medicine
+63,Male,169,120,120,98.4,Shortness of Breath,High,Cardiology
+58,Male,130,72,98,98.2,Difficulty Breathing,Medium,Pulmonology
+79,Female,125,72,80,98.5,Cough,Low,General Medicine
+21,Male,173,107,142,98.6,Shortness of Breath,High,Cardiology
+40,Male,188,103,126,98.1,Palpitations,High,Cardiology
+33,Female,119,84,79,98.6,Mild Headache,Low,General Medicine
+74,Female,121,73,121,102.6,Body Pain,Medium,General Medicine
+81,Male,122,81,60,98.2,Cough,Low,General Medicine
+75,Male,128,74,113,98.6,Difficulty Breathing,Medium,Pulmonology
+37,Male,116,75,75,98.3,Skin Rash,Low,General Medicine
+33,Male,123,85,90,98.4,Mild Headache,Low,General Medicine
+51,Female,128,79,110,98.5,Difficulty Breathing,Medium,Pulmonology
+72,Female,127,72,113,98.6,Difficulty Breathing,Medium,Pulmonology
+80,Female,110,82,105,98.2,Difficulty Breathing,Medium,Pulmonology
+41,Female,120,73,124,101.8,Shivering,Medium,General Medicine
+79,Male,193,119,139,98.0,Palpitations,High,Cardiology
+89,Male,110,84,109,101.7,Body Pain,Medium,General Medicine
+68,Female,128,76,64,98.2,Joint Pain,Low,General Medicine
+55,Male,118,78,79,98.1,Skin Rash,Low,General Medicine
+31,Female,169,115,154,98.1,Chest Pain,High,Cardiology
+73,Male,187,106,154,98.4,Chest Pain,High,Cardiology
+73,Male,124,85,79,98.9,Joint Pain,Low,General Medicine
+34,Male,111,79,71,98.2,Joint Pain,Low,General Medicine
+29,Male,112,70,63,98.7,Dizziness,Low,General Medicine
+61,Female,122,73,96,98.2,Difficulty Breathing,Medium,Pulmonology
+35,Male,115,75,84,98.4,Mild Headache,Low,General Medicine
+31,Female,124,84,129,101.8,High Fever,Medium,General Medicine
+66,Female,117,77,104,101.6,Shivering,Medium,General Medicine
+33,Male,119,75,96,98.8,Difficulty Breathing,Medium,Pulmonology
+87,Male,123,77,71,98.3,Joint Pain,Low,General Medicine
+65,Male,110,72,128,104.7,Body Pain,Medium,General Medicine
+84,Male,121,84,68,98.6,Skin Rash,Low,General Medicine
+42,Male,119,76,80,98.2,Cough,Low,General Medicine
+83,Female,120,79,68,98.6,Cough,Low,General Medicine
+79,Male,194,110,141,98.8,Shortness of Breath,High,Cardiology
+54,Female,130,70,75,98.9,Mild Headache,Low,General Medicine
+36,Male,116,72,87,99.0,Cough,Low,General Medicine
+53,Male,128,85,83,98.5,Mild Headache,Low,General Medicine
+24,Male,128,75,71,98.8,Cough,Low,General Medicine
+62,Female,119,70,103,98.3,Difficulty Breathing,Medium,Pulmonology
+63,Male,170,83,81,98.1,Severe Headache,High,Neurology
+45,Male,116,83,87,98.7,Skin Rash,Low,General Medicine
+21,Male,130,78,88,98.0,Dizziness,Low,General Medicine
+42,Female,125,78,61,98.2,Dizziness,Low,General Medicine
+21,Male,195,100,150,98.3,Shortness of Breath,High,Cardiology
+68,Female,122,83,89,98.4,Mild Headache,Low,General Medicine
+87,Female,125,71,89,98.2,Joint Pain,Low,General Medicine
+36,Female,121,79,106,104.3,Shivering,Medium,General Medicine
+74,Female,119,83,90,98.4,Skin Rash,Low,General Medicine
+45,Male,115,74,82,98.6,Dizziness,Low,General Medicine
+63,Female,117,73,69,98.5,Dizziness,Low,General Medicine
+74,Female,128,85,90,98.4,Dizziness,Low,General Medicine
+47,Male,186,105,154,98.1,Chest Pain,High,Cardiology
+77,Male,187,73,85,98.2,Slurred Speech,High,Neurology
+51,Male,200,116,131,98.4,Chest Pain,High,Cardiology
+32,Female,117,74,72,98.1,Dizziness,Low,General Medicine
+72,Female,127,71,62,98.1,Mild Headache,Low,General Medicine
+48,Female,118,80,73,98.2,Cough,Low,General Medicine
+34,Female,129,82,81,98.6,Cough,Low,General Medicine
+53,Male,197,83,89,98.7,Numbness,High,Neurology
+85,Female,111,78,130,103.9,High Fever,Medium,General Medicine
+78,Male,186,79,83,98.3,Severe Headache,High,Neurology
+22,Male,120,75,89,98.9,Mild Headache,Low,General Medicine
+89,Female,121,71,82,98.4,Mild Headache,Low,General Medicine
+47,Female,123,77,85,98.6,Joint Pain,Low,General Medicine
+51,Female,185,101,146,98.3,Chest Pain,High,Cardiology
+76,Male,124,85,127,104.5,High Fever,Medium,General Medicine
+75,Male,164,108,158,98.5,Shortness of Breath,High,Cardiology
+73,Male,111,74,78,98.1,Dizziness,Low,General Medicine
+69,Male,200,105,125,98.4,Palpitations,High,Cardiology
+42,Female,169,107,125,98.1,Chest Pain,High,Cardiology
+49,Female,128,79,64,98.8,Cough,Low,General Medicine
+59,Female,168,101,159,98.3,Chest Pain,High,Cardiology
+30,Female,180,104,151,98.7,Chest Pain,High,Cardiology
+58,Female,126,71,114,98.3,Difficulty Breathing,Medium,Pulmonology
+67,Male,119,83,63,98.5,Skin Rash,Low,General Medicine
+19,Male,124,73,62,98.6,Dizziness,Low,General Medicine
+22,Female,130,78,61,98.7,Dizziness,Low,General Medicine
+21,Female,123,85,89,98.9,Dizziness,Low,General Medicine
+72,Male,128,81,101,98.6,Difficulty Breathing,Medium,Pulmonology
+50,Female,122,73,74,98.0,Dizziness,Low,General Medicine
+55,Male,122,75,113,105.0,High Fever,Medium,General Medicine
+36,Male,110,78,64,98.6,Cough,Low,General Medicine
+55,Female,172,116,124,98.6,Shortness of Breath,High,Cardiology
+38,Female,111,82,83,98.7,Joint Pain,Low,General Medicine
+86,Female,125,85,82,98.8,Dizziness,Low,General Medicine
+81,Male,174,84,74,98.6,Numbness,High,Neurology
+21,Male,113,71,68,98.9,Mild Headache,Low,General Medicine
+53,Male,111,73,99,98.7,Difficulty Breathing,Medium,Pulmonology
+52,Male,191,79,69,98.8,Numbness,High,Neurology
+41,Male,110,80,117,104.6,High Fever,Medium,General Medicine
+62,Male,128,74,90,99.0,Skin Rash,Low,General Medicine
+32,Male,111,83,103,98.3,Difficulty Breathing,Medium,Pulmonology
+89,Female,124,82,108,98.3,Difficulty Breathing,Medium,Pulmonology
+89,Female,197,109,157,98.2,Palpitations,High,Cardiology
+33,Female,163,106,119,98.3,Shortness of Breath,High,Cardiology
+60,Male,129,81,70,98.4,Cough,Low,General Medicine
+18,Female,120,78,99,98.5,Difficulty Breathing,Medium,Pulmonology
+51,Female,191,73,72,98.1,Severe Headache,High,Neurology
+89,Male,128,75,125,104.8,Shivering,Medium,General Medicine
+82,Male,115,82,82,98.7,Mild Headache,Low,General Medicine
+42,Female,121,78,70,98.1,Joint Pain,Low,General Medicine
+25,Male,128,76,74,98.8,Dizziness,Low,General Medicine
+53,Male,203,70,71,98.2,Slurred Speech,High,Neurology
+78,Female,172,114,126,98.8,Palpitations,High,Cardiology
+87,Male,112,79,86,98.1,Mild Headache,Low,General Medicine
+58,Female,119,80,79,98.3,Dizziness,Low,General Medicine
+27,Male,124,75,71,98.0,Mild Headache,Low,General Medicine
+37,Female,120,75,123,101.5,Shivering,Medium,General Medicine
+18,Female,125,71,117,104.1,Shivering,Medium,General Medicine
+88,Female,123,75,105,98.2,Difficulty Breathing,Medium,Pulmonology
+57,Female,124,84,83,98.5,Dizziness,Low,General Medicine
+56,Male,197,114,148,98.0,Chest Pain,High,Cardiology
+68,Female,124,82,124,101.9,Shivering,Medium,General Medicine
+54,Female,128,73,65,98.4,Cough,Low,General Medicine
+85,Female,117,74,127,101.7,Body Pain,Medium,General Medicine
+75,Female,120,72,67,98.1,Mild Headache,Low,General Medicine
+75,Female,110,74,121,103.0,Body Pain,Medium,General Medicine
+69,Male,172,103,135,98.4,Chest Pain,High,Cardiology
+75,Male,112,80,109,98.6,Difficulty Breathing,Medium,Pulmonology
+28,Female,111,85,78,98.8,Mild Headache,Low,General Medicine
+66,Male,216,75,81,98.5,Slurred Speech,High,Neurology
+63,Female,190,82,86,98.1,Numbness,High,Neurology
+88,Male,119,80,85,98.7,Skin Rash,Low,General Medicine
+55,Female,216,80,73,98.8,Slurred Speech,High,Neurology
+70,Female,120,81,123,104.4,Shivering,Medium,General Medicine
+29,Male,122,81,113,98.2,Difficulty Breathing,Medium,Pulmonology
+80,Male,110,77,105,104.0,Body Pain,Medium,General Medicine
+49,Male,111,81,109,98.5,Difficulty Breathing,Medium,Pulmonology
+35,Male,127,72,65,98.2,Mild Headache,Low,General Medicine
+84,Male,113,83,74,99.0,Mild Headache,Low,General Medicine
+57,Female,114,73,104,98.7,Difficulty Breathing,Medium,Pulmonology
+36,Female,124,71,83,98.0,Dizziness,Low,General Medicine
+43,Female,127,81,114,102.8,Shivering,Medium,General Medicine
+61,Female,219,85,61,98.2,Numbness,High,Neurology
+90,Female,205,70,60,98.1,Numbness,High,Neurology
+46,Female,160,115,149,98.5,Shortness of Breath,High,Cardiology
+77,Male,114,79,61,98.1,Skin Rash,Low,General Medicine
+58,Male,115,83,73,98.3,Cough,Low,General Medicine
+77,Female,209,72,71,98.5,Severe Headache,High,Neurology
+36,Male,182,110,128,98.8,Shortness of Breath,High,Cardiology
+64,Female,113,79,65,99.0,Skin Rash,Low,General Medicine
+44,Male,130,73,65,98.2,Mild Headache,Low,General Medicine
+38,Male,174,112,117,98.8,Palpitations,High,Cardiology
+22,Female,110,70,66,98.8,Joint Pain,Low,General Medicine
+81,Female,113,80,67,99.0,Skin Rash,Low,General Medicine
+41,Female,176,100,157,98.4,Palpitations,High,Cardiology
+23,Female,119,73,98,98.1,Difficulty Breathing,Medium,Pulmonology
+75,Male,119,78,103,101.5,High Fever,Medium,General Medicine
+21,Male,122,82,109,98.3,Difficulty Breathing,Medium,Pulmonology
+90,Female,204,75,75,98.6,Numbness,High,Neurology
+18,Male,120,74,124,104.4,High Fever,Medium,General Medicine
+56,Male,120,83,114,98.1,Difficulty Breathing,Medium,Pulmonology
+82,Male,129,78,83,98.8,Joint Pain,Low,General Medicine
+47,Female,119,74,96,98.7,Difficulty Breathing,Medium,Pulmonology
+39,Female,114,75,82,98.7,Cough,Low,General Medicine
+36,Female,114,85,90,98.1,Skin Rash,Low,General Medicine
+80,Male,128,70,76,98.7,Joint Pain,Low,General Medicine
+70,Female,120,72,66,98.1,Dizziness,Low,General Medicine
+82,Male,123,77,66,99.0,Dizziness,Low,General Medicine
+51,Male,114,75,105,104.9,Shivering,Medium,General Medicine
+48,Male,117,80,85,98.3,Mild Headache,Low,General Medicine
+90,Female,126,81,65,98.7,Dizziness,Low,General Medicine
+24,Male,121,81,61,98.8,Mild Headache,Low,General Medicine
+78,Male,111,76,100,98.3,Difficulty Breathing,Medium,Pulmonology
+84,Male,112,76,90,98.3,Mild Headache,Low,General Medicine
+73,Female,192,81,80,98.8,Numbness,High,Neurology
+86,Female,112,79,61,99.0,Skin Rash,Low,General Medicine
+29,Female,125,81,78,98.1,Dizziness,Low,General Medicine
+75,Male,110,77,110,98.8,Difficulty Breathing,Medium,Pulmonology
+33,Male,124,85,84,98.6,Joint Pain,Low,General Medicine
+83,Female,117,76,69,98.6,Cough,Low,General Medicine
+86,Male,170,85,65,98.3,Slurred Speech,High,Neurology
+35,Female,122,73,109,98.3,Difficulty Breathing,Medium,Pulmonology
+53,Female,120,81,82,98.2,Joint Pain,Low,General Medicine
+63,Female,117,72,80,98.4,Dizziness,Low,General Medicine
+63,Female,121,71,81,98.8,Dizziness,Low,General Medicine
+56,Female,121,72,90,98.0,Joint Pain,Low,General Medicine
+41,Male,189,119,138,98.6,Shortness of Breath,High,Cardiology
+27,Male,115,77,123,103.6,Body Pain,Medium,General Medicine
+77,Male,120,84,130,104.0,Body Pain,Medium,General Medicine
+88,Male,112,79,79,98.3,Skin Rash,Low,General Medicine
+45,Female,166,115,156,98.1,Palpitations,High,Cardiology
+59,Female,171,85,67,98.0,Slurred Speech,High,Neurology
+38,Female,118,73,60,98.6,Mild Headache,Low,General Medicine
+45,Female,125,78,78,99.0,Dizziness,Low,General Medicine
+40,Male,114,70,108,102.5,High Fever,Medium,General Medicine
+55,Female,114,70,74,98.7,Cough,Low,General Medicine
+44,Female,115,83,72,99.0,Dizziness,Low,General Medicine
+44,Female,125,78,87,99.0,Cough,Low,General Medicine
+87,Female,123,70,82,98.4,Mild Headache,Low,General Medicine
+67,Male,126,75,60,98.6,Mild Headache,Low,General Medicine
+45,Male,129,76,74,98.1,Dizziness,Low,General Medicine
+61,Female,125,85,121,101.4,High Fever,Medium,General Medicine
+30,Female,198,110,110,98.4,Chest Pain,High,Cardiology
+64,Male,125,80,83,98.6,Skin Rash,Low,General Medicine
+48,Male,127,75,117,105.0,Shivering,Medium,General Medicine
+61,Male,211,72,89,98.8,Severe Headache,High,Neurology
+31,Male,123,81,66,98.4,Joint Pain,Low,General Medicine
+87,Male,117,78,115,98.8,Difficulty Breathing,Medium,Pulmonology
+46,Female,115,84,80,98.4,Dizziness,Low,General Medicine
+74,Male,113,85,65,98.2,Mild Headache,Low,General Medicine
+70,Female,117,80,85,98.0,Joint Pain,Low,General Medicine
+32,Male,173,119,141,98.2,Shortness of Breath,High,Cardiology
+49,Female,117,81,64,98.4,Cough,Low,General Medicine
+40,Female,117,77,75,98.9,Mild Headache,Low,General Medicine
+21,Male,190,100,129,98.9,Chest Pain,High,Cardiology
+25,Male,123,76,73,98.1,Mild Headache,Low,General Medicine
+74,Female,123,77,112,104.8,Shivering,Medium,General Medicine
+67,Male,117,73,76,98.9,Joint Pain,Low,General Medicine
+89,Male,129,74,77,98.1,Mild Headache,Low,General Medicine
+38,Male,192,120,152,98.2,Palpitations,High,Cardiology
+35,Female,117,77,68,98.6,Joint Pain,Low,General Medicine
+70,Male,122,71,86,98.1,Skin Rash,Low,General Medicine
+65,Male,172,107,119,98.8,Shortness of Breath,High,Cardiology
+67,Male,121,77,73,99.0,Cough,Low,General Medicine
+61,Male,129,72,62,98.6,Mild Headache,Low,General Medicine
+46,Male,118,85,63,98.9,Skin Rash,Low,General Medicine
+78,Female,192,80,75,98.3,Slurred Speech,High,Neurology
+24,Female,125,85,108,103.2,Body Pain,Medium,General Medicine
+64,Female,197,117,140,98.1,Chest Pain,High,Cardiology
+60,Male,111,76,63,98.3,Mild Headache,Low,General Medicine
+61,Male,114,73,63,98.0,Skin Rash,Low,General Medicine
+82,Male,119,85,116,104.2,High Fever,Medium,General Medicine
+59,Female,214,73,69,98.3,Slurred Speech,High,Neurology
+66,Male,126,70,111,98.4,Difficulty Breathing,Medium,Pulmonology
+22,Female,111,78,85,98.9,Joint Pain,Low,General Medicine
+39,Female,113,78,104,98.8,Difficulty Breathing,Medium,Pulmonology
+63,Male,130,72,61,98.2,Mild Headache,Low,General Medicine
+89,Male,203,78,74,98.5,Severe Headache,High,Neurology
+71,Female,122,70,72,98.9,Skin Rash,Low,General Medicine
+47,Male,112,85,122,103.6,High Fever,Medium,General Medicine
+75,Male,123,78,72,98.8,Mild Headache,Low,General Medicine
+20,Male,115,73,124,103.9,Body Pain,Medium,General Medicine
+25,Male,113,74,61,98.1,Mild Headache,Low,General Medicine
+67,Male,176,102,155,98.7,Shortness of Breath,High,Cardiology
+79,Male,193,71,74,98.0,Severe Headache,High,Neurology
+48,Male,115,83,126,101.5,Shivering,Medium,General Medicine
+67,Female,110,83,109,101.5,Shivering,Medium,General Medicine
+53,Male,110,85,115,103.6,Shivering,Medium,General Medicine
+50,Male,110,71,101,104.0,Shivering,Medium,General Medicine
+77,Female,119,74,78,98.3,Skin Rash,Low,General Medicine
+30,Female,188,108,122,98.5,Shortness of Breath,High,Cardiology
+39,Male,111,79,112,98.2,Difficulty Breathing,Medium,Pulmonology
+36,Female,114,83,65,98.5,Dizziness,Low,General Medicine
+81,Male,115,71,77,98.2,Skin Rash,Low,General Medicine
+80,Female,120,71,73,98.8,Cough,Low,General Medicine
+45,Male,127,85,62,98.9,Joint Pain,Low,General Medicine
+75,Male,123,79,106,101.5,Body Pain,Medium,General Medicine
+79,Male,127,72,97,98.9,Difficulty Breathing,Medium,Pulmonology
+54,Male,172,112,143,98.7,Chest Pain,High,Cardiology
+56,Male,174,71,70,98.3,Numbness,High,Neurology
+54,Female,204,82,65,98.8,Severe Headache,High,Neurology
+24,Male,129,85,60,98.8,Mild Headache,Low,General Medicine
+18,Female,117,80,126,104.1,Shivering,Medium,General Medicine
+43,Male,164,106,156,99.0,Chest Pain,High,Cardiology
+86,Female,191,84,90,98.3,Numbness,High,Neurology
+45,Female,113,83,103,103.3,High Fever,Medium,General Medicine
+31,Female,114,82,110,98.8,Difficulty Breathing,Medium,Pulmonology
+64,Male,187,116,157,98.7,Chest Pain,High,Cardiology
+64,Female,175,112,144,98.7,Chest Pain,High,Cardiology
+30,Male,114,79,63,98.1,Skin Rash,Low,General Medicine
+70,Female,119,70,77,99.0,Cough,Low,General Medicine
+72,Male,122,77,69,98.7,Cough,Low,General Medicine
+72,Male,127,85,61,98.7,Dizziness,Low,General Medicine
+70,Male,167,105,157,98.9,Chest Pain,High,Cardiology
+49,Male,122,71,69,98.7,Skin Rash,Low,General Medicine
+48,Female,128,79,117,101.5,High Fever,Medium,General Medicine
+32,Female,125,76,103,98.5,Difficulty Breathing,Medium,Pulmonology
+41,Female,123,76,83,98.0,Skin Rash,Low,General Medicine
+43,Female,116,78,69,98.6,Cough,Low,General Medicine
+72,Female,118,77,61,99.0,Dizziness,Low,General Medicine
+79,Male,176,100,135,98.1,Palpitations,High,Cardiology
+55,Female,124,76,103,98.7,Difficulty Breathing,Medium,Pulmonology
+69,Female,128,79,83,98.8,Skin Rash,Low,General Medicine
+69,Male,120,81,129,101.4,Shivering,Medium,General Medicine
+51,Female,124,75,63,98.8,Cough,Low,General Medicine
+22,Female,128,77,89,98.4,Mild Headache,Low,General Medicine
+72,Male,124,84,107,103.2,High Fever,Medium,General Medicine
+42,Male,118,71,64,98.4,Mild Headache,Low,General Medicine
+79,Female,164,116,132,98.7,Shortness of Breath,High,Cardiology
+25,Male,118,79,71,98.8,Cough,Low,General Medicine
+72,Male,174,84,79,98.5,Slurred Speech,High,Neurology
+53,Male,116,72,120,104.3,Body Pain,Medium,General Medicine
+86,Male,119,78,113,101.9,Shivering,Medium,General Medicine
+51,Female,116,76,80,98.3,Joint Pain,Low,General Medicine
+60,Female,193,118,139,98.6,Chest Pain,High,Cardiology
+28,Female,121,71,65,98.4,Cough,Low,General Medicine
+73,Female,123,81,79,98.6,Joint Pain,Low,General Medicine
+30,Female,118,72,104,104.2,High Fever,Medium,General Medicine
+41,Male,128,83,90,98.4,Dizziness,Low,General Medicine
+60,Male,118,72,80,98.0,Cough,Low,General Medicine
+50,Female,123,79,114,101.9,Shivering,Medium,General Medicine
+63,Male,128,84,84,99.0,Skin Rash,Low,General Medicine
+65,Female,115,77,103,104.2,Shivering,Medium,General Medicine
+24,Female,160,107,157,98.0,Chest Pain,High,Cardiology
+75,Female,121,78,82,99.0,Mild Headache,Low,General Medicine
+75,Female,125,71,61,98.8,Cough,Low,General Medicine
+36,Male,188,119,136,98.8,Shortness of Breath,High,Cardiology
+54,Female,180,103,119,98.0,Palpitations,High,Cardiology
+79,Male,122,80,86,98.7,Mild Headache,Low,General Medicine
+56,Female,123,79,76,98.5,Skin Rash,Low,General Medicine
+56,Male,128,76,60,98.6,Mild Headache,Low,General Medicine
+41,Female,130,71,80,98.3,Mild Headache,Low,General Medicine
+87,Female,115,71,89,98.3,Mild Headache,Low,General Medicine
+59,Female,114,82,101,101.2,Shivering,Medium,General Medicine
+34,Female,120,79,103,104.1,Shivering,Medium,General Medicine
+32,Female,128,76,99,98.3,Difficulty Breathing,Medium,Pulmonology
+35,Male,111,71,78,98.3,Joint Pain,Low,General Medicine
+78,Male,122,82,106,104.9,Shivering,Medium,General Medicine
+71,Female,112,73,73,98.9,Skin Rash,Low,General Medicine
+31,Female,128,84,79,98.5,Skin Rash,Low,General Medicine
+52,Female,117,75,102,101.5,Shivering,Medium,General Medicine
+46,Male,129,70,69,98.0,Cough,Low,General Medicine
+26,Female,113,76,80,98.7,Cough,Low,General Medicine
+45,Female,111,76,101,103.5,High Fever,Medium,General Medicine
+45,Female,177,100,146,98.9,Palpitations,High,Cardiology
+22,Female,124,78,64,99.0,Dizziness,Low,General Medicine
+28,Female,126,83,66,98.9,Cough,Low,General Medicine
+26,Female,129,82,73,98.6,Skin Rash,Low,General Medicine
+84,Male,114,80,67,98.3,Dizziness,Low,General Medicine
+90,Male,120,70,112,102.8,Shivering,Medium,General Medicine
+27,Male,124,76,106,101.4,Body Pain,Medium,General Medicine
+50,Male,123,74,62,98.5,Joint Pain,Low,General Medicine
+84,Male,124,80,70,98.1,Mild Headache,Low,General Medicine
+40,Male,191,114,112,98.0,Chest Pain,High,Cardiology
+85,Female,171,116,154,98.5,Shortness of Breath,High,Cardiology
+89,Female,130,78,81,98.6,Joint Pain,Low,General Medicine
+26,Male,161,102,110,98.3,Chest Pain,High,Cardiology
+90,Male,118,73,63,98.2,Cough,Low,General Medicine
+56,Female,193,71,79,98.8,Numbness,High,Neurology
+30,Male,112,81,120,102.6,Body Pain,Medium,General Medicine
+77,Male,196,113,140,99.0,Shortness of Breath,High,Cardiology
+86,Female,128,85,86,98.0,Mild Headache,Low,General Medicine
+67,Female,174,73,68,98.4,Slurred Speech,High,Neurology
+48,Female,114,81,60,98.9,Mild Headache,Low,General Medicine
+80,Female,121,83,64,98.8,Cough,Low,General Medicine
+67,Male,113,72,61,98.9,Cough,Low,General Medicine
+86,Female,121,78,90,98.1,Mild Headache,Low,General Medicine
+53,Male,165,110,122,98.8,Chest Pain,High,Cardiology
+46,Male,194,108,117,98.6,Chest Pain,High,Cardiology
+86,Male,128,71,65,98.9,Mild Headache,Low,General Medicine
+74,Male,194,118,135,98.9,Chest Pain,High,Cardiology
+68,Female,210,70,89,98.8,Severe Headache,High,Neurology
+80,Female,125,72,115,103.0,Shivering,Medium,General Medicine
+58,Male,123,75,82,98.6,Cough,Low,General Medicine
+36,Female,114,83,60,98.7,Skin Rash,Low,General Medicine
+36,Female,121,72,86,98.2,Skin Rash,Low,General Medicine
+28,Female,110,74,74,98.5,Skin Rash,Low,General Medicine
+62,Male,121,84,63,98.6,Skin Rash,Low,General Medicine
+78,Male,122,70,96,98.9,Difficulty Breathing,Medium,Pulmonology
+83,Female,126,71,88,98.5,Cough,Low,General Medicine
+70,Male,119,82,123,103.8,Body Pain,Medium,General Medicine
+80,Male,181,72,67,98.4,Severe Headache,High,Neurology
+49,Male,176,118,152,98.6,Shortness of Breath,High,Cardiology
+83,Male,211,76,66,98.9,Numbness,High,Neurology
+72,Male,118,74,110,101.2,Shivering,Medium,General Medicine
+74,Male,192,105,125,98.7,Shortness of Breath,High,Cardiology
+53,Female,114,71,82,98.1,Skin Rash,Low,General Medicine
+88,Female,127,77,70,98.3,Joint Pain,Low,General Medicine
+37,Male,125,70,65,98.0,Cough,Low,General Medicine
+18,Male,120,83,68,98.8,Dizziness,Low,General Medicine
+80,Female,170,115,123,98.3,Shortness of Breath,High,Cardiology
+89,Female,180,85,78,98.3,Slurred Speech,High,Neurology
+30,Female,123,78,98,99.0,Difficulty Breathing,Medium,Pulmonology
+63,Female,207,71,68,98.5,Slurred Speech,High,Neurology
+70,Male,125,78,85,98.3,Cough,Low,General Medicine
+81,Female,173,73,79,98.2,Severe Headache,High,Neurology
+57,Female,113,71,68,98.6,Skin Rash,Low,General Medicine
+60,Male,114,78,84,98.3,Cough,Low,General Medicine
+46,Female,117,77,71,98.8,Mild Headache,Low,General Medicine
+63,Female,129,77,63,99.0,Cough,Low,General Medicine
+80,Male,120,83,129,103.3,High Fever,Medium,General Medicine
+87,Male,167,114,145,98.6,Palpitations,High,Cardiology
+64,Female,114,81,111,102.1,High Fever,Medium,General Medicine
+32,Male,200,108,153,98.3,Shortness of Breath,High,Cardiology
+70,Female,129,77,129,103.6,Body Pain,Medium,General Medicine
+33,Male,121,79,105,98.8,Difficulty Breathing,Medium,Pulmonology
+82,Female,193,83,78,98.2,Numbness,High,Neurology
+29,Male,172,111,112,98.7,Shortness of Breath,High,Cardiology
+84,Female,122,73,95,98.5,Difficulty Breathing,Medium,Pulmonology
+66,Male,113,74,105,98.2,Difficulty Breathing,Medium,Pulmonology
+78,Male,126,77,73,98.9,Dizziness,Low,General Medicine
+27,Female,175,116,116,99.0,Shortness of Breath,High,Cardiology
+31,Female,195,115,125,98.6,Chest Pain,High,Cardiology
+31,Male,128,76,62,98.2,Dizziness,Low,General Medicine
+30,Female,113,75,118,102.6,High Fever,Medium,General Medicine
+56,Male,113,84,62,98.9,Mild Headache,Low,General Medicine
+24,Female,112,85,66,98.5,Mild Headache,Low,General Medicine
+66,Female,120,80,119,102.9,High Fever,Medium,General Medicine
+72,Female,121,82,63,98.9,Joint Pain,Low,General Medicine
+88,Female,112,84,105,98.7,Difficulty Breathing,Medium,Pulmonology
+66,Male,126,83,89,98.3,Mild Headache,Low,General Medicine
+43,Female,118,73,101,98.5,Difficulty Breathing,Medium,Pulmonology
+79,Female,110,80,79,98.5,Dizziness,Low,General Medicine
+74,Female,193,103,118,98.8,Chest Pain,High,Cardiology
+28,Male,116,73,87,98.5,Dizziness,Low,General Medicine
+77,Female,172,83,73,98.9,Numbness,High,Neurology
+45,Male,112,73,103,98.4,Difficulty Breathing,Medium,Pulmonology
+82,Male,128,76,116,102.9,Shivering,Medium,General Medicine
+23,Male,124,74,90,98.3,Joint Pain,Low,General Medicine
+72,Female,112,81,70,98.7,Joint Pain,Low,General Medicine
+62,Female,217,71,67,98.5,Slurred Speech,High,Neurology
+70,Female,123,76,83,98.8,Cough,Low,General Medicine
+56,Female,111,78,67,98.7,Dizziness,Low,General Medicine
+63,Female,115,71,100,103.0,Body Pain,Medium,General Medicine
+88,Female,176,103,140,98.6,Chest Pain,High,Cardiology
+89,Male,115,85,105,101.5,Body Pain,Medium,General Medicine
+77,Female,113,85,75,98.9,Cough,Low,General Medicine
+57,Female,123,78,65,98.4,Cough,Low,General Medicine
+82,Female,130,76,70,98.7,Joint Pain,Low,General Medicine
+36,Male,111,74,104,102.5,Shivering,Medium,General Medicine
+40,Male,119,72,88,98.0,Mild Headache,Low,General Medicine
+78,Male,117,72,114,98.2,Difficulty Breathing,Medium,Pulmonology
+89,Female,113,82,107,98.5,Difficulty Breathing,Medium,Pulmonology
