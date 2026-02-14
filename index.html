@@ -1,175 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Medical Support System</title>
-</head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TODO: Set the document title to the name of your application -->
+    <title>Vital Pulse AI</title>
+    <meta name="description" content="" />
+    <meta name="author" content=""/>
 
-<body>
+    <!-- TODO: Update og:title to match your application name -->
+    <meta property="og:title" content="Vital Pulse App" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
 
-<!-- ================= CHATBOT ================= -->
-<h2>Gemini Chatbot</h2>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="" />
+    <meta name="twitter:image" content="" />
+  </head>
 
-<div id="chatBox" style="border:1px solid #ccc; height:300px; overflow-y:auto; padding:10px;"></div>
-
-<input id="userInput" placeholder="Ask something..." style="width:70%;">
-<button onclick="sendMessage()">Send</button>
-
-<hr>
-
-<!-- ================= EMERGENCY CONTACTS ================= -->
-<h2>Emergency Contacts</h2>
-
-<input id="contactName" placeholder="Contact Name">
-<input id="contactPhone" placeholder="Phone Number">
-<button onclick="addContact()">Add Contact</button>
-
-<ul id="contactList"></ul>
-
-<hr>
-
-<!-- ================= NEAREST HOSPITAL ================= -->
-<h2>Nearest Hospital</h2>
-
-<button onclick="findHospital()">Find Nearest Hospital</button>
-
-<p id="hospitalResult"></p>
-
-<!-- ================= SCRIPTS ================= -->
-<script>
-/* ================= CHATBOT ================= */
-
-async function sendMessage() {
-  const input = document.getElementById("userInput");
-  const message = input.value.trim();
-  if (!message) return;
-
-  const chatBox = document.getElementById("chatBox");
-
-  chatBox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
-  input.value = "";
-
-  try {
-    const res = await fetch("http://127.0.0.1:8000/chat", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ message })
-    });
-
-    const data = await res.json();
-
-    const formatted = data.response.replace(/\n/g, "<br>");
-
-    chatBox.innerHTML += `
-      <p><strong>Bot:</strong><br>${formatted}</p>
-    `;
-
-    chatBox.scrollTop = chatBox.scrollHeight;
-
-  } catch (error) {
-    chatBox.innerHTML += `<p><strong>Bot:</strong> Error connecting to server.</p>`;
-  }
-}
-
-
-/* ================= EMERGENCY CONTACTS ================= */
-
-let contacts = JSON.parse(localStorage.getItem("emergencyContacts")) || [];
-
-function saveContacts() {
-  localStorage.setItem("emergencyContacts", JSON.stringify(contacts));
-}
-
-function renderContacts() {
-  const list = document.getElementById("contactList");
-  list.innerHTML = "";
-
-  contacts.forEach((contact, index) => {
-    list.innerHTML += `
-      <li>
-        <strong>${contact.name}</strong> - ${contact.phone}
-        <button onclick="callContact('${contact.phone}')">Call</button>
-        <button onclick="deleteContact(${index})">Delete</button>
-      </li>
-    `;
-  });
-}
-
-function addContact() {
-  const name = document.getElementById("contactName").value.trim();
-  const phone = document.getElementById("contactPhone").value.trim();
-
-  if (!name || !phone) {
-    alert("Please enter both name and phone number.");
-    return;
-  }
-
-  contacts.push({ name, phone });
-  saveContacts();
-  renderContacts();
-
-  document.getElementById("contactName").value = "";
-  document.getElementById("contactPhone").value = "";
-}
-
-function deleteContact(index) {
-  contacts.splice(index, 1);
-  saveContacts();
-  renderContacts();
-}
-
-function callContact(phone) {
-  window.location.href = `tel:${phone}`;
-}
-
-renderContacts();
-
-
-/* ================= NEAREST HOSPITAL ================= */
-
-function findHospital() {
-  if (!navigator.geolocation) {
-    alert("Geolocation not supported");
-    return;
-  }
-
-  navigator.geolocation.getCurrentPosition(async (position) => {
-    try {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-
-      const res = await fetch("http://127.0.0.1:8000/nearest-hospital", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-          latitude: lat,
-          longitude: lon
-        })
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        document.getElementById("hospitalResult").innerText =
-          "Error finding hospital.";
-        return;
-      }
-
-      document.getElementById("hospitalResult").innerHTML = `
-        <strong>${data.name}</strong><br>
-        Distance: ${data.distance} km<br>
-        <a href="${data.maps_url}" target="_blank">
-          Navigate on Google Maps
-        </a>
-      `;
-
-    } catch (error) {
-      document.getElementById("hospitalResult").innerText =
-        "Something went wrong.";
-      console.error(error);
-    }
-  });
-}
-</script>
-
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
