@@ -1,22 +1,103 @@
 # Agentic Medical Analyser
 
-AI-powered medical triage and diagnostic system with patient intake, risk assessment, department routing, and explainability.
+Agentic Medical Analyser is an AI-powered medical triage and diagnostic assistant designed to simulate intelligent patient intake, risk assessment, department routing, and explainable predictions.
 
-## Running the App
+The system combines rule-based logic, optional machine learning models, and LLM-powered assistance to provide fast preliminary medical guidance.
 
-### 1. Backend (from Pragyan root)
+---
+
+## Features
+
+### Patient Intake
+
+Interactive multi-step form for capturing symptoms and patient details.
+
+- Calls **/triage** for risk assessment
+- Calls **/predict** for department routing
+
+### Triage Results
+
+- Risk level classification
+- Suggested medical department
+- Confidence score
+- Actionable recommendations
+
+### AI Assistant
+
+- LLM-powered chat via **/chat** (Groq API)
+- Graceful fallback to local responses if unavailable
+
+### AI Explainability
+
+- **/explain** endpoint provides prediction rationale
+- Helps users understand system decisions
+
+### Nearby Hospitals
+
+- Location-aware hospital lookup
+- Uses **/nearest-hospital** (Overpass API)
+
+---
+
+## Running the Application
+
+The project consists of two components:
+
+- **Backend** (FastAPI)
+- **Frontend** (Vite / npm)
+
+---
+
+### Backend Setup
+
+Run from the Pragyan project root:
 
 ```bash
 cd /Users/apple/Pragyan
 python main_combined.py
 ```
 
-Backend runs on **http://localhost:8010** (or 8011–8015 if 8010 is busy). Requires:
-- Python 3.x, FastAPI, uvicorn
-- GROQ_API_KEY in `.env` for chat/explain features
-- Optional: `models/triage_model.pkl` and `models/encoders.pkl` for ML triage
+**Default Backend URL:** `http://localhost:8010`
 
-### 2. Frontend
+If port 8010 is occupied, the server may automatically use ports **8011–8015**.
+
+#### Backend Requirements
+
+- Python 3.x
+- FastAPI
+- Uvicorn
+
+Install dependencies if needed:
+
+```bash
+pip install fastapi uvicorn python-dotenv
+```
+
+#### Environment Variables
+
+Create a **.env** file:
+
+```
+GROQ_API_KEY=your_api_key_here
+```
+
+Required for:
+
+- **/chat**
+- **/explain**
+
+#### Optional Machine Learning Models
+
+If present, ML-based triage logic will be used:
+
+- `models/triage_model.pkl`
+- `models/encoders.pkl`
+
+If missing, the system falls back to **rule-based logic**.
+
+---
+
+### Frontend Setup
 
 ```bash
 cd Agentic-Medical-Analyser
@@ -24,22 +105,40 @@ npm install
 npm run dev
 ```
 
-Frontend runs at **http://localhost:5173** (or 8080+).
+**Default Frontend URL:** `http://localhost:5173`
 
-### 3. API URL
+#### API Configuration
 
-By default the frontend uses `http://localhost:8010`. Override with:
+The frontend defaults to **http://localhost:8010**.
+
+To override:
 
 ```bash
 cp .env.example .env
-# Edit .env: VITE_API_URL=http://localhost:8010
 ```
 
-## Features
+Edit **.env**:
 
-- **Patient Intake** – Multi-step form; calls `/triage` and `/predict` for risk + department
-- **Triage Results** – Risk level, department, confidence, recommendations
-- **AI Assistant** – Chat uses backend `/chat` (Groq); falls back to local responses if offline
-- **AI Explainability** – Calls `/explain` for prediction rationale
-- **Nearby Hospitals** – “Use my location” calls `/nearest-hospital` (Overpass API)
+```
+VITE_API_URL=http://localhost:8010
+```
 
+---
+
+## Conceptual Architecture
+
+**User Input** → **Backend Intelligence Layer** →
+
+| Component | Endpoint |
+|-----------|----------|
+| **Risk Engine** | /triage |
+| **Prediction Engine** | /predict |
+| **Explainability Engine** | /explain |
+| **AI Assistant** | /chat |
+| **Location Services** | /nearest-hospital |
+
+---
+
+## Disclaimer
+
+This project is a research and educational prototype. It is **not** a replacement for professional medical advice and is **not** approved for clinical use. Always consult qualified medical professionals for real health concerns.
