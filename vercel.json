@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd Agentic-Medical-Analyser && npm run build",
+  "outputDirectory": "Agentic-Medical-Analyser/dist",
+  "installCommand": "cd Agentic-Medical-Analyser && npm install",
+  "framework": null
+}
