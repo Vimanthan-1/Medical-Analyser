@@ -1,19 +1,13 @@
-# main_combined.py
-
-import os
-import math
-import requests
-import numpy as np
-import faiss
-import joblib
-from typing import Optional
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from sentence_transformers import SentenceTransformer
+from typing import Optional
+import os
+import math
+import requests
 
 # =====================================================
-# APP INIT
+# APP
 # =====================================================
 
 app = FastAPI(title="Agentic Medical Analyser")
@@ -26,59 +20,71 @@ app.add_middleware(
 )
 
 # =====================================================
-# ENV VARS
+# ENV
 # =====================================================
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # =====================================================
-# LAZY ML SINGLETONS
+# LAZY SINGLETONS
 # =====================================================
 
 _embedder = None
-_dept_index = None
-_department_names = None
+_faiss_index = None
+_departments = None
+_groq_client = None
+
 
 def get_embedder():
     global _embedder
     if _embedder is None:
-        _embedder = SentenceTransformer(
-            "all-MiniLM-L6-v2",
-            device="cpu"
-        )
+        from sentence_transformers import SentenceTransformer
+        _embedder = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
     return _embedder
 
 
 def load_department_index():
-    global _dept_index, _department_names
+    global _faiss_index, _departments
 
-    if _dept_index is not None:
+    if _faiss_index is not None:
         return
 
-    embedder = get_embedder()
+    import numpy as np
+    import faiss
 
-    department_knowledge = {
-        "Emergency Medicine": "Life threatening conditions including cardiac arrest, stroke, severe trauma, heavy bleeding, respiratory failure.",
-        "General Medicine": "Common illnesses including fever, fatigue, infections, general weakness.",
-        "Cardiology": "Heart related disorders including chest pain, heart attack, arrhythmia.",
-        "Neurology": "Brain and nervous system disorders including stroke, seizures, migraine.",
-        "Dermatology": "Skin diseases including rash, eczema, acne.",
-        "Orthopedics": "Bone and joint disorders including fractures, arthritis.",
-        "Pediatrics": "Medical care for infants and children.",
-        "Psychiatry": "Mental health conditions including depression and anxiety.",
-        "Gastroenterology": "Digestive disorders including abdominal pain and vomiting.",
-        "Pulmonology": "Respiratory diseases including asthma and pneumonia.",
+    knowledge = {
+        "Emergency Medicine": "Life threatening conditions including cardiac arrest, stroke, trauma, breathing failure.",
+        "General Medicine": "Fever, weakness, infections, common illnesses.",
+        "Cardiology": "Chest pain, heart attack, arrhythmia, hypertension.",
+        "Neurology": "Stroke, seizures, migraine, paralysis.",
+        "Dermatology": "Skin rash, acne, fungal infection.",
+        "Orthopedics": "Joint pain, fractures, arthritis.",
+        "Pediatrics": "Child health and infections.",
+        "Psychiatry": "Mental health issues like anxiety and depression.",
+        "Gastroenterology": "Abdominal pain, vomiting, digestion issues.",
+        "Pulmonology": "Asthma, pneumonia, breathing problems."
     }
 
-    _department_names = list(department_knowledge.keys())
-    texts = list(department_knowledge.values())
+    _departments = list(knowledge.keys())
+    texts = list(knowledge.values())
 
+    embedder = get_embedder()
     embeddings = embedder.encode(texts, convert_to_numpy=True)
+
     index = faiss.IndexFlatL2(embeddings.shape[1])
     index.add(embeddings)
 
-    _dept_index = index
+    _faiss_index = index
+
+
+def get_groq_client():
+    global _groq_client
+    if _groq_client is None:
+        if not GROQ_API_KEY:
+            return None
+        from groq import Groq
+        _groq_client = Groq(api_key=GROQ_API_KEY)
+    return _groq_client
 
 
 # =====================================================
@@ -111,8 +117,17 @@ class LocationRequest(BaseModel):
     longitude: float
 
 
+class ChatRequest(BaseModel):
+    message: Optional[str] = None
+
+
+class ExplainRequest(BaseModel):
+    symptoms: str
+    predicted_department: str
+
+
 # =====================================================
-# HEALTH
+# ENDPOINTS
 # =====================================================
 
 @app.get("/health")
@@ -120,17 +135,15 @@ def health():
     return {"status": "ok"}
 
 
-# =====================================================
-# PREDICT
-# =====================================================
-
 @app.post("/predict")
 def predict(data: SymptomRequest):
+    import numpy as np
+
     load_department_index()
     embedder = get_embedder()
 
     user_embedding = embedder.encode([data.symptoms], convert_to_numpy=True)
-    distances, indices = _dept_index.search(user_embedding, k=3)
+    distances, indices = _faiss_index.search(user_embedding, k=3)
 
     scores = 1 / (1 + distances[0])
     scores /= scores.sum()
@@ -138,7 +151,7 @@ def predict(data: SymptomRequest):
     results = []
     for i, idx in enumerate(indices[0]):
         results.append({
-            "Department": _department_names[idx],
+            "Department": _departments[idx],
             "Final Confidence (%)": round(float(scores[i] * 100), 2)
         })
 
@@ -148,19 +161,13 @@ def predict(data: SymptomRequest):
     }
 
 
-# =====================================================
-# NEAREST HOSPITAL
-# =====================================================
-
 @app.post("/nearest-hospital")
 def nearest_hospital(location: LocationRequest):
     overpass_url = "https://overpass-api.de/api/interpreter"
 
     query = f"""
     [out:json];
-    node
-      ["amenity"="hospital"]
-      (around:5000,{location.latitude},{location.longitude});
+    node["amenity"="hospital"](around:5000,{location.latitude},{location.longitude});
     out;
     """
 
@@ -169,7 +176,7 @@ def nearest_hospital(location: LocationRequest):
         data = res.json()
 
         if not data.get("elements"):
-            return {"name": "No hospital found nearby", "distance": 0}
+            return {"name": "No hospital found nearby", "distance_km": 0}
 
         nearest = None
         min_dist = float("inf")
@@ -193,6 +200,54 @@ def nearest_hospital(location: LocationRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/chat")
+def chat(req: ChatRequest):
+    client = get_groq_client()
+    if client is None:
+        raise HTTPException(status_code=503, detail="AI service unavailable")
+
+    if not req.message:
+        raise HTTPException(status_code=422, detail="Message required")
+
+    completion = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {"role": "system", "content": "You are a medical information assistant. No diagnosis."},
+            {"role": "user", "content": req.message}
+        ],
+        temperature=0.3,
+        max_tokens=200,
+    )
+
+    return {"response": completion.choices[0].message.content}
+
+
+@app.post("/explain")
+def explain(req: ExplainRequest):
+    client = get_groq_client()
+    if client is None:
+        raise HTTPException(status_code=503, detail="AI service unavailable")
+
+    prompt = (
+        f"Symptoms: {req.symptoms}\n"
+        f"Predicted Department: {req.predicted_department}\n\n"
+        "Explain why this department is suitable. No diagnosis."
+    )
+
+    completion = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {"role": "system", "content": "Medical explainability assistant."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.3,
+        max_tokens=150,
+    )
+
+    return {"explanation": completion.choices[0].message.content}
+
 
     print(f"✅ Starting server on port {PORT}...")
     uvicorn.run(app, host="0.0.0.0", port=8010)
