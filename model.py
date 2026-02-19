@@ -5,121 +5,104 @@ import numpy as np
 import faiss
 import joblib
 from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
 
 # =====================================================
-# 1️⃣ LOAD SEMANTIC EMBEDDING MODEL
+# GLOBAL SINGLETONS (LAZY)
 # =====================================================
 
-embedder = SentenceTransformer("all-MiniLM-L6-v2")
+_embedder = None
+_faiss_index = None
+_department_names = None
+_classifier = None
 
-# =====================================================
-# 2️⃣ MEDICAL KNOWLEDGE BASE (RICH DESCRIPTIONS)
-# =====================================================
 
-department_knowledge = {
-    "Emergency Medicine": "Life threatening conditions including cardiac arrest, stroke, severe trauma, heavy bleeding, respiratory failure.",
-    "General Medicine": "Common illnesses including fever, fatigue, infections, general weakness, non-specific symptoms.",
-    "Cardiology": "Heart related disorders including chest pain, heart attack, arrhythmia, hypertension, coronary artery disease.",
-    "Neurology": "Brain and nervous system disorders including stroke, seizures, migraine, neuropathy, paralysis.",
-    "Dermatology": "Skin diseases including rash, eczema, acne, fungal infection, psoriasis.",
-    "Orthopedics": "Bone and joint disorders including fractures, arthritis, joint pain, spine injury.",
-    "Pediatrics": "Medical care for infants and children including childhood infections and growth issues.",
-    "Psychiatry": "Mental health conditions including depression, anxiety, bipolar disorder, hallucinations.",
-    "Gastroenterology": "Digestive system disorders including abdominal pain, vomiting, diarrhea, liver disease.",
-    "Pulmonology": "Respiratory diseases including asthma, pneumonia, breathing difficulty, chronic cough.",
-    "Urology": "Urinary tract disorders including kidney stones, urinary infections, prostate issues.",
-    "Nephrology": "Kidney related diseases including renal failure, dialysis conditions, electrolyte imbalance.",
-    "Endocrinology": "Hormonal disorders including diabetes, thyroid disease, metabolic syndrome.",
-    "Oncology": "Cancer related conditions including tumor growth, chemotherapy, radiation therapy.",
-    "ENT": "Ear, nose and throat disorders including sinusitis, hearing loss, throat infections.",
-    "Ophthalmology": "Eye related diseases including vision loss, cataract, glaucoma, eye infection.",
-    "Gynecology": "Female reproductive health including menstrual disorders, ovarian cyst, pelvic pain."
-}
+def load_resources():
+    global _embedder, _faiss_index, _department_names, _classifier
 
-department_names = list(department_knowledge.keys())
-knowledge_texts = list(department_knowledge.values())
+    if _embedder is not None:
+        return  # already loaded
 
-# =====================================================
-# 3️⃣ BUILD SEMANTIC INDEX (FAISS)
-# =====================================================
+    # ---- Department knowledge ----
+    department_knowledge = {
+        "Emergency Medicine": "Life threatening conditions including cardiac arrest, stroke, severe trauma, heavy bleeding, respiratory failure.",
+        "General Medicine": "Common illnesses including fever, fatigue, infections, general weakness, non-specific symptoms.",
+        "Cardiology": "Heart related disorders including chest pain, heart attack, arrhythmia, hypertension, coronary artery disease.",
+        "Neurology": "Brain and nervous system disorders including stroke, seizures, migraine, neuropathy, paralysis.",
+        "Dermatology": "Skin diseases including rash, eczema, acne, fungal infection, psoriasis.",
+        "Orthopedics": "Bone and joint disorders including fractures, arthritis, joint pain, spine injury.",
+        "Pediatrics": "Medical care for infants and children including childhood infections and growth issues.",
+        "Psychiatry": "Mental health conditions including depression, anxiety, bipolar disorder, hallucinations.",
+        "Gastroenterology": "Digestive system disorders including abdominal pain, vomiting, diarrhea, liver disease.",
+        "Pulmonology": "Respiratory diseases including asthma, pneumonia, breathing difficulty, chronic cough.",
+        "Urology": "Urinary tract disorders including kidney stones, urinary infections, prostate issues.",
+        "Nephrology": "Kidney related diseases including renal failure, dialysis conditions, electrolyte imbalance.",
+        "Endocrinology": "Hormonal disorders including diabetes, thyroid disease, metabolic syndrome.",
+        "Oncology": "Cancer related conditions including tumor growth, chemotherapy, radiation therapy.",
+        "ENT": "Ear, nose and throat disorders including sinusitis, hearing loss, throat infections.",
+        "Ophthalmology": "Eye related diseases including vision loss, cataract, glaucoma, eye infection.",
+        "Gynecology": "Female reproductive health including menstrual disorders, ovarian cyst, pelvic pain."
+    }
 
-knowledge_embeddings = embedder.encode(knowledge_texts)
-dimension = knowledge_embeddings.shape[1]
+    _department_names = list(department_knowledge.keys())
+    knowledge_texts = list(department_knowledge.values())
 
-faiss_index = faiss.IndexFlatL2(dimension)
-faiss_index.add(np.array(knowledge_embeddings))
+    # ---- Load embedder (CPU only) ----
+    _embedder = SentenceTransformer(
+        "all-MiniLM-L6-v2",
+        device="cpu"
+    )
 
-# =====================================================
-# 4️⃣ OPTIONAL ML CLASSIFIER LOAD (IF TRAINED)
-# =====================================================
+    embeddings = _embedder.encode(knowledge_texts, convert_to_numpy=True)
+    dim = embeddings.shape[1]
 
-classifier = None
-if os.path.exists("models/trained_model/classifier.pkl"):
-    classifier = joblib.load("models/trained_model/classifier.pkl")
+    _faiss_index = faiss.IndexFlatL2(dim)
+    _faiss_index.add(embeddings)
 
-# =====================================================
-# 5️⃣ HYBRID PREDICTION ENGINE
-# =====================================================
+    # ---- Optional classifier ----
+    if os.path.exists("models/trained_model/classifier.pkl"):
+        _classifier = joblib.load("models/trained_model/classifier.pkl")
+    else:
+        _classifier = None
+
 
 def hybrid_predict(symptoms: str):
+    load_resources()
 
-    # Encode user input
-    user_embedding = embedder.encode([symptoms])
+    user_embedding = _embedder.encode([symptoms], convert_to_numpy=True)
 
-    # ---------- SEMANTIC SEARCH ----------
-    distances, indices = faiss_index.search(np.array(user_embedding), k=3)
-
-    semantic_scores = 1 / (1 + distances[0])
-    semantic_scores = semantic_scores / np.sum(semantic_scores)
+    distances, indices = _faiss_index.search(user_embedding, k=3)
+    scores = 1 / (1 + distances[0])
+    scores /= scores.sum()
 
     semantic_results = []
     for i, idx in enumerate(indices[0]):
         semantic_results.append({
-            "Department": department_names[idx],
-            "Semantic Confidence (%)": round(float(semantic_scores[i] * 100), 2)
+            "Department": _department_names[idx],
+            "Semantic Confidence (%)": round(float(scores[i] * 100), 2)
         })
 
-    # ---------- ML CLASSIFIER (IF AVAILABLE) ----------
-    if classifier:
-        ml_probs = classifier.predict_proba(user_embedding)[0]
+    if _classifier:
+        ml_probs = _classifier.predict_proba(user_embedding)[0]
         ml_indices = np.argsort(ml_probs)[::-1][:3]
 
-        ml_results = []
-        for idx in ml_indices:
-            ml_results.append({
-                "Department": classifier.classes_[idx],
-                "ML Confidence (%)": round(float(ml_probs[idx] * 100), 2)
-            })
-
-        # ---------- HYBRID MERGE ----------
         combined = {}
-
         for item in semantic_results:
             combined[item["Department"]] = item["Semantic Confidence (%)"] * 0.6
 
-        for item in ml_results:
-            if item["Department"] in combined:
-                combined[item["Department"]] += item["ML Confidence (%)"] * 0.4
-            else:
-                combined[item["Department"]] = item["ML Confidence (%)"] * 0.4
+        for idx in ml_indices:
+            dept = _classifier.classes_[idx]
+            combined[dept] = combined.get(dept, 0) + ml_probs[idx] * 100 * 0.4
 
-        # Sort final
-        sorted_final = sorted(combined.items(), key=lambda x: x[1], reverse=True)[:3]
-
-        final_results = []
-        for dept, score in sorted_final:
-            final_results.append({
-                "Department": dept,
-                "Final Confidence (%)": round(score, 2)
-            })
+        final = sorted(combined.items(), key=lambda x: x[1], reverse=True)[:3]
 
         return {
             "System": "Hybrid Semantic + ML Engine",
-            "Top 3 Recommendations": final_results
+            "Top 3 Recommendations": [
+                {"Department": d, "Final Confidence (%)": round(s, 2)}
+                for d, s in final
+            ]
         }
 
-    # ---------- SEMANTIC ONLY ----------
     return {
         "System": "Semantic Knowledge Engine",
         "Top 3 Recommendations": semantic_results
