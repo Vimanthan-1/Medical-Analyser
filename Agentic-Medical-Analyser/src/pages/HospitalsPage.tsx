@@ -19,15 +19,27 @@ export default function HospitalsPage() {
     }
   }, []);
 
-  async function findNearest() {
+  async function findNearest(retries = 1) {
     setNearestLoading(true);
     setNearestError(null);
     setNearest(null);
+
     try {
-      const pos = await new Promise<GeolocationPosition>((resolve, reject) =>
-        navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 10000 })
-      );
+      // Helper to get position with longer timeout
+      const getPosition = () => new Promise<GeolocationPosition>((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject, {
+          timeout: 14000, // Increased to 20s to allow time for permission prompt
+          enableHighAccuracy: true
+        });
+      });
+
+      const pos = await getPosition();
       const data = await nearestHospital(pos.coords.latitude, pos.coords.longitude);
+
+      if (data.name === "Error contacting map service" || data.name === "No hospital found within 5km" || data.name === "No valid hospital data found") {
+        throw new Error(data.name);
+      }
+
       const dist = data.distance_km ?? data.distance ?? 0;
       setNearest({
         name: data.name,
@@ -35,9 +47,16 @@ export default function HospitalsPage() {
         mapsUrl: data["Google Maps Link"] ?? data.maps_url,
       });
     } catch (err) {
+      console.error("Nearest hospital error:", err);
+      // Retry logic
+      if (retries > 0) {
+        console.log("Retrying nearest hospital search...");
+        setTimeout(() => findNearest(retries - 1), 1000);
+        return;
+      }
       setNearestError(err instanceof Error ? err.message : "Could not get location or find hospital");
     } finally {
-      setNearestLoading(false);
+      if (retries === 0) setNearestLoading(false);
     }
   }
 
@@ -47,7 +66,7 @@ export default function HospitalsPage() {
         <h3 className="font-display text-lg font-bold text-foreground mb-2">Nearest Hospital (Live)</h3>
         <p className="text-sm text-muted-foreground mb-4">Get the closest hospital using your location</p>
         <Button
-          onClick={findNearest}
+          onClick={() => findNearest()}
           disabled={nearestLoading}
           className="gap-2 gradient-primary text-primary-foreground border-0"
         >

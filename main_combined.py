@@ -22,6 +22,29 @@ from sqlalchemy import create_engine, Column, Integer, String, Float, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+# Load Google Maps API Key
+GOOGLE_API_KEY = None
+try:
+    with open("API_KEY", "r") as f:
+        content = f.read().strip()
+        if "API_KEY=" in content:
+            GOOGLE_API_KEY = content.split("=")[1]
+        else:
+            GOOGLE_API_KEY = content
+except FileNotFoundError:
+    # Try looking in parent directory as fallback (d:/Final/Agentic-Medical-Analyser/API_KEY)
+    try:
+        with open("../API_KEY", "r") as f:
+             content = f.read().strip()
+             if "API_KEY=" in content:
+                GOOGLE_API_KEY = content.split("=")[1]
+             else:
+                GOOGLE_API_KEY = content
+    except FileNotFoundError:
+        print("Warning: API_KEY file not found. Google Maps features will be disabled.")
+
+
+
 # =====================================================
 # 1️⃣ CONFIGURATION & SETUP
 # =====================================================
@@ -257,6 +280,32 @@ class SymptomRequest(BaseModel):
 # =====================================================
 
 def predict_risk_logic(data: TriageRequest):
+    # --- SAFETY OVERRIDE: Rule-Based check for Critical Vitals/Symptoms ---
+    
+    # 1. Critical Vitals Check
+    is_critical_vitals = False
+    if (data.Heart_Rate and (data.Heart_Rate > 120 or data.Heart_Rate < 40)): is_critical_vitals = True
+    if (data.Systolic_BP and (data.Systolic_BP > 180 or data.Systolic_BP < 90)): is_critical_vitals = True
+    if (data.Temperature and data.Temperature > 39.5): is_critical_vitals = True
+
+    # 2. Critical Keyword Check (Simple String Matching)
+    # These symptoms should nearly ALWAYS be High Risk
+    critical_keywords = [
+        "chest pain", "cardiac", "heart attack", "unconscious",
+        "difficulty breathing", "shortness of breath", "severe bleeding",
+        "stroke", "paralysis", "sudden vision loss", "severe headache", "high fever"
+    ]
+    is_critical_symptoms = any(k in data.Symptoms.lower() for k in critical_keywords)
+
+    # 3. Embedding-based Emergency Check
+    is_emergency_embedding = check_emergency(data.Symptoms)
+
+    if is_critical_vitals or is_critical_symptoms or is_emergency_embedding:
+        print(f"⚠️ Safety Override Triggered: Vitals={is_critical_vitals}, Keywords={is_critical_symptoms}, Embed={is_emergency_embedding}")
+        return "High Risk"
+
+    # --- END SAFETY OVERRIDE ---
+
     if not triage_model or not triage_encoder:
         return "Model not loaded"
 
@@ -481,10 +530,15 @@ def nearest_hospital(location: LocationRequest):
       (around:5000,{location.latitude},{location.longitude});
     out;
     """
+
     try:
-        response = requests.post(overpass_url, data=query)
+        response = requests.post(overpass_url, data=query, timeout=10)
+
+        if response.status_code != 200:
+            raise HTTPException(status_code=502, detail="Overpass API failed")
+
         data = response.json()
-        
+
         if not data.get("elements"):
             return {"name": "No hospital found nearby", "distance": 0}
 
@@ -500,19 +554,23 @@ def nearest_hospital(location: LocationRequest):
                 min_distance = dist
                 nearest = hospital
 
-        if nearest:
-            return {
-                "name": nearest.get("tags", {}).get("name", "Unnamed Hospital"),
-                "distance": round(min_distance, 2),
-                "latitude": nearest["lat"],
-                "longitude": nearest["lon"],
-                "maps_url": f"https://www.google.com/maps/dir/?api=1&destination={nearest['lat']},{nearest['lon']}&travelmode=driving"
-            }
-        else:
-             return {"name": "No hospital found nearby", "distance": 0}
-             
+        return {
+            "name": nearest.get("tags", {}).get("name", "Unnamed Hospital"),
+            "distance": round(min_distance, 2),
+            "latitude": nearest["lat"],
+            "longitude": nearest["lon"],
+            "maps_url": (
+                f"https://www.google.com/maps/dir/?api=1"
+                f"&destination={nearest['lat']},{nearest['lon']}"
+                f"&travelmode=driving"
+            )
+        }
+
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
@@ -579,7 +637,10 @@ async def chat(request: ChatRequest):
 @app.post("/explain")
 async def explain(request: ExplainRequest):
     if client is None:
-        raise HTTPException(status_code=503, detail="AI service unavailable")
+        raise HTTPException(
+            status_code=503, 
+            detail="AI Service Unavailable: GROQ_API_KEY not found in .env file. Please add your Groq API key."
+        )
 
     system_prompt = (
         "You are a medical AI explainability assistant.\n"
@@ -618,6 +679,7 @@ async def explain(request: ExplainRequest):
              raise HTTPException(status_code=500, detail="Empty response from AI")
         return {"explanation": response_text}
     except Exception as e:
+        print(f"Explanation Error: {e}")
         raise HTTPException(status_code=500, detail=f"Explanation failed: {str(e)}")
 
 @app.post("/predict")
@@ -693,8 +755,53 @@ def analytics():
 @app.get("/nearest-hospital")
 def nearest_hospital(lat: float, lon: float):
     """
-    Finds the nearest hospital using OpenStreetMap (Overpass API).
+    Finds the nearest hospital using Google Places API (Text Search) if available,
+    otherwise falls back to OpenStreetMap (Overpass API).
     """
+    
+    # --- 1. Try Google Places API ---
+    if GOOGLE_API_KEY:
+        try:
+            # Using Text Search (New) or Nearby Search
+            # Text Search is often more reliable for "hospital" query
+            google_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
+            params = {
+                "query": "hospital",
+                "location": f"{lat},{lon}",
+                "radius": 5000, # 5km
+                "key": GOOGLE_API_KEY
+            }
+            
+            response = requests.get(google_url, params=params, timeout=5)
+            data = response.json()
+            
+            if data.get("status") == "OK" and data.get("results"):
+                nearest = data["results"][0] # Results are usually ranked by prominence/distance
+                
+                # Calculate direct distance (as not always provided)
+                h_lat = nearest["geometry"]["location"]["lat"]
+                h_lon = nearest["geometry"]["location"]["lng"]
+                dist = haversine(lat, lon, h_lat, h_lon)
+
+                return {
+                    "name": nearest.get("name", "Unnamed Hospital"),
+                    "distance_km": round(dist, 2),
+                    "location": {
+                        "lat": h_lat,
+                        "lon": h_lon,
+                        "addr_street": nearest.get("formatted_address", ""),
+                    },
+                    "Google Maps Link": f"https://www.google.com/maps/place/?q=place_id:{nearest['place_id']}"
+                }
+            elif data.get("status") in ["REQUEST_DENIED", "OVER_QUERY_LIMIT"]:
+                print(f"Google API Error: {data.get('status')} - {data.get('error_message')}")
+                # Fallback to Overpass
+        except Exception as e:
+            print(f"Google Places API failed: {e}")
+            # Fallback to Overpass
+
+    # --- 2. Fallback: Overpass API ---
+    print("Falling back to OpenStreetMap (Overpass API)...")
     overpass_url = "https://overpass-api.de/api/interpreter"
 
     try:
@@ -761,17 +868,14 @@ if __name__ == "__main__":
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             return s.connect_ex(('localhost', port)) == 0
             
-    # Try multiple ports starting from 8010
-    ports_to_try = [8010, 8011, 8012, 8013, 8014, 8015]
+    # Enforce strict port 8010 to ensure frontend connection works
+    PORT = 8010
     
-    for port in ports_to_try:
-        try:
-            if is_port_in_use(port):
-                print(f"Port {port} is busy.")
-                continue
-            
-            print(f"Starting server on port {port}...")
-            uvicorn.run(app, host="0.0.0.0", port=port)
-            break
-        except Exception as e:
-             print(f"Failed on port {port}: {e}")
+    if is_port_in_use(PORT):
+        print(f"❌ Error: Port {PORT} is already in use.")
+        print("Please stop any running instances of the backend or other services on port 8010.")
+        print("You can try finding the process with: netstat -ano | findstr :8010")
+        sys.exit(1)
+        
+    print(f"✅ Starting server on port {PORT}...")
+    uvicorn.run(app, host="0.0.0.0", port=PORT)

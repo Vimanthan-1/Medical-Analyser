@@ -65,15 +65,23 @@ export async function explain(symptoms: string, predicted_department: string): P
   return res.json();
 }
 
-export async function nearestHospital(latitude: number, longitude: number): Promise<{
-  name: string;
-  distance_km?: number;
-  distance?: number;
-  location?: { lat: number; lon: number; addr_street?: string; addr_city?: string };
-  "Google Maps Link"?: string;
-  maps_url?: string;
-}> {
-  const res = await fetch(`${API_BASE}/nearest-hospital?lat=${latitude}&lon=${longitude}`);
-  if (!res.ok) throw new Error(await res.text());
+export async function nearestHospital(lat: number, lon: number) {
+  const res = await fetch(`${API_BASE}/nearest-hospital`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      latitude: lat,
+      longitude: lon,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(await res.text());
+  }
+
   return res.json();
 }
+
+
