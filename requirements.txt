@@ -1,4 +1,5 @@
 fastapi
+pdfplumber
 uvicorn
 python-dotenv
 requests
