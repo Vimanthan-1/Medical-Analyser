@@ -1,13 +1,15 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { TriageResult, PatientData } from '@/lib/types';
 import { RiskBadge } from './RiskBadge';
-import { 
-  TrendingUp, Stethoscope, AlertCircle, CheckCircle, 
-  Clock, ArrowRight, Brain, BarChart3 
+import {
+  TrendingUp, Stethoscope, AlertCircle, CheckCircle,
+  Clock, ArrowRight, Brain, BarChart3, Loader2, ChevronDown, ChevronUp, Sparkles
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import { Button } from '@/components/ui/button';
 import { useTiltHover, useStaggerReveal, useHoverLift } from '@/hooks/useGsap';
+import { explain as apiExplain } from '@/lib/api';
 
 interface TriageResultsProps {
   result: TriageResult;
@@ -26,6 +28,12 @@ export function TriageResults({ result, patient }: TriageResultsProps) {
   const recsRef = useStaggerReveal<HTMLDivElement>(0.1, 0.5);
   const confidenceRef = useRef<HTMLDivElement>(null);
   const scoreRef = useRef<HTMLDivElement>(null);
+
+  // AI Explain state
+  const [explainLoading, setExplainLoading] = useState(false);
+  const [explainText, setExplainText] = useState('');
+  const [explainError, setExplainError] = useState('');
+  const [explainOpen, setExplainOpen] = useState(false);
 
   // Animate confidence score counter
   useEffect(() => {
@@ -50,8 +58,65 @@ export function TriageResults({ result, patient }: TriageResultsProps) {
     );
   }, []);
 
+  async function handleExplain() {
+    // If already loaded, just toggle visibility
+    if (explainText) {
+      setExplainOpen(o => !o);
+      return;
+    }
+    setExplainLoading(true);
+    setExplainError('');
+    try {
+      const symptomsStr = patient.symptoms.join(', ');
+      const data = await apiExplain(symptomsStr, result.department);
+      setExplainText(data.explanation ?? '');
+      setExplainOpen(true);
+    } catch (err) {
+      setExplainError(err instanceof Error ? err.message : 'Failed to generate explanation.');
+    } finally {
+      setExplainLoading(false);
+    }
+  }
+
   return (
     <div className="space-y-6">
+
+      {/* AI Explain Button + Panel */}
+      <div className="rounded-2xl border border-border bg-card p-5 shadow-card">
+        <div className="flex items-center justify-between flex-wrap gap-3">
+          <div className="flex items-center gap-2">
+            <Sparkles className="h-5 w-5 text-primary" />
+            <div>
+              <h3 className="font-display text-base font-bold text-foreground">AI Explanation</h3>
+              <p className="text-xs text-muted-foreground">Why {result.department} was recommended for your symptoms</p>
+            </div>
+          </div>
+          <Button
+            onClick={handleExplain}
+            disabled={explainLoading}
+            className="gap-2 gradient-primary text-primary-foreground border-0"
+            size="sm"
+          >
+            {explainLoading
+              ? <><Loader2 className="h-4 w-4 animate-spin" /> Generating...</>
+              : explainOpen
+                ? <><ChevronUp className="h-4 w-4" /> Hide Explanation</>
+                : <><Brain className="h-4 w-4" /> Explain My Results</>
+            }
+          </Button>
+        </div>
+
+        {explainError && (
+          <p className="mt-3 text-sm text-destructive">{explainError}</p>
+        )}
+
+        {explainOpen && explainText && (
+          <div className="mt-4 p-4 rounded-xl bg-accent/40 border-l-4 border-primary text-sm text-foreground leading-relaxed whitespace-pre-line">
+            {explainText}
+          </div>
+        )}
+      </div>
+
       {/* Hero result card */}
       <div ref={heroRef} className="rounded-2xl border border-border bg-card overflow-hidden shadow-card cursor-default">
         <div className={`${riskColorClass} p-6 text-primary-foreground`}>
@@ -197,3 +262,4 @@ function RecRow({ rec }: { rec: string }) {
     </div>
   );
 }
+

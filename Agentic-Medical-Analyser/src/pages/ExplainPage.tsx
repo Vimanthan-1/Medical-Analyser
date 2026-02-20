@@ -1,70 +1,98 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { explain as apiExplain } from "@/lib/api";
+import { TriageResult, PatientData } from "@/lib/types";
+import { Brain, Loader2, ArrowLeft, ClipboardList } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function ExplainPage() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [explanation, setExplanation] = useState("");
   const [error, setError] = useState("");
+  const [result, setResult] = useState<TriageResult | null>(null);
+  const [patient, setPatient] = useState<PatientData | null>(null);
+
+  useEffect(() => {
+    const r = sessionStorage.getItem("triageResult");
+    const p = sessionStorage.getItem("patientData");
+    if (r) setResult(JSON.parse(r));
+    if (p) setPatient(JSON.parse(p));
+  }, []);
 
   async function generateExplanation() {
+    if (!result || !patient) return;
     setExplanation("");
     setError("");
     setLoading(true);
-    const symptoms = "Chest pain, Shortness of breath";
-    const predictedDepartment = "Cardiology";
     try {
-      const data = await apiExplain(symptoms, predictedDepartment);
+      const symptomsStr = patient.symptoms.join(", ");
+      const data = await apiExplain(symptomsStr, result.department);
       setExplanation(data.explanation ?? "");
     } catch (err) {
-      let errorMessage = "Failed to generate explanation.";
-      if (err instanceof Error) {
-        // Try to parse JSON error if possible, or just use the message
-        try {
-          const errorObj = JSON.parse(err.message);
-          errorMessage = errorObj.detail || err.message;
-        } catch {
-          errorMessage = err.message;
-        }
-      }
-      setError(errorMessage);
+      setError(err instanceof Error ? err.message : "Failed to generate explanation.");
     } finally {
       setLoading(false);
     }
   }
 
-  return (
-    <div className="px-6 md:px-10 pb-8 md:pb-12">
-      <div className="max-w-2xl mx-auto rounded-2xl border border-white/40 bg-white/20 backdrop-blur-xl shadow-xl p-6 md:p-8">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 drop-shadow-sm mb-4">🧠 AI Explainability</h2>
-        <div className="rounded-xl bg-white/40 p-4 mb-4 text-gray-800 text-sm space-y-1">
-          <p><strong>Age:</strong> 40</p>
-          <p><strong>Gender:</strong> Male</p>
-          <p><strong>Symptoms:</strong> Chest pain, Shortness of breath</p>
-          <p><strong>Heart Rate:</strong> 115 bpm</p>
-          <p><strong>Temperature:</strong> 38.2 °C</p>
-          <p><strong>Pre-existing Conditions:</strong> Hypertension</p>
-        </div>
-        <div className="rounded-xl bg-white/40 p-4 mb-4 text-gray-800 text-sm">
-          <p><strong>Predicted Risk:</strong> <span className="text-violet-700 font-semibold">High</span></p>
-          <p><strong>Recommended Department:</strong> <span className="text-violet-700 font-semibold">Cardiology</span></p>
-        </div>
-        <button
-          onClick={generateExplanation}
-          disabled={loading}
-          className="px-5 py-2.5 rounded-xl font-medium text-white bg-violet-600 hover:bg-violet-700 disabled:opacity-60 transition-all"
-        >
-          {loading ? "Generating..." : "Explain"}
-        </button>
-        {loading && <p className="mt-3 text-gray-600 text-sm">Generating explanation...</p>}
-        {explanation && (
-          <div className="mt-4 p-4 rounded-xl bg-white/50 border-l-4 border-violet-500 text-gray-800 text-sm whitespace-pre-line">
-            {explanation.split("\n").map((line, i) => <p key={i} className="mb-1">{line}</p>)}
-          </div>
-        )}
-        {error && <p className="mt-3 text-red-600 text-sm">{error}</p>}
-        <Link to="/" className="inline-block mt-4 text-violet-700 hover:text-gray-900 font-medium text-sm">← Back to Home</Link>
+  // No session data — prompt user to complete triage first
+  if (!result || !patient) {
+    return (
+      <div className="flex flex-col items-center justify-center h-[60vh] text-center">
+        <ClipboardList className="h-12 w-12 text-muted-foreground mb-4" />
+        <h2 className="font-display text-xl font-bold text-foreground mb-2">No Assessment Found</h2>
+        <p className="text-sm text-muted-foreground mb-6">
+          Complete the patient intake form first to get an AI explanation.
+        </p>
+        <Button onClick={() => navigate("/intake")} className="gradient-primary text-primary-foreground border-0 gap-2">
+          <ArrowLeft className="h-4 w-4" /> Go to Patient Intake
+        </Button>
       </div>
+    );
+  }
+
+  return (
+    <div className="py-4 max-w-2xl mx-auto space-y-6">
+      <div>
+        <h1 className="font-display text-2xl font-bold text-foreground flex items-center gap-2">
+          <Brain className="h-6 w-6 text-primary" /> AI Explanation
+        </h1>
+        <p className="text-sm text-muted-foreground mt-1">
+          Understanding why <span className="font-semibold text-foreground">{result.department}</span> was recommended
+        </p>
+      </div>
+
+      {/* Summary card */}
+      <div className="rounded-2xl border border-border bg-card p-5 shadow-card space-y-2 text-sm">
+        <p><span className="font-semibold text-foreground">Patient:</span> <span className="text-muted-foreground">{patient.name}, {patient.age} y/o {patient.gender}</span></p>
+        <p><span className="font-semibold text-foreground">Symptoms:</span> <span className="text-muted-foreground">{patient.symptoms.join(", ")}</span></p>
+        <p><span className="font-semibold text-foreground">Risk Level:</span> <span className="text-muted-foreground">{result.riskLevel}</span></p>
+        <p><span className="font-semibold text-foreground">Recommended Department:</span> <span className="text-primary font-semibold">{result.department}</span></p>
+      </div>
+
+      <Button
+        onClick={generateExplanation}
+        disabled={loading}
+        className="gap-2 gradient-primary text-primary-foreground border-0"
+      >
+        {loading
+          ? <><Loader2 className="h-4 w-4 animate-spin" /> Generating...</>
+          : <><Brain className="h-4 w-4" /> Generate AI Explanation</>
+        }
+      </Button>
+
+      {explanation && (
+        <div className="p-5 rounded-xl bg-accent/40 border-l-4 border-primary text-sm text-foreground leading-relaxed whitespace-pre-line">
+          {explanation}
+        </div>
+      )}
+
+      {error && <p className="text-sm text-destructive">{error}</p>}
+
+      <Link to="/results" className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline">
+        <ArrowLeft className="h-3.5 w-3.5" /> Back to Results
+      </Link>
     </div>
   );
 }
