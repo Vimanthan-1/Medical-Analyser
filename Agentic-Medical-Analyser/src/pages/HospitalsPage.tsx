@@ -28,7 +28,7 @@ export default function HospitalsPage() {
       // Helper to get position with longer timeout
       const getPosition = () => new Promise<GeolocationPosition>((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject, {
-          timeout: 14000, // Increased to 20s to allow time for permission prompt
+          timeout: 14000,
           enableHighAccuracy: true
         });
       });
@@ -46,6 +46,7 @@ export default function HospitalsPage() {
         distance: dist,
         mapsUrl: data["Google Maps Link"] ?? data.maps_url,
       });
+      setNearestLoading(false);
     } catch (err) {
       console.error("Nearest hospital error:", err);
       // Retry logic
@@ -55,8 +56,7 @@ export default function HospitalsPage() {
         return;
       }
       setNearestError(err instanceof Error ? err.message : "Could not get location or find hospital");
-    } finally {
-      if (retries === 0) setNearestLoading(false);
+      setNearestLoading(false);
     }
   }
 

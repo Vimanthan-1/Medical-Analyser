@@ -5,6 +5,9 @@ from typing import Optional
 import os
 import math
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # =====================================================
 # APP
@@ -249,5 +252,7 @@ def explain(req: ExplainRequest):
     return {"explanation": completion.choices[0].message.content}
 
 
-    print(f"✅ Starting server on port {PORT}...")
+if __name__ == "__main__":
+    import uvicorn
+    print("✅ Starting backend server on http://localhost:8010 ...")
     uvicorn.run(app, host="0.0.0.0", port=8010)
