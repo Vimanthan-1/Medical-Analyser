@@ -177,42 +177,68 @@ def predict(data: SymptomRequest):
 @app.post("/nearest-hospital")
 def nearest_hospital(location: LocationRequest):
     overpass_url = "https://overpass-api.de/api/interpreter"
+    lat, lon = location.latitude, location.longitude
 
-    query = f"""
-    [out:json];
-    node["amenity"="hospital"](around:5000,{location.latitude},{location.longitude});
-    out;
-    """
+    def run_query(radius: int):
+        # Union query: nodes + ways + relations (hospitals mapped as any OSM type)
+        query = f"""
+[out:json][timeout:25];
+(
+  node["amenity"="hospital"](around:{radius},{lat},{lon});
+  way["amenity"="hospital"](around:{radius},{lat},{lon});
+  relation["amenity"="hospital"](around:{radius},{lat},{lon});
+);
+out center tags;
+"""
+        res = requests.post(overpass_url, data={"data": query}, timeout=20)
+        res.raise_for_status()
+        return res.json()
 
     try:
-        res = requests.post(overpass_url, data=query, timeout=10)
-        data = res.json()
+        # Try 10 km first, then fall back to 25 km
+        for radius in [10000, 25000]:
+            data = run_query(radius)
+            elements = data.get("elements", [])
+            if elements:
+                break
 
-        if not data.get("elements"):
-            return {"name": "No hospital found nearby", "distance_km": 0}
+        if not elements:
+            return {"name": "No hospital found nearby", "distance_km": 0, "maps_url": None}
 
         nearest = None
         min_dist = float("inf")
 
-        for h in data["elements"]:
-            dist = haversine(
-                location.latitude,
-                location.longitude,
-                h["lat"],
-                h["lon"]
-            )
+        for h in elements:
+            # nodes have lat/lon directly; ways/relations expose it via 'center'
+            h_lat = h.get("lat") or (h.get("center") or {}).get("lat")
+            h_lon = h.get("lon") or (h.get("center") or {}).get("lon")
+            if h_lat is None or h_lon is None:
+                continue
+            dist = haversine(lat, lon, h_lat, h_lon)
             if dist < min_dist:
                 min_dist = dist
                 nearest = h
+                nearest["_lat"] = h_lat
+                nearest["_lon"] = h_lon
+
+        if nearest is None:
+            return {"name": "No hospital found nearby", "distance_km": 0, "maps_url": None}
+
+        name = nearest.get("tags", {}).get("name", "Unnamed Hospital")
+        maps_url = (
+            f"https://www.google.com/maps/dir/?api=1"
+            f"&destination={nearest['_lat']},{nearest['_lon']}"
+            f"&destination_place_id={name.replace(' ', '+')}"
+        )
 
         return {
-            "name": nearest.get("tags", {}).get("name", "Unnamed Hospital"),
+            "name": name,
             "distance_km": round(min_dist, 2),
-            "maps_url": f"https://www.google.com/maps/dir/?api=1&destination={nearest['lat']},{nearest['lon']}"
+            "maps_url": maps_url,
         }
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"Hospital search failed: {str(e)}")
 
 
 @app.post("/chat")
