@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
+from contextlib import asynccontextmanager
 import os
 import math
 import requests
@@ -13,7 +14,16 @@ load_dotenv()
 # APP
 # =====================================================
 
-app = FastAPI(title="Agentic Medical Analyser")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Pre-load heavy models at startup so first request is fast."""
+    print("⏳ Pre-loading ML models...")
+    load_department_index()   # loads SentenceTransformer + FAISS
+    get_groq_client()         # initialises Groq client
+    print("✅ Models ready.")
+    yield
+
+app = FastAPI(title="Agentic Medical Analyser", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
