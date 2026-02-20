@@ -34,6 +34,7 @@ export function TriageResults({ result, patient }: TriageResultsProps) {
   const [explainText, setExplainText] = useState('');
   const [explainError, setExplainError] = useState('');
   const [explainOpen, setExplainOpen] = useState(false);
+  const explainRunningRef = useRef(false);   // prevents duplicate in-flight calls
 
   // Animate confidence score counter
   useEffect(() => {
@@ -59,24 +60,26 @@ export function TriageResults({ result, patient }: TriageResultsProps) {
   }, []);
 
   async function handleExplain() {
-    // If already loaded, just toggle visibility
-    if (explainText) {
-      setExplainOpen(o => !o);
-      return;
-    }
+    if (explainText) { setExplainOpen(o => !o); return; }
+    if (explainRunningRef.current) return;
+    explainRunningRef.current = true;
     setExplainLoading(true);
     setExplainError('');
+    setExplainText('');
+    setExplainOpen(true);   // open panel immediately so user sees streaming text
     try {
       const symptomsStr = patient.symptoms.join(', ');
-      const data = await apiExplain(symptomsStr, result.department);
-      setExplainText(data.explanation ?? '');
-      setExplainOpen(true);
+      await apiExplain(symptomsStr, result.department, (chunk) => {
+        setExplainText(prev => prev + chunk);
+      });
     } catch (err) {
       setExplainError(err instanceof Error ? err.message : 'Failed to generate explanation.');
     } finally {
       setExplainLoading(false);
+      explainRunningRef.current = false;
     }
   }
+
 
   return (
     <div className="space-y-6">

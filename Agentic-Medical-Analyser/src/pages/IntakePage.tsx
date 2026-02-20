@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { PatientForm } from '@/components/PatientForm';
 import { PatientData, TriageResult, Department } from '@/lib/types';
 import { classifyPatient } from '@/lib/triage-engine';
-import { triage as apiTriage, predict as apiPredict } from '@/lib/api';
+import { triage as apiTriage } from '@/lib/api';
 
-// Map backend department names to frontend Department type
+// Map backend department names → frontend Department type
 function mapDepartment(backendDept: string): Department {
   const map: Record<string, Department> = {
     "Emergency Medicine": "Emergency",
@@ -22,6 +22,15 @@ function mapDepartment(backendDept: string): Department {
   return (map[backendDept] || "General Medicine") as Department;
 }
 
+function saveAndNavigate(result: TriageResult, data: PatientData, navigate: ReturnType<typeof useNavigate>) {
+  sessionStorage.setItem("triageResult", JSON.stringify(result));
+  sessionStorage.setItem("patientData", JSON.stringify({
+    ...data,
+    uploadedReport: data.uploadedReport ? data.uploadedReport.name : null,
+  }));
+  navigate("/results");
+}
+
 export default function IntakePage() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -33,66 +42,38 @@ export default function IntakePage() {
     const symptomsStr = data.symptoms.join(", ");
 
     try {
-      // Call backend for risk level and department prediction
-      const [triageRes, predictRes] = await Promise.all([
-        apiTriage({
-          Name: data.name,
-          Age: data.age,
-          Gender: data.gender,
-          Systolic_BP: data.bloodPressureSystolic,
-          Diastolic_BP: data.bloodPressureDiastolic,
-          Heart_Rate: data.heartRate,
-          Temperature: data.temperature,
-          Symptoms: symptomsStr,
-        }),
-        apiPredict(symptomsStr),
-      ]);
+      // Single API call — backend returns department + risk level + confidence
+      const triageRes = await apiTriage({
+        symptoms: symptomsStr,
+        age: data.age,
+        systolic_bp: data.bloodPressureSystolic,
+        diastolic_bp: data.bloodPressureDiastolic,
+        heart_rate: data.heartRate,
+        temperature: data.temperature,
+        oxygen_saturation: data.oxygenSaturation,
+      });
 
-      // Use backend risk; fallback to local classifyPatient for full structure
+      // Build the full TriageResult using local engine for recommendations/factors,
+      // but override department, riskLevel, and confidenceScore from backend.
       const localResult = classifyPatient(data);
-      const backendRisk = triageRes.risk_level;
-      const riskLevel = (["Low", "Medium", "High"].includes(backendRisk)
-        ? backendRisk
+      const riskLevel = (["Low", "Medium", "High"].includes(triageRes.risk_level)
+        ? triageRes.risk_level
         : localResult.riskLevel) as TriageResult["riskLevel"];
-
-      const topDept = predictRes["Top 3 Recommendations"]?.[0]?.Department;
-      const department = topDept ? mapDepartment(topDept) : localResult.department;
-      const confidenceScore = topDept
-        ? predictRes["Top 3 Recommendations"][0]["Final Confidence (%)"] ?? localResult.confidenceScore
-        : localResult.confidenceScore;
 
       const result: TriageResult = {
         ...localResult,
         riskLevel,
-        department,
-        confidenceScore,
-        recommendations: predictRes.Emergency
-          ? [predictRes.Message || "Seek immediate care", ...localResult.recommendations]
-          : localResult.recommendations,
+        department: mapDepartment(triageRes.department),
+        confidenceScore: Math.round(triageRes.confidence),
       };
 
-      sessionStorage.setItem("triageResult", JSON.stringify(result));
-      sessionStorage.setItem(
-        "patientData",
-        JSON.stringify({
-          ...data,
-          uploadedReport: data.uploadedReport ? data.uploadedReport.name : null,
-        })
-      );
-      navigate("/results");
+      saveAndNavigate(result, data, navigate);
     } catch (err) {
-      console.error("Backend unavailable, using local triage:", err);
+      // Backend unreachable (cold start / network) — use local engine as fallback
+      console.warn("Backend unavailable, using local triage:", err);
       setError("Backend unreachable. Using local AI assessment.");
       const result = classifyPatient(data);
-      sessionStorage.setItem("triageResult", JSON.stringify(result));
-      sessionStorage.setItem(
-        "patientData",
-        JSON.stringify({
-          ...data,
-          uploadedReport: data.uploadedReport ? data.uploadedReport.name : null,
-        })
-      );
-      navigate("/results");
+      saveAndNavigate(result, data, navigate);
     } finally {
       setLoading(false);
     }

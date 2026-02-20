@@ -1,7 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, Generator
 from contextlib import asynccontextmanager
 import os
 import math
@@ -139,6 +140,16 @@ class ExplainRequest(BaseModel):
     predicted_department: str
 
 
+class TriageInput(BaseModel):
+    symptoms: str
+    age: Optional[int] = None
+    systolic_bp: Optional[float] = None
+    diastolic_bp: Optional[float] = None
+    heart_rate: Optional[float] = None
+    temperature: Optional[float] = None
+    oxygen_saturation: Optional[float] = None
+
+
 # =====================================================
 # ENDPOINTS
 # =====================================================
@@ -148,8 +159,91 @@ def health():
     return {"status": "ok"}
 
 
+@app.post("/triage")
+def triage(data: TriageInput):
+    """
+    Combined triage endpoint: FAISS department prediction + risk scoring.
+    Returns everything the frontend needs in a single call.
+    """
+    import numpy as np
+
+    # --- Department prediction via FAISS ---
+    load_department_index()
+    embedder = get_embedder()
+    user_embedding = embedder.encode([data.symptoms], convert_to_numpy=True)
+    distances, indices = _faiss_index.search(user_embedding, k=3)
+    scores = 1 / (1 + distances[0])
+    scores /= scores.sum()
+
+    top_dept = _departments[indices[0][0]]
+    top_confidence = round(float(scores[0] * 100), 2)
+
+    # --- Lightweight risk scoring using vitals ---
+    risk_score = 0.0
+
+    # Age
+    age = data.age or 0
+    if age > 65:
+        risk_score += 3
+    elif age > 50:
+        risk_score += 1.5
+    if age < 5:
+        risk_score += 2
+
+    # Blood pressure
+    sys_bp = data.systolic_bp or 0
+    dia_bp = data.diastolic_bp or 0
+    if sys_bp > 180 or dia_bp > 120:
+        risk_score += 5
+    elif sys_bp > 140 or dia_bp > 90:
+        risk_score += 2.5
+
+    # Heart rate
+    hr = data.heart_rate or 0
+    if hr > 120 or (0 < hr < 50):
+        risk_score += 4
+    elif hr > 100:
+        risk_score += 2
+
+    # Temperature
+    temp = data.temperature or 0
+    if temp > 39.5:
+        risk_score += 4
+    elif temp > 38:
+        risk_score += 2
+
+    # Oxygen saturation
+    spo2 = data.oxygen_saturation or 100
+    if spo2 < 90:
+        risk_score += 6
+    elif spo2 < 95:
+        risk_score += 3
+
+    # Symptom count contributes to risk
+    symptom_count = len([s.strip() for s in data.symptoms.split(",") if s.strip()])
+    risk_score += symptom_count * 1.5  # each symptom adds mild weight
+
+    if risk_score >= 20:
+        risk_level = "High"
+    elif risk_score >= 10:
+        risk_level = "Medium"
+    else:
+        risk_level = "Low"
+
+    return {
+        "department": top_dept,
+        "confidence": top_confidence,
+        "risk_level": risk_level,
+        "top3": [
+            {"department": _departments[indices[0][i]], "confidence": round(float(scores[i] * 100), 2)}
+            for i in range(len(indices[0]))
+        ]
+    }
+
+
 @app.post("/predict")
 def predict(data: SymptomRequest):
+
     import numpy as np
 
     load_department_index()
@@ -250,10 +344,11 @@ def chat(req: ChatRequest):
     if not req.message:
         raise HTTPException(status_code=422, detail="Message required")
 
+    # llama3-8b is ~3-4x faster than 70b for simple Q&A
     completion = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="llama3-8b-8192",
         messages=[
-            {"role": "system", "content": "You are a medical information assistant. No diagnosis."},
+            {"role": "system", "content": "You are a medical information assistant. Be concise. No diagnosis."},
             {"role": "user", "content": req.message}
         ],
         temperature=0.3,
@@ -265,27 +360,35 @@ def chat(req: ChatRequest):
 
 @app.post("/explain")
 def explain(req: ExplainRequest):
+    """Streams the explanation token-by-token so the user sees text immediately."""
     client = get_groq_client()
     if client is None:
         raise HTTPException(status_code=503, detail="AI service unavailable")
 
     prompt = (
-        f"Symptoms: {req.symptoms}\n"
-        f"Predicted Department: {req.predicted_department}\n\n"
-        "Explain why this department is suitable. No diagnosis."
+        f"Patient symptoms: {req.symptoms}.\n"
+        f"Recommended department: {req.predicted_department}.\n"
+        "In 3-4 concise sentences, explain why this department handles these symptoms. "
+        "Do not diagnose. Be clear and direct."
     )
 
-    completion = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[
-            {"role": "system", "content": "Medical explainability assistant."},
-            {"role": "user", "content": prompt}
-        ],
-        temperature=0.3,
-        max_tokens=150,
-    )
+    def token_stream() -> Generator[str, None, None]:
+        stream = client.chat.completions.create(
+            model="llama3-8b-8192",
+            messages=[
+                {"role": "system", "content": "You are a concise medical explainability assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.3,
+            max_tokens=180,
+            stream=True,
+        )
+        for chunk in stream:
+            delta = chunk.choices[0].delta.content
+            if delta:
+                yield delta
 
-    return {"explanation": completion.choices[0].message.content}
+    return StreamingResponse(token_stream(), media_type="text/plain")
 
 
 if __name__ == "__main__":

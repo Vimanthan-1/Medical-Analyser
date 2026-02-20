@@ -27,14 +27,16 @@ export default function ExplainPage() {
     setLoading(true);
     try {
       const symptomsStr = patient.symptoms.join(", ");
-      const data = await apiExplain(symptomsStr, result.department);
-      setExplanation(data.explanation ?? "");
+      await apiExplain(symptomsStr, result.department, (chunk) => {
+        setExplanation(prev => prev + chunk);
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to generate explanation.");
     } finally {
       setLoading(false);
     }
   }
+
 
   // No session data — prompt user to complete triage first
   if (!result || !patient) {
