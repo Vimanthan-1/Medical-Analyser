@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { explain as apiExplain } from "@/lib/api";
+import { ExplanationRenderer } from "@/components/ExplanationRenderer";
 import { TriageResult, PatientData } from "@/lib/types";
 import { Brain, Loader2, ArrowLeft, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -84,9 +85,9 @@ export default function ExplainPage() {
         }
       </Button>
 
-      {explanation && (
-        <div className="p-5 rounded-xl bg-accent/40 border-l-4 border-primary text-sm text-foreground leading-relaxed whitespace-pre-line">
-          {explanation}
+      {(explanation || loading) && (
+        <div className="p-5 rounded-xl bg-accent/40 border-l-4 border-primary">
+          <ExplanationRenderer text={explanation} streaming={loading} />
         </div>
       )}
 

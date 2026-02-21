@@ -2,9 +2,11 @@ import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { TriageResult, PatientData } from '@/lib/types';
 import { RiskBadge } from './RiskBadge';
+import { ExplanationRenderer } from './ExplanationRenderer';
 import {
   TrendingUp, Stethoscope, AlertCircle, CheckCircle,
-  Clock, ArrowRight, Brain, BarChart3, Loader2, ChevronDown, ChevronUp, Sparkles
+  Clock, ArrowRight, Brain, BarChart3, Loader2, ChevronUp, Sparkles,
+  Phone, MessageSquare, Users
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
@@ -113,9 +115,9 @@ export function TriageResults({ result, patient }: TriageResultsProps) {
           <p className="mt-3 text-sm text-destructive">{explainError}</p>
         )}
 
-        {explainOpen && explainText && (
-          <div className="mt-4 p-4 rounded-xl bg-accent/40 border-l-4 border-primary text-sm text-foreground leading-relaxed whitespace-pre-line">
-            {explainText}
+        {explainOpen && (explainText || explainLoading) && (
+          <div className="mt-4 p-4 rounded-xl bg-accent/40 border-l-4 border-primary">
+            <ExplanationRenderer text={explainText} streaming={explainLoading} />
           </div>
         )}
       </div>
@@ -170,26 +172,44 @@ export function TriageResults({ result, patient }: TriageResultsProps) {
         </div>
       </div>
 
-      {/* Confidence meter */}
-      <div ref={confidenceRef} className="rounded-2xl border border-border bg-card p-6 shadow-card">
-        <h3 className="font-display text-lg font-bold text-foreground mb-4">Model Confidence Breakdown</h3>
-        <div className="space-y-4">
-          {[
-            { label: 'Symptom Analysis', value: Math.min(98, result.confidenceScore + 5) },
-            { label: 'Vital Signs Assessment', value: Math.min(95, result.confidenceScore + 2) },
-            { label: 'Medical History Correlation', value: result.confidenceScore - 3 },
-            { label: 'Department Matching', value: result.confidenceScore },
-          ].map(item => (
-            <div key={item.label}>
-              <div className="flex justify-between text-sm mb-1.5">
-                <span className="text-muted-foreground">{item.label}</span>
-                <span className="font-semibold text-foreground">{item.value}%</span>
-              </div>
-              <Progress value={item.value} className="h-2" />
+      {/* Emergency Contacts – real call / SMS */}
+      {(() => {
+        const contacts = (patient.emergencyContacts ?? []).filter(c => c.name && c.phone);
+        if (!contacts.length) return null;
+        return (
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
+            <div className="flex items-center gap-2 mb-4">
+              <Users className="h-5 w-5 text-primary" />
+              <h3 className="font-display text-lg font-bold text-foreground">Emergency Contacts</h3>
             </div>
-          ))}
-        </div>
-      </div>
+            <div className="space-y-3">
+              {contacts.map((c, i) => (
+                <div key={i} className="flex items-center justify-between gap-4 p-4 rounded-xl bg-muted/50 border border-border">
+                  <div className="min-w-0">
+                    <p className="font-semibold text-foreground text-sm truncate">{c.name}</p>
+                    <p className="text-xs text-muted-foreground">{c.relation || 'Contact'} · {c.phone}</p>
+                  </div>
+                  <div className="flex gap-2 flex-shrink-0">
+                    <a
+                      href={`tel:${c.phone.replace(/\s/g, '')}`}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-green-100 hover:bg-green-200 text-green-700 text-xs font-semibold transition-colors"
+                    >
+                      <Phone className="h-3.5 w-3.5" /> Call
+                    </a>
+                    <a
+                      href={`sms:${c.phone.replace(/\s/g, '')}`}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-100 hover:bg-blue-200 text-blue-700 text-xs font-semibold transition-colors"
+                    >
+                      <MessageSquare className="h-3.5 w-3.5" /> Text
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
+
     </div>
   );
 }

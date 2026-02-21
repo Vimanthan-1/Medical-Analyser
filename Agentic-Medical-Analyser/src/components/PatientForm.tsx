@@ -8,10 +8,11 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { useRipple } from '@/hooks/useGsap';
-import { 
-  User, Heart, Thermometer, Activity, FileUp, 
+import {
+  User, Heart, Thermometer, Activity, FileUp,
   Users, X, Plus, ArrowRight, ArrowLeft, Upload
 } from 'lucide-react';
+import { MicButton } from './MicButton';
 
 interface PatientFormProps {
   onSubmit: (data: PatientData) => void | Promise<void>;
@@ -125,9 +126,8 @@ export function PatientForm({ onSubmit, isSubmitting = false }: PatientFormProps
                 onClick={() => i < step && setStep(i)}
                 className={`flex flex-col items-center gap-1.5 transition-all ${i <= step ? 'cursor-pointer' : 'cursor-default'}`}
               >
-                <div className={`step-icon flex h-10 w-10 items-center justify-center rounded-xl transition-all ${
-                  isActive ? 'gradient-primary shadow-glow' : isDone ? 'bg-primary' : 'bg-muted'
-                }`}>
+                <div className={`step-icon flex h-10 w-10 items-center justify-center rounded-xl transition-all ${isActive ? 'gradient-primary shadow-glow' : isDone ? 'bg-primary' : 'bg-muted'
+                  }`}>
                   <Icon className={`h-4.5 w-4.5 ${isActive || isDone ? 'text-primary-foreground' : 'text-muted-foreground'}`} />
                 </div>
                 <span className={`text-xs font-medium ${isActive ? 'text-foreground' : 'text-muted-foreground'}`}>{s.title}</span>
@@ -179,7 +179,16 @@ export function PatientForm({ onSubmit, isSubmitting = false }: PatientFormProps
 
         {step === 1 && (
           <div className="space-y-4">
-            <p className="text-sm text-muted-foreground">Select all applicable symptoms:</p>
+            {/* Voice input — any language */}
+            <MicButton
+              onSymptomsDetected={(detected) =>
+                setFormData(prev => ({
+                  ...prev,
+                  symptoms: [...new Set([...(prev.symptoms ?? []), ...detected])],
+                }))
+              }
+            />
+            <p className="text-sm text-muted-foreground pt-1">Or select symptoms manually:</p>
             <div className="flex flex-wrap gap-2">
               {ALL_SYMPTOMS.map(symptom => (
                 <SymptomBadge key={symptom} symptom={symptom} selected={formData.symptoms?.includes(symptom) || false} onToggle={toggleSymptom} />
@@ -230,21 +239,64 @@ export function PatientForm({ onSubmit, isSubmitting = false }: PatientFormProps
           </div>
         )}
 
-        {step === 4 && (
-          <div className="space-y-5">
-            <p className="text-sm text-muted-foreground">Add at least 1 emergency contact (up to 3):</p>
-            {formData.emergencyContacts?.map((contact, i) => (
-              <div key={i} className="border border-border rounded-xl p-4 space-y-3">
-                <p className="text-sm font-semibold text-foreground">Contact {i + 1}</p>
-                <div className="grid grid-cols-3 gap-3">
-                  <div><Label className="text-xs">Name</Label><Input value={contact.name} onChange={e => updateContact(i, 'name', e.target.value)} placeholder="Full name" className="mt-1" /></div>
-                  <div><Label className="text-xs">Phone</Label><Input value={contact.phone} onChange={e => updateContact(i, 'phone', e.target.value)} placeholder="+1 555..." className="mt-1" /></div>
-                  <div><Label className="text-xs">Relation</Label><Input value={contact.relation} onChange={e => updateContact(i, 'relation', e.target.value)} placeholder="e.g. Spouse" className="mt-1" /></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+        {step === 4 && (() => {
+          // Phone validation helper
+          const isValidPhone = (p: string) => p.replace(/\D/g, '').length >= 7;
+          const contacts = formData.emergencyContacts ?? [];
+
+          return (
+            <div className="space-y-5">
+              <p className="text-sm text-muted-foreground">Add at least 1 emergency contact (up to 3):</p>
+              {contacts.map((contact, i) => {
+                const phoneDigits = contact.phone.replace(/\D/g, '');
+                const phoneError = contact.phone && !isValidPhone(contact.phone);
+                return (
+                  <div key={i} className={`border rounded-xl p-4 space-y-3 transition-colors ${contact.name || contact.phone ? 'border-primary/40 bg-primary/5' : 'border-border'}`}>
+                    <p className="text-sm font-semibold text-foreground">Contact {i + 1}</p>
+                    <div className="grid grid-cols-3 gap-3">
+                      <div>
+                        <Label className="text-xs">Name</Label>
+                        <Input
+                          value={contact.name}
+                          onChange={e => updateContact(i, 'name', e.target.value)}
+                          placeholder="Full name"
+                          className="mt-1"
+                        />
+                      </div>
+                      <div>
+                        <Label className="text-xs">Phone</Label>
+                        <Input
+                          value={contact.phone}
+                          inputMode="tel"
+                          onChange={e => {
+                            // Only allow digits, +, -, (, ), spaces
+                            const cleaned = e.target.value.replace(/[^\d+\-() ]/g, '');
+                            updateContact(i, 'phone', cleaned);
+                          }}
+                          placeholder="+1 555-000-0000"
+                          className={`mt-1 ${phoneError ? 'border-red-400 focus-visible:ring-red-400' : ''}`}
+                        />
+                        {phoneError && (
+                          <p className="text-xs text-red-500 mt-1">Enter a valid phone number</p>
+                        )}
+                      </div>
+                      <div>
+                        <Label className="text-xs">Relation</Label>
+                        <Input
+                          value={contact.relation}
+                          onChange={e => updateContact(i, 'relation', e.target.value)}
+                          placeholder="e.g. Spouse"
+                          className="mt-1"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })()}
+
       </div>
 
       {/* Navigation */}
@@ -291,9 +343,8 @@ function SymptomBadge({ symptom, selected, onToggle }: { symptom: string; select
     <div ref={ref}>
       <Badge
         variant={selected ? 'default' : 'outline'}
-        className={`cursor-pointer transition-colors py-1.5 px-3 text-sm ${
-          selected ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'hover:bg-accent'
-        }`}
+        className={`cursor-pointer transition-colors py-1.5 px-3 text-sm ${selected ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'hover:bg-accent'
+          }`}
         onClick={handleClick}
       >
         {symptom}

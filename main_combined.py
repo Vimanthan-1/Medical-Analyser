@@ -2,10 +2,11 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-from typing import Optional, Generator
+from typing import Optional, Generator, List
 from contextlib import asynccontextmanager
 import os
 import math
+import json
 import requests
 from dotenv import load_dotenv
 
@@ -389,6 +390,60 @@ def explain(req: ExplainRequest):
                 yield delta
 
     return StreamingResponse(token_stream(), media_type="text/plain")
+
+
+class TranslateSymptomsRequest(BaseModel):
+    text: str                          # raw speech transcript (any language)
+    source_lang: str = "English"       # human-readable language name
+    available_symptoms: List[str] = [] # exact symptom strings from the frontend
+
+
+@app.post("/translate-symptoms")
+def translate_symptoms(req: TranslateSymptomsRequest):
+    """
+    Translates speech-to-text from any language → English, then matches
+    the content against the provided list of known medical symptoms.
+    Returns { translation, matched_symptoms }.
+    """
+    client = get_groq_client()
+    if client is None:
+        raise HTTPException(status_code=503, detail="AI service unavailable")
+    if not req.text.strip():
+        return {"translation": "", "matched_symptoms": []}
+
+    symptoms_str = ", ".join(req.available_symptoms)
+    prompt = (
+        f'The patient spoke in {req.source_lang} and said: "{req.text}"\n\n'
+        f"Available symptom list: {symptoms_str}\n\n"
+        "Tasks:\n"
+        "1. Translate what the patient said into English.\n"
+        "2. Identify every symptom from the available list that matches or closely corresponds to what they described.\n"
+        "3. Return ONLY a valid JSON object with exactly these two fields:\n"
+        '   { "translation": "<English translation>", "matched_symptoms": [<exact symptom strings from the list>] }\n'
+        "No extra text. No markdown. Only the JSON object."
+    )
+
+    completion = client.chat.completions.create(
+        model="llama3-8b-8192",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.1,
+        max_tokens=400,
+    )
+
+    raw = completion.choices[0].message.content.strip()
+    # Strip any accidental markdown code fences
+    if raw.startswith("```"):
+        raw = raw.split("```")[1]
+        if raw.startswith("json"):
+            raw = raw[4:]
+    try:
+        result = json.loads(raw)
+        # Ensure matched_symptoms are actually in the available list
+        valid = set(req.available_symptoms)
+        result["matched_symptoms"] = [s for s in result.get("matched_symptoms", []) if s in valid]
+        return result
+    except Exception:
+        return {"translation": req.text, "matched_symptoms": []}
 
 
 if __name__ == "__main__":

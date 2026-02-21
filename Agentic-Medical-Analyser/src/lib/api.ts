@@ -111,8 +111,25 @@ export async function explain(
   }
 }
 
+export async function translateSymptoms(
+  text: string,
+  source_lang: string,
+  available_symptoms: string[]
+): Promise<{ translation: string; matched_symptoms: string[] }> {
+  const res = await fetchWithTimeout(
+    `${API_BASE}/translate-symptoms`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, source_lang, available_symptoms }),
+    },
+    20000
+  );
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
 export async function nearestHospital(lat: number, lon: number) {
-  // 22s — Overpass queries can be slow; we still want a reasonable cutoff
   const res = await fetchWithTimeout(
     `${API_BASE}/nearest-hospital`,
     {
