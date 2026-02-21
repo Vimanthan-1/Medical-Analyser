@@ -3,6 +3,68 @@ import { Mic, MicOff, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { translateSymptoms } from '@/lib/api';
 import { ALL_SYMPTOMS } from '@/lib/triage-engine';
 
+// ---------------------------------------------------------------------------
+// Local keyword → symptom map (browser-side fallback when backend unavailable)
+// Covers Tamil, Hindi, Telugu, Kannada, Malayalam, Bengali + common synonyms
+// ---------------------------------------------------------------------------
+const KEYWORD_MAP: Record<string, string> = {
+    // Tamil
+    "காய்ச்சல்": "Fever", "தலைவலி": "Headache", "இருமல்": "Cough",
+    "மூச்சுத்திணறல்": "Shortness of Breath", "வாந்தி": "Vomiting",
+    "குமட்டல்": "Nausea", "வயிற்றுவலி": "Abdominal Pain",
+    "மார்பு வலி": "Chest Pain", "தலைச்சுற்றல்": "Dizziness",
+    "சோர்வு": "Fatigue", "வயிற்றுப்போக்கு": "Diarrhea",
+    "மூட்டு வலி": "Joint Pain", "தசைவலி": "Muscle Pain",
+    "உடல்வலி": "Body Aches", "மயக்கம்": "Loss of Consciousness",
+    "நடுக்கம்": "Chills", "வீக்கம்": "Swelling",
+    "சருமத்தில் அரிப்பு": "Rash", "தோல் வெடிப்பு": "Rash",
+    "இரத்தம்": "Bleeding", "தூக்கமின்மை": "Insomnia",
+    // Hindi
+    "बुखार": "Fever", "सिरदर्द": "Headache", "खांसी": "Cough",
+    "सांस लेने में दिक्कत": "Shortness of Breath", "उल्टी": "Vomiting",
+    "मतली": "Nausea", "पेट दर्द": "Abdominal Pain",
+    "सीने में दर्द": "Chest Pain", "चक्कर": "Dizziness",
+    "थकान": "Fatigue", "दस्त": "Diarrhea", "जोड़ों में दर्द": "Joint Pain",
+    "मांसपेशियों में दर्द": "Muscle Pain", "शरीर में दर्द": "Body Aches",
+    "कमज़ोरी": "Weakness", "ठंड लगना": "Chills", "सूजन": "Swelling",
+    "खुजली": "Rash", "रक्तस्राव": "Bleeding",
+    // Telugu
+    "జ్వరం": "Fever", "తలనొప్పి": "Headache", "దగ్గు": "Cough",
+    "వాంతి": "Vomiting", "వికారం": "Nausea",
+    "కడుపు నొప్పి": "Abdominal Pain", "అలసట": "Fatigue",
+    // Kannada
+    "ಜ್ವರ": "Fever", "ತಲೆನೋವು": "Headache", "ಕೆಮ್ಮು": "Cough",
+    "ವಾಂತಿ": "Vomiting", "ಹೊಟ್ಟೆ ನೋವು": "Abdominal Pain", "ಆಯಾಸ": "Fatigue",
+    // Malayalam
+    "പനി": "Fever", "തലവേദന": "Headache", "ചുമ": "Cough",
+    "ഛർദ്ദി": "Vomiting", "ഓക്കാനം": "Nausea",
+    "വയറുവേദന": "Abdominal Pain", "ക്ഷീണം": "Fatigue",
+    // Bengali
+    "জ্বর": "Fever", "মাথাব্যথা": "Headache", "কাশি": "Cough",
+    "বমি": "Vomiting", "পেটে ব্যথা": "Abdominal Pain", "ক্লান্তি": "Fatigue",
+    // English synonyms
+    "high temperature": "Fever", "head pain": "Headache", "migraine": "Headache",
+    "throwing up": "Vomiting", "sick to stomach": "Nausea",
+    "stomach pain": "Abdominal Pain", "belly pain": "Abdominal Pain",
+    "chest tightness": "Chest Pain", "breathless": "Shortness of Breath",
+    "tired": "Fatigue", "exhausted": "Fatigue",
+    "running nose": "Runny Nose", "runny nose": "Runny Nose",
+};
+
+function localMatch(text: string): string[] {
+    const lower = text.toLowerCase();
+    const matched = new Set<string>();
+    for (const [kw, symptom] of Object.entries(KEYWORD_MAP)) {
+        if (text.includes(kw) || lower.includes(kw.toLowerCase())) {
+            if (ALL_SYMPTOMS.includes(symptom)) matched.add(symptom);
+        }
+    }
+    for (const s of ALL_SYMPTOMS) {
+        if (lower.includes(s.toLowerCase())) matched.add(s);
+    }
+    return [...matched];
+}
+
 const LANGUAGES = [
     { label: "English", code: "en-US", name: "English" },
     { label: "தமிழ்", code: "ta-IN", name: "Tamil" },
@@ -31,6 +93,7 @@ export function MicButton({ onSymptomsDetected }: MicButtonProps) {
     const [translation, setTranslation] = useState('');
     const [matchCount, setMatchCount] = useState(0);
     const [error, setError] = useState('');
+    const [usedFallback, setUsedFallback] = useState(false);
     const recognitionRef = useRef<any>(null);
     const runningRef = useRef(false);
 
@@ -39,6 +102,7 @@ export function MicButton({ onSymptomsDetected }: MicButtonProps) {
         setTranslation('');
         setMatchCount(0);
         setError('');
+        setUsedFallback(false);
         setState('idle');
         runningRef.current = false;
     }
@@ -86,8 +150,12 @@ export function MicButton({ onSymptomsDetected }: MicButtonProps) {
                 onSymptomsDetected(res.matched_symptoms);
                 setState('done');
             } catch {
-                setError('Could not process speech. Is the backend running?');
-                setState('error');
+                // Backend unavailable (cold start / network) — use local keyword map silently
+                const local = localMatch(text);
+                setUsedFallback(true);
+                setMatchCount(local.length);
+                onSymptomsDetected(local);
+                setState('done');
             } finally {
                 runningRef.current = false;
             }
@@ -190,8 +258,8 @@ export function MicButton({ onSymptomsDetected }: MicButtonProps) {
                     <CheckCircle className="h-4 w-4 text-green-500 shrink-0" />
                     <span className="text-green-700 font-medium">
                         {matchCount > 0
-                            ? `Auto-selected ${matchCount} symptom${matchCount > 1 ? 's' : ''} — you can adjust below`
-                            : 'No exact symptoms matched — please select manually from the list below'}
+                            ? `Auto-selected ${matchCount} symptom${matchCount > 1 ? 's' : ''}${usedFallback ? ' (matched locally)' : ''} — you can adjust below`
+                            : 'No symptoms matched — please select manually from the list below'}
                     </span>
                 </div>
             )}
