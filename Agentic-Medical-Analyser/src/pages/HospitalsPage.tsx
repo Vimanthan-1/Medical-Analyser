@@ -19,43 +19,52 @@ export default function HospitalsPage() {
     }
   }, []);
 
-  async function findNearest(retries = 1) {
+  async function findNearest() {
     setNearestLoading(true);
     setNearestError(null);
     setNearest(null);
 
     try {
-      // Helper to get position with longer timeout
+      // Request geolocation with a generous timeout
       const getPosition = () => new Promise<GeolocationPosition>((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject, {
-          timeout: 14000,
-          enableHighAccuracy: true
+          timeout: 15000,
+          enableHighAccuracy: true,
+          maximumAge: 0,
         });
       });
 
       const pos = await getPosition();
       const data = await nearestHospital(pos.coords.latitude, pos.coords.longitude);
 
-      if (data.name === "Error contacting map service" || data.name === "No hospital found within 5km" || data.name === "No valid hospital data found") {
-        throw new Error(data.name);
+      // Backend returns a friendly name string when it fails — detect and surface it
+      const isError =
+        !data.name ||
+        data.name.startsWith("No hospital") ||
+        data.name.startsWith("Map service error") ||
+        data.name.startsWith("Error");
+
+      if (isError) {
+        throw new Error(data.name || "No hospital found nearby");
       }
 
-      const dist = data.distance_km ?? data.distance ?? 0;
       setNearest({
         name: data.name,
-        distance: dist,
-        mapsUrl: data["Google Maps Link"] ?? data.maps_url,
+        distance: data.distance_km ?? 0,
+        mapsUrl: data.maps_url ?? undefined,
       });
-      setNearestLoading(false);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error("Nearest hospital error:", err);
-      // Retry logic
-      if (retries > 0) {
-        console.log("Retrying nearest hospital search...");
-        setTimeout(() => findNearest(retries - 1), 1000);
-        return;
+      let msg = "Could not get location or find a nearby hospital.";
+      if (err instanceof GeolocationPositionError) {
+        if (err.code === 1) msg = "Location access denied. Please allow location in your browser.";
+        else if (err.code === 2) msg = "Location unavailable. Check your device GPS or network.";
+        else if (err.code === 3) msg = "Location request timed out. Try again.";
+      } else if (err instanceof Error) {
+        msg = err.message;
       }
-      setNearestError(err instanceof Error ? err.message : "Could not get location or find hospital");
+      setNearestError(msg);
+    } finally {
       setNearestLoading(false);
     }
   }
@@ -90,7 +99,15 @@ export default function HospitalsPage() {
           </div>
         )}
         {nearestError && (
-          <p className="mt-4 text-sm text-destructive">{nearestError}</p>
+          <div className="mt-4 space-y-2">
+            <p className="text-sm text-destructive">{nearestError}</p>
+            <button
+              onClick={() => findNearest()}
+              className="text-xs text-primary hover:underline"
+            >
+              Try again
+            </button>
+          </div>
         )}
       </div>
       <NearbyHospitals recommendedDepartment={dept as any} />

@@ -137,7 +137,7 @@ export async function nearestHospital(lat: number, lon: number) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ latitude: lat, longitude: lon }),
     },
-    22000
+    40000  // 40s — matches backend Overpass timeout
   );
   if (!res.ok) throw new Error(await res.text());
   return res.json();
